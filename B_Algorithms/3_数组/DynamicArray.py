@@ -2,13 +2,16 @@
 import ctypes
 
 # Python的list类给出了动态数组的一种高度优化的实现
+
+
 class DynamicArray:
     """A dynamic array akin to a simplified Python list"""
+
     def __init__(self):
         """Create an empty aray"""
-        self._n = 0 # count actual elements
-        self._capacity = 1 # default array capacity
-        self._A = self._make_array(self._capacity) # low-level array
+        self._n = 0  # count actual elements
+        self._capacity = 1  # default array capacity
+        self._A = self._make_array(self._capacity)  # low-level array
 
     def __len__(self):
         return self._n
@@ -17,12 +20,12 @@ class DynamicArray:
         """Return element at index k"""
         if not 0 <= k <= self._n:
             raise IndexError('invalid index')
-        return self._A[k] # retrieve form array
+        return self._A[k]  # retrieve form array
 
     def append(self, obj):
         """Add object to end of array"""
-        if self._n == self._capacity: # not emought room
-            self._resize(2 * self._capacity) # so double capacity
+        if self._n == self._capacity:  # not emought room
+            self._resize(2 * self._capacity)  # so double capacity
         self._A[self._n] = obj
         self._n += 1
 
@@ -38,7 +41,7 @@ class DynamicArray:
     def remove(self, value):
         """Remove first occuruence of value (or rasie ValueError)"""
         for k in range(self._n):
-            if self._A[k] == value: # found a match
+            if self._A[k] == value:  # found a match
                 for j in range(k, self._n-1):
                     self._A[j] = self._A[j+1]
                 self._A[self._n - 1] = None
@@ -62,10 +65,10 @@ class DynamicArray:
 
     def _resize(self, c):
         """Resize internal array to capacity c"""
-        B = self._make_array(c) # new (bigger) array
-        for k in range(self._n): # for each existing value
+        B = self._make_array(c)  # new (bigger) array
+        for k in range(self._n):  # for each existing value
             B[k] = self._A[k]
-        self._A = B # use the bigger array
+        self._A = B  # use the bigger array
         self._capacity = c
 
     @staticmethod

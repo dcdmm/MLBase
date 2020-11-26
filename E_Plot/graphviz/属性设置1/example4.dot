@@ -1,0 +1,18 @@
+digraph example4 {
+	compound=true
+	subgraph cluster0 {
+		a -> b
+		a -> c
+		b -> d
+		c -> d
+	}
+	subgraph cluster1 {
+		e -> g
+		e -> f
+	}
+	b -> cluster1
+	d -> e
+	c -> g [lhead=cluster1 ltail=cluster0]
+	c -> e [ltail=cluster0]
+	d -> h
+}

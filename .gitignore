@@ -1,0 +1,21 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+*.idea
+.ipynb_checkpoints
+
+# vector_cache存放词向量的缓存文件
+vector_cache
+
+# .data为数据集
+.data
+
+*.iml
+
+# *tb为tensorboard.SummaryWriter生成的文件
+*tb
+
+out
+gen

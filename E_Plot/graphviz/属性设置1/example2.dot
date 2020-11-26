@@ -1,0 +1,28 @@
+digraph example2 {
+	subgraph cluster_0 {
+		color=yellow style=filled
+		node [color=green style=filled]
+		edge [color=red]
+		a0 -> a1
+		a1 -> a2
+		a2 -> a3
+		label="process #1"
+	}
+	subgraph "subgraph" {
+		color=red style=bold
+		node [style=filled]
+		b0 -> b1
+		b1 -> b2
+		b2 -> b3
+		label="process #2"
+	}
+	start [shape=diamond]
+	end [shape=square]
+	start -> a0
+	start -> b0
+	a1 -> b3
+	b2 -> a3
+	a3 -> a0
+	a3 -> end
+	b3 -> end
+}

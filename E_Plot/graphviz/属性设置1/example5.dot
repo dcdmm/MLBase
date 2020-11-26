@@ -1,0 +1,26 @@
+digraph example5 {
+	subgraph cluster_0 {
+		color=red style=bold
+		rank=same
+		A
+		X
+	}
+	C
+	subgraph cluster_2 {
+		rank=min
+		B
+		D
+		Y
+	}
+	{
+		F
+		G
+	}
+	A -> B
+	A -> C
+	C -> D
+	X -> Y
+	B -> F
+	D -> G
+	A -> G
+}

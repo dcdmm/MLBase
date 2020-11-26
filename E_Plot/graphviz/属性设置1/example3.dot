@@ -1,0 +1,18 @@
+graph example3 {
+	splines=ortho
+	edge [color=red]
+	run -- intr
+	intr -- runbl
+	runbl -- run
+	run -- kernel
+	edge [dir=both]
+	kernel -- zombie
+	kernel -- sleep
+	kernel -- runmem
+	sleep -- swap
+	swap -- runswap
+	runswap -- new
+	runswap -- runmem
+	new -- runmem
+	sleep -- runmem
+}

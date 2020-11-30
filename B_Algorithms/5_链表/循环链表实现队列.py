@@ -3,6 +3,7 @@ class Empty(Exception):
     """Error attempting to access an element from an empty container"""
     pass
 
+
 class CircularQueue:
     class _Node:
         def __init__(self, element, pointer):  # initialize node's fields
@@ -10,6 +11,7 @@ class CircularQueue:
             self._pointer = pointer  # reference th next node
     # 简单的设置self._tail=self._tail._pointer,使原来的头部变成新的尾部
     # 对于循环链表,显然不需要同时保存指向头部和尾部的引用(指针).只要保存一个指向尾部的引用,就总能通过尾部的"pointer"引用找到头部
+
     def __init__(self):
         """Create an empty queue"""
         self._tail = None
@@ -32,13 +34,13 @@ class CircularQueue:
 
     def enqueue(self, e):
         """Add an element to the back of queue"""
-        newest = self._Node(e, None) # node will be new tail node
+        newest = self._Node(e, None)  # node will be new tail node
         if self.is_empty():
-            newest._pointer = newest # initialize circularly
+            newest._pointer = newest  # initialize circularly
         else:
-            newest._pointer = self._tail._pointer # new node points to head
-            self._tail._pointer = newest # old tail points to new node
-        self._tail = newest # new node becomes the tail
+            newest._pointer = self._tail._pointer  # new node points to head
+            self._tail._pointer = newest  # old tail points to new node
+        self._tail = newest  # new node becomes the tail
         self._size += 1
 
     def dequeue(self):
@@ -50,9 +52,9 @@ class CircularQueue:
         if self._size == 1:
             self._tail = None
         else:
-            self._tail._pointer = oldhead._pointer # bypass the old head
+            self._tail._pointer = oldhead._pointer  # bypass the old head
         self._size -= 1
-        oldhead._pointer = oldhead._element = None # 显式地删除该节点
+        oldhead._pointer = oldhead._element = None  # 显式地删除该节点
         return oldelement
 
     def rotate(self):
@@ -68,7 +70,8 @@ class CircularQueue:
             p = p._pointer
             if p == self._tail:
                 yield p._element
-                break # 循环链表注意遍历到最后时跳出循环
+                break  # 循环链表注意遍历到最后时跳出循环
+
 
 if __name__ == '__main__':
     cq = CircularQueue()
@@ -79,4 +82,3 @@ if __name__ == '__main__':
 
     print(cq.dequeue())
     print(list(cq.element()))
-

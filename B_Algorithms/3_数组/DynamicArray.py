@@ -1,5 +1,5 @@
-
 import ctypes
+
 
 # Python的list类给出了动态数组的一种高度优化的实现
 
@@ -34,7 +34,7 @@ class DynamicArray:
         if self._n == self._capacity:
             self._resize(2 * self._capacity)
         for j in range(self._n, k, -1):
-            self._A[j] = self._A[j-1]
+            self._A[j] = self._A[j - 1]
         self._A[k] = value
         self._n += 1
 
@@ -42,8 +42,8 @@ class DynamicArray:
         """Remove first occuruence of value (or rasie ValueError)"""
         for k in range(self._n):
             if self._A[k] == value:  # found a match
-                for j in range(k, self._n-1):
-                    self._A[j] = self._A[j+1]
+                for j in range(k, self._n - 1):
+                    self._A[j] = self._A[j + 1]
                 self._A[self._n - 1] = None
                 self._n -= 1
                 return
@@ -56,8 +56,8 @@ class DynamicArray:
         if not 0 <= index <= self._n:
             raise IndexError('invalid index')
         result = self._A[index]
-        for k in range(index, self._n-1):
-            self._A[k] = self._A[k+1]
+        for k in range(index, self._n - 1):
+            self._A[k] = self._A[k + 1]
         self._A[self._n - 1] = None
         self._n -= 1
 

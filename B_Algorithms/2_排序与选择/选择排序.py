@@ -7,14 +7,15 @@
 * 额外的空间:O(1)
 """
 
+
 def selection_sort(lst):
     for i in range(len(lst)):
         pos_min = i
         for j in range(i + 1, len(lst)):
             if lst[j] < lst[pos_min]:
-                pos_min = j # 最小值的索引
+                pos_min = j  # 最小值的索引
 
-        lst[i], lst[pos_min] = lst[pos_min], lst[i] # 将最小的元素交换到最前
+        lst[i], lst[pos_min] = lst[pos_min], lst[i]  # 将最小的元素交换到最前
 
     return lst
 

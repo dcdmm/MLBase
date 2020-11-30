@@ -6,6 +6,7 @@
 * 额外的空间:O(1)
 """
 
+
 def bubble_sort(lst):
     for i in range(len(lst)):
         for j in range(len(lst)-i-1):
@@ -23,13 +24,13 @@ def bubble_sort_mod(lst):
             if lst[j] < lst[j - 1]:
                 lst[j], lst[j - 1] = lst[j - 1], lst[j]
                 is_sorted = False
-        if is_sorted: # 若已经是排好序的,则可以提早跳出循环
+        if is_sorted:  # 若已经是排好序的,则可以提早跳出循环
             break
     return lst
 
 
 if __name__ == '__main__':
-    disorder_lst = [3, 4, 51, 5, 77, 2, 8 , 0, -1, 1]
+    disorder_lst = [3, 4, 51, 5, 77, 2, 8, 0, -1, 1]
 
     print(bubble_sort(disorder_lst))
 

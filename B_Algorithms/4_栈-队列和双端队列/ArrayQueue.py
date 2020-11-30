@@ -11,9 +11,9 @@ class ArrayQueue:
 
     def __init__(self):
         """Create an new queue"""
-        self._data = [None] * ArrayQueue.DEFAULT_CAPACITY # modeerate capacity for all new queues
-        self._size = 0 # 当前储存在队列内的元素
-        self._front = 0 # 是一个整数,代表_data实例队列中的第一个元素的索引(假定这个队列不为空)
+        self._data = [None] * ArrayQueue.DEFAULT_CAPACITY  # modeerate capacity for all new queues
+        self._size = 0  # 当前储存在队列内的元素
+        self._front = 0  # 是一个整数,代表_data实例队列中的第一个元素的索引(假定这个队列不为空)
 
     # O(1)
     # 返回队列中元素的数量
@@ -69,17 +69,17 @@ class ArrayQueue:
 
     def _resize(self, cap):
         """Resize to a new list of capacity >= len(self)"""
-        old = self._data # keep track of existing list
+        old = self._data  # keep track of existing list
         self._data = [None] * cap  # allocate list with new capacity
         walk = self._front
-        for k in range(self._size): # only consider existing elements
-            self._data[k] = old[walk] # intensionally shift indics
-            walk = (1 + walk) % len(old) # use old size as modulus
-        self._front = 0 # font has been realigned(首部索引调整为0)
+        for k in range(self._size):  # only consider existing elements
+            self._data[k] = old[walk]  # intensionally shift indics
+            walk = (1 + walk) % len(old)  # use old size as modulus
+        self._front = 0  # font has been realigned(首部索引调整为0)
 
     def printqueue(self):
         for i in range(self._size):
-            pos = (self._front + self._size - 1 - i) % len(self._data) # 队列的最后一个元素(最后一个进入的元素)
+            pos = (self._front + self._size - 1 - i) % len(self._data)  # 队列的最后一个元素(最后一个进入的元素)
             print(self._data[pos], end=" ")
         print()
 

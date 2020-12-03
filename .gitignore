@@ -17,5 +17,8 @@ vector_cache
 # *tb为tensorboard.SummaryWriter生成的文件
 *tb
 
+# 缓存文件
+__pycache__
+
 out
 gen

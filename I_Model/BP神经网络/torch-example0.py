@@ -50,18 +50,18 @@ net = MLP()
 optimizer = optim.SGD(net.parameters(), lr=learning_rate)
 criteon = nn.CrossEntropyLoss()  # 损失函数为交叉熵
 
-for epoch in range(1, epochs+1):
+for epoch in range(1, epochs + 1):
     for batch_idx, (data, target) in enumerate(train_loader):
-        data = data.view(-1, 28*28)
+        data = data.view(-1, 28 * 28)
         logits = net(data)
         loss = criteon(logits, target)
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
 
-        if (batch_idx+1) % 100 == 0:
+        if (batch_idx + 1) % 100 == 0:
             print('Train Epoch: {} [{}/{} ({:.0f}%)]\tLoss: {:.6f}'.format(
-                epoch, (batch_idx+1) * len(data), len(train_loader.dataset),
+                epoch, (batch_idx + 1) * len(data), len(train_loader.dataset),
                 100. * batch_idx / len(train_loader), loss.item()))
 
     test_loss = 0

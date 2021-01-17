@@ -52,6 +52,7 @@ class DoublyLindedBase:
 # 同时,尾结点之前的第一个节点中存储的时双端队列的最后一个元素
 
 
+# 双端队列:队列的每一端都能够插入数据项和移除数据项
 class LinedDeque(DoublyLindedBase):
     """Double-ended queue implementation based on aa doubly linked list"""
 

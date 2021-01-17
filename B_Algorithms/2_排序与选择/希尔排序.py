@@ -8,7 +8,7 @@ def shellSort(lst):
         for k in range(gap, n):
             cur = lst[k]
             j = k
-            while j > gap-1 and lst[j - gap] > cur:
+            while j > gap - 1 and lst[j - gap] > cur:
                 lst[j] = lst[j - gap]
                 j -= gap
             lst[j] = cur

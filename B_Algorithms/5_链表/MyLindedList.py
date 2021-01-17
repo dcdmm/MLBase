@@ -15,8 +15,8 @@ class MyLindedList:
             self._pointer = pointer
 
     def __init__(self):
-        self._head = None # 链表的头节点
-        self._tail = None # 链表的尾节点
+        self._head = None  # 链表的头节点
+        self._tail = None  # 链表的尾节点
         self._size = 0
 
     def __len__(self):
@@ -59,15 +59,15 @@ class MyLindedList:
         """在链表的头部删除一个节点"""
         if self._head is None:
             raise Empty('LinedList is empty')
-        node =  self._head
+        node = self._head
         self._head = self._head._pointer
-        node._pointer = node._element = None # 显式地删除该节点
+        node._pointer = node._element = None  # 显式地删除该节点
         self._size -= 1
 
     def add(self, value, index):
         """在链表的任意index处添加一个节点"""
         if index < 0 or index > self._size:
-            raise Outbound('index is out of bound' )
+            raise Outbound('index is out of bound')
         newest = self._Node(value, None)
         find_node = self._head
         if index == 0:
@@ -75,7 +75,7 @@ class MyLindedList:
         elif index == self._size:
             self.add_last(value)
         else:
-            for i in range(index-1):
+            for _ in range(index - 1):
                 find_node = find_node._pointer
             newest._pointer = find_node._pointer
             find_node._pointer = newest
@@ -84,14 +84,14 @@ class MyLindedList:
     def remove(self, index=0):
         """删除链表任意index处的一个节点"""
         if index < 0 or index >= self._size:
-            raise Outbound('index is out of bound' )
+            raise Outbound('index is out of bound')
         if self._head is None:
-            raise Empty('LinkedList is empty' )
+            raise Empty('LinkedList is empty')
         if index == 0:
             self.remove_first()
         else:
             fond_node = self._head
-            for i in range(index-1):
+            for i in range(index - 1):
                 fond_node = fond_node._pointer
             fond_node._pointer = fond_node._pointer._pointer
             self._size -= 1
@@ -139,5 +139,3 @@ if __name__ == '__main__':
     print(list(my_linkedlist.element()))
     my_linkedlist.remove(3)
     print(list(my_linkedlist.element()), end='\n\n')
-
-

@@ -15,7 +15,7 @@ class Model_original:
         return y
 
     def fit(self, X_train, y_train):
-        self.w = np.ones(len(X_train[0]), dtype=np.float32)-1
+        self.w = np.ones(len(X_train[0]), dtype=np.float32) - 1
         is_wrong = False
         while not is_wrong:  # 直到没有误分类点才结束循环(默认是线性可分的)
             wrong_count = 0

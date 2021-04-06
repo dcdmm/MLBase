@@ -7,7 +7,7 @@ import torch.utils.data as Data
 
 batch_size = 200
 learning_rate = 0.01
-epochs = 10
+epochs = 100
 
 # 手写数字训练数据集
 train_loader = Data.DataLoader(

@@ -46,6 +46,8 @@ $ E_{* \sim \mathcal{D}} [f( * )] $: 函数$f( * )$对$ * $在分布$\mathcal{D}
 #### 额外安装(初始安装为Anconda)
 1. 额外安装的模块
 	* xgboost: pip install xgboost
+    * lightgbm: pip install lightgbm
+    * catboost: pip install catboost  
 	* PyTorch: https://pytorch.org/ 查看
 	* graphviz: pip install graphviz
 	* jieba: pip install jieba

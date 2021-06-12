@@ -33,7 +33,7 @@ $ E_{* \sim \mathcal{D}} [f( * )] $: 函数$f( * )$对$ * $在分布$\mathcal{D}
 3. pytorch模型
     1. 基本功能
         * 函数功能以torch.\*为模板(统一,推荐),如torch.[tensor;ones;arange;topk;var;sqrt;matmul;round;randint;sort;cat]
-        * 除t.[to;tolist;numpy;item;clone;detach;in-place操作;reshape;transpose;flatten;重复元素操作;backward;retain_grad;requires_grad_]
+        * 除t.[to;tolist;numpy;item;clone;detach;in-place操作;reshape;transpose;flatten;重复元素操作;backward;retain_grad;requires_grad_]外
     2. 其他(参考具体库),如
         * torch.autograd
         * torch.nn
@@ -43,7 +43,7 @@ $ E_{* \sim \mathcal{D}} [f( * )] $: 函数$f( * )$对$ * $在分布$\mathcal{D}
         * ......
      
 
-#### 额外安装(初始安装为Anconda)
+#### 额外安装(初始安装为Anconda环境)
 1. 额外安装的模块
 	* xgboost: pip install xgboost
     * lightgbm: pip install lightgbm
@@ -58,7 +58,7 @@ $ E_{* \sim \mathcal{D}} [f( * )] $: 函数$f( * )$对$ * $在分布$\mathcal{D}
 	3. jupyter contrib nbextension install --user    
 
 
-#### 项目主要参考(排名不分先后)
+#### 主要参考(排名不分先后)
 * 统计学习方法(李航)
 * 西瓜书
 * 花书
@@ -68,14 +68,12 @@ $ E_{* \sim \mathcal{D}} [f( * )] $: 函数$f( * )$对$ * $在分布$\mathcal{D}
 * Pattern Recognition and Machine Learning(Christopher M. Bishop)
 * 数学分析(华东师范大学)
 * 高等数理统计(茆诗松)
-* 算法导论第三版
 * 统计推断
 * 矩阵分析与应用
 * 白板推导(B站)
 * 数据结构与算法-Python语言实现
 * 深入浅出PyTorch
 * 百面机器学习
-* 万门大学-数据结构与算法进阶班
 * 龙龙pytorch
 * 斯坦福CS224n
 * 吴恩达-机器学习

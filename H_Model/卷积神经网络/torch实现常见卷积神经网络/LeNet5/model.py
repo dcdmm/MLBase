@@ -18,7 +18,7 @@ class LeNet5(nn.Module, ABC):
             nn.MaxPool2d(2, 2))  # 步幅为2,池化窗口大小为2*2
 
         self.classifier = nn.Sequential(
-            nn.Linear(16*5*5, 120),
+            nn.Linear(16 * 5 * 5, 120),
             nn.ReLU(),
             nn.Linear(120, 84),
             nn.ReLU(),

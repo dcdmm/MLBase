@@ -26,14 +26,14 @@ class MyHMM:
         :return: P(O|\lambda)或\alpha_t(i)
         """
         if want_t is None:
-            want_t = len(visible_seq)+1
+            want_t = len(visible_seq) + 1
         alpha = self.pi * self.B[:, [visible_seq[0]]]  # 计算初值
         if want_t == 1:
             return alpha
         for step in range(1, len(visible_seq)):
             """递推"""
             alpha = self.A.T.dot(alpha) * self.B[:, [visible_seq[step]]]
-            if step+1 == want_t:
+            if step + 1 == want_t:
                 return alpha
         return np.sum(alpha)  # 求和
 
@@ -47,7 +47,7 @@ class MyHMM:
         beta = np.ones_like(self.pi)  # 初始化
         if want_t == len(visible_seq):
             return beta
-        for step in range(len(visible_seq) - 1, 0,  -1):
+        for step in range(len(visible_seq) - 1, 0, -1):
             """递推"""
             beta = self.A.dot(self.B[:, [visible_seq[step]]] * beta)
             if step == want_t:
@@ -79,7 +79,7 @@ class MyHMM:
         :return: P(i_t=q_i,i_{t+1}=q_j|O,\lambda)
         """
         alpha = self.forward(visible_seq, t)
-        beta = self.forward(visible_seq, t+1)  # \beta_{t+1}(i)
+        beta = self.forward(visible_seq, t + 1)  # \beta_{t+1}(i)
         part_above = alpha[pre_state] * self.A[pre_state, next_state] * self.B[next_state, visible_seq[t]] * beta[next_state]
         part_below = np.sum(alpha * (self.A * (self.B[:, visible_seq[t]].reshape(-1, 1) * beta).reshape(1, -1)))  # 利用了不同形状下数组的广播机制
         return part_above / part_below
@@ -113,8 +113,8 @@ class MyHMM:
                 for k in range(self.visible_status_num):
                     part_above = 0
                     part_below = 0
-                    for t in range(1, T+1):
-                        if visible_seq[t-1] == k:
+                    for t in range(1, T + 1):
+                        if visible_seq[t - 1] == k:
                             part_above += self.gamma_t(visible_seq, t, j)
                         part_below += self.gamma_t(visible_seq, t, j)
                     new_B_jk = part_above / part_below
@@ -175,7 +175,7 @@ class MyHMM:
         Psi = [[0] * self.hidden_status_num]
 
         # 递推
-        for visible_index in range(2, len(visible_seq)+1):  # 即t=2,3,...T
+        for visible_index in range(2, len(visible_seq) + 1):  # 即t=2,3,...T
             new_delta = np.zeros_like(delta)
             new_Psi = []
             for i in range(0, self.hidden_status_num):
@@ -183,7 +183,7 @@ class MyHMM:
                 best_pre_index_value_i = 0
                 delta_i = 0
                 for j in range(0, self.hidden_status_num):
-                    delta_i_j = delta[j][0] * self.A[j, i] * self.B[i, visible_seq[visible_index-1]]
+                    delta_i_j = delta[j][0] * self.A[j, i] * self.B[i, visible_seq[visible_index - 1]]
                     if delta_i_j > delta_i:
                         """寻找最大的\delta_i"""
                         delta_i = delta_i_j
@@ -259,8 +259,7 @@ if __name__ == '__main__':
             [0, 2, 4, 2],
             [4, 3, 2, 1],
             [3, 1, 1, 1, 1],
-            [2, 1, 3, 2, 1, 3, 4]
-        ]
+            [2, 1, 3, 2, 1, 3, 4]]
         I = O
 
         hmm_supervision = MyHMM(hidden_status_num=5, visible_status_num=5)

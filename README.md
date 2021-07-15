@@ -11,7 +11,7 @@
 
 #### 符号系统
 $ x $: 标量      
-$ \mathbf{x}$:向量or序列 
+$ \mathbf{x}$:向量or序列(某些字符不能加粗,使用"\boldsymbol",如$\boldsymbol{\mu}$) 
 $ X $: 矩阵or随机变量or数据集   
 $ \mathbf{I}_n$:n行n列单位矩阵
 $ \mathcal{X} $: 样本空间或状态空间,也可以用来表示概率分布,如$\mathcal{D}$     

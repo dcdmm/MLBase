@@ -47,13 +47,14 @@ $ E_{* \sim \mathcal{D}} [f( * )] $: 函数$f( * )$对$ * $在分布$\mathcal{D}
 
 #### 额外安装(初始安装为Anconda环境)
 1. 额外安装的模块
-	* xgboost: pip install xgboost
+	* xgboost: pip install xgboost(linux下先执行pip install --upgrade pip)
     * lightgbm: pip install lightgbm
     * catboost: pip install catboost  
 	* PyTorch: https://pytorch.org/ 查看
 	* graphviz: pip install graphviz
 	* jieba: pip install jieba
 	* spacy: https://spacy.io/usage 查看
+    * imblear:https://imbalanced-learn.org/stable/install.html查看
 2. jupyter notebook目录功能安装及其配置
 	1. pip install jupyter_contrib_nbextensions   
 	2. pip install jupyter_nbextensions_configurator    

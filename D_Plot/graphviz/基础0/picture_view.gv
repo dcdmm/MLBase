@@ -1,0 +1,9 @@
+digraph picture {
+	A [label="作者" fontname=KaiTi]
+	B [label="医生" fontname="Microsoft YaHei"]
+	C [label=teach]
+	B -> A [label="箭头1" fontname=SimHei]
+	C -> A [label="箭头2" fontcolor=red fontname=SimHei fontsize=5]
+	A -> B [label="箭头3" fontname=SimSun]
+	fontcolor=green fontsize=20 label="\n\nEntity Relation Diagram\ndrawn by NEATO"
+}

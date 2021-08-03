@@ -1,7 +1,8 @@
 import graphviz
 
-with open('picture.dot', encoding='UTF-8') as f:
+# 可以是.dot或.gv文件
+with open('picture_save.gv', encoding='UTF-8') as f:
     dot_graph = f.read()
 
-# 保存并查看
-graphviz.Source(dot_graph).view() # Save the source to file, open the rendered result in a viewer.
+# Verbatim DOT source code string to be rendered by Graphviz.
+graphviz.Source(dot_graph, filename="picture1.gv").view()

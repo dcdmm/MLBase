@@ -1,4 +1,3 @@
-
 def MyXgbLgbCat(X_train, y_train, model, kf, model_params, fit_params):
     models = []
     score_lst = []
@@ -7,8 +6,7 @@ def MyXgbLgbCat(X_train, y_train, model, kf, model_params, fit_params):
         print(f'KFold: {fold}')
         x_tr, x_va = X_train[tr_idx], X_train[va_idx]
         if model.__name__.__contains__("XGB"):
-            print('**************')
-            y_tr, y_va = y_train[tr_idx].reshape(-1, 1), y_train[va_idx].reshape(-1, 1)  # xgboost
+            y_tr, y_va = y_train[tr_idx].reshape(-1, 1), y_train[va_idx].reshape(-1, 1)
         else:
             y_tr, y_va = y_train[tr_idx], y_train[va_idx]
 

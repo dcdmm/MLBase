@@ -1,8 +1,9 @@
-#### 标识系统
+#### 个人习惯规约
 1. 数学公式关键字(md),如:<font color='red' size=4>定理:</font>;<font color='red' size=4>定义:</font>;<font color='red' size=4>证明:</font> $ ...... $
 2. 算法伪代码标识(md),如:**for**  $ i=1,2,\dots, n $ **do**
-3. 代码or代码块标识(注释),如:>import<;>%run<>
-4. 重要程度标识(all)
+3. 代码or代码块标识(注释),如:>import<;>%run<>;>print("hello java)<
+4. 文件命名:实现包-文件名(必备)-任务-所有数据,如:torch-example0-多分类-mnist
+5. 5重要程度标识(all)
    1. 非常重要:★★★★★
    2. 很重要:★★★★
    3. 重要:★★★
@@ -58,6 +59,7 @@ $ E_{* \sim \mathcal{D}} [f( * )] $: 函数$f( * )$对$ * $在分布$\mathcal{D}
     * gensim: pip install gensim
     * torchsummary: pip install torchsummary
     * pytorch-tabnet: pip install pytorch-tabnet
+    * wget: pip install wget
 2. jupyter notebook目录功能安装及其配置
 	1. pip install jupyter_contrib_nbextensions   
 	2. pip install jupyter_nbextensions_configurator    

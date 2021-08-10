@@ -57,6 +57,7 @@ $ E_{* \sim \mathcal{D}} [f( * )] $: 函数$f( * )$对$ * $在分布$\mathcal{D}
     * imblear: https://imbalanced-learn.org/stable/install.html 查看
     * gensim: pip install gensim
     * torchsummary: pip install torchsummary
+    * pytorch-tabnet: pip install pytorch-tabnet
 2. jupyter notebook目录功能安装及其配置
 	1. pip install jupyter_contrib_nbextensions   
 	2. pip install jupyter_nbextensions_configurator    

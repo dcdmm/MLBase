@@ -4,6 +4,37 @@ import numpy as np
 
 def MyCatboost(X_train_data, y_train_data, X_test_data, kfold,
                params, num_class=None, early_stopping_rounds=None, verbose_eval=True, fweight=None):
+    """
+    Parameters
+    ---------
+    X_train_data : numpy array (n_sample, n_feature)
+        训练数据集
+    y_train_data : numpy array (n_sample, )
+        训练数据集标签
+    X_test_data : numpy array (n_sample, n_feature)
+        测试数据集
+    kfold :
+        k折交叉验证对象
+    params : dict
+        catboost模型train方法params参数
+    num_class : int
+        多分类时类别数量
+    early_stopping_rounds:
+        catboost模型train方法early_stopping_rounds参数
+    verbose_eval :
+        catboost模型train方法verbose_eval参数
+    fweight : 函数(返回训练数据集的权重)
+        返回值为catboost模型Pool方法weight参数
+
+    return
+    ---------
+    train_predictions : array
+        训练数据集预测结果
+    test_predictions : array
+        测试数据集预测结果
+    model_list : list
+        训练模型组成的列表
+    """
     train_predictions = np.zeros(
         X_train_data.shape[0] if num_class is None else [X_train_data.shape[0], num_class])  # 训练数据集预测结果
     test_predictions = np.zeros(

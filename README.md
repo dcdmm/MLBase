@@ -2,7 +2,7 @@
 1. 数学公式关键字(md),如:<font color='red' size=4>定理:</font>;<font color='red' size=4>定义:</font>;<font color='red' size=4>证明:</font> $ ...... $
 2. 算法伪代码标识(md),如:**for**  $ i=1,2,\dots, n $ **do**
 3. 代码or代码块标识(注释),如:>import<;>%run<>;>print("hello java)<
-4. 文件命名:实现包-文件名(必备)-任务-所有数据,如:torch-example0-多分类-mnist
+4. 文件命名:实现包-文件名(必备)-任务-所有数据-进行中?,如:torch-example0-多分类-mnist-ing
 5. 5重要程度标识(all)
    1. 非常重要:★★★★★
    2. 很重要:★★★★

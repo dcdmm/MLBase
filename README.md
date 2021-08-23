@@ -52,6 +52,7 @@ $ E_{* \sim \mathcal{D}} [f( * )] $: 函数$f( * )$对$ * $在分布$\mathcal{D}
     * lightgbm: pip install lightgbm
     * catboost: pip install catboost  
     * PyTorch: https://pytorch.org/ 查看
+    * tensorflow: pip install tensorflow-gpu
     * graphviz: pip install graphviz(需要安装Graphviz并配置环境变量Graphviz\bin)
     * jieba: pip install jieba
     * spacy: https://spacy.io/usage 查看(GPU版本和PyTorch GPU版本保持一致)
@@ -60,7 +61,8 @@ $ E_{* \sim \mathcal{D}} [f( * )] $: 函数$f( * )$对$ * $在分布$\mathcal{D}
     * torchsummary: pip install torchsummary
     * pytorch-tabnet: pip install pytorch-tabnet
     * wget: pip install wget
-    * pip install bayesian-optimization
+    * bayesian-optimization: pip install bayesian-optimization
+    * tstresh: pip install tstresh
 2. jupyter notebook目录功能安装及其配置
 	1. pip install jupyter_contrib_nbextensions   
 	2. pip install jupyter_nbextensions_configurator    

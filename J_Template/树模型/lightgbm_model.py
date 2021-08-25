@@ -26,7 +26,7 @@ def MyLightGBM(X_train_data, y_train_data, X_test_data, kfold,
         lightgbm模型train方法feval参数
     fweight : 函数(返回训练数据集的权重)
         返回值为lightgbm模型Dataset方法weight参数
-    categorical_feature : list or 'auto'
+    categorical_feature : list(分类特征的索引) or 'auto'
         lightgbm模型Dataset方法categorical_feature参数
 
     return
@@ -55,9 +55,16 @@ def MyLightGBM(X_train_data, y_train_data, X_test_data, kfold,
         train_dataset = lgb.Dataset(x_train, y_train, weight=train_weights, categorical_feature=categorical_feature)
         val_dataset = lgb.Dataset(x_val, y_val, weight=val_weights, categorical_feature=categorical_feature)
 
+        # 警告的避免
+        if 'num_boost_round' in params:
+            num_boost_round = params.pop('num_boost_round')
+        else:
+            num_boost_round = 1000
+
         model = lgb.train(params=params,
                           train_set=train_dataset,
                           valid_sets=[train_dataset, val_dataset],
+                          num_boost_round=num_boost_round,
                           early_stopping_rounds=early_stopping_rounds,
                           verbose_eval=verbose_eval,
                           feval=feval)

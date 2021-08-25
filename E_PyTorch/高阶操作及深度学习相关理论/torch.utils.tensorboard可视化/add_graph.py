@@ -11,4 +11,4 @@ writer.add_graph(model=al, # 模型
                  input_to_model=fake_img) # 模型的输入符合形状即可
 writer.close()
 
-# 展示:命令行执行tensorboard --logdir=graph文件夹所在的相对路径
+# 展示:命令行执行tensorboard --logdir="graph文件夹所在的相对路径"

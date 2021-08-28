@@ -23,28 +23,78 @@ $ E_{* \sim \mathcal{D}} [f( * )] $: 函数$f( * )$对$ * $在分布$\mathcal{D}
 
 #### 模块使用习惯
 1. numpy模块
-    * 函数功能以np.\*为模板(统一,推荐),如np.array,np.sort,np.argmax......
-    * 除\*.flatten,\*.ravel;\*.reshape外
+    * np.\*
+      * np.reshaep
+      * np.where
+      * np.isinf
+      * np.random.shuffle
+      * ....
+    * arr.\*
+      * .astype
+      * .flatten
+    * 均使用
+      * reshape
+      * ravel
+
+
 2. pandas模块
-    * 函数功能以$*.*$为模板(统计,推荐),如df.rename,df.fillna,df.replace......
-    * 除定义功能函数外,如:
+    * 均$*.*$
+      * .replace
+      * .fillna
+      * .merge
+      * .sum
+      * .concat
+      * ...
+    * 除:
         * pd.DataFrame
         * pd.Series
         * pd.date_range
+        * pd,to_datetime
+        * pd.period_range
         * pd.read_excel
-        * ......       
-3. pytorch模型
-    1. 基本功能
-        * 函数功能以torch.\*为模板(统一,推荐),如torch.[tensor;ones;arange;topk;var;sqrt;matmul;round;randint;sort;cat]
-        * 除t.[to;tolist;numpy;item;clone;detach;in-place操作;reshape;transpose;flatten;重复元素操作;backward;retain_grad;requires_grad_]外
-    2. 其他(参考具体库),如
-        * torch.autograd
-        * torch.nn
-        * torch.nn.functional
-        * torch.cuda
-        * torch.optim
-        * ......
-     
+        * pd.read_csv
+        * ...
+        * pd.set_option
+
+
+3. pytorch模块
+    1. torch.\*
+       1. torch.autograd
+       2. torch.nn
+       3. torch.nn.functional
+       4. torch.cuda
+       5. torch.optim
+       6. ...
+    2. tor.\*
+       1. .to
+       2. .dim
+       3. .size
+       4. .tolist
+       5. .numpy
+       6. .item
+       7. .backward
+       8. .retain_grad
+       9. .in-place操作
+       10. .expand
+       11. .repeat
+    3. 均使用
+       1. reshape
+
+
+4. tensorflow
+   1. tf.\*
+      1. torch.constant
+      2. torch.Variable
+      3. torch.reshape
+      4. torch.data
+      5. torch.feature_columns
+      6. torch.random
+      7. torch.keras
+      8. ...
+   2. tor.\*
+      1. .numpy
+      2. 
+ 
 
 #### 额外安装(初始安装为Anconda环境)
 1. 额外安装的模块

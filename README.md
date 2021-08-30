@@ -93,7 +93,9 @@ $ E_{* \sim \mathcal{D}} [f( * )] $: 函数$f( * )$对$ * $在分布$\mathcal{D}
       8. ...
    2. tor.\*
       1. .numpy
-      2. 
+      2. .assign
+      3. .assign_add
+      4. .assign_sub
  
 
 #### 额外安装(初始安装为Anconda环境)

@@ -10,4 +10,4 @@ CrossEntropyLoss==> Input:float  Target:int   可指定ignore_index
 
 BCEloss==> Input:[0 ~ 1]float  Target:[0 ~ 1] float
 
-BCEWithLogitsLoss: Input:float  Target:[0 ~ 1] float
+BCEWithLogitsLoss==> Input:float  Target:[0 ~ 1] float

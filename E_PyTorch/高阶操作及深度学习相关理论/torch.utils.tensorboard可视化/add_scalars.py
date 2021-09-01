@@ -6,8 +6,9 @@ writer = SummaryWriter(log_dir='./data/scalars', filename_suffix="tb")
 
 for x in range(max_epoch):
     # Adds many scalar data to summary.
-    writer.add_scalars(main_tag='data/scalar_group', # The parent name for the tag
-                       tag_scalar_dict={"xsinx": x * np.sin(x), # Key-value pair storing the tag and corresponding values
+    writer.add_scalars(main_tag='data/scalar_group',  # The parent name for the tag
+                       tag_scalar_dict={"xsinx": x * np.sin(x),
+                                        # Key-value pair storing the tag and corresponding values
                                         "xcosx": x * np.cos(x)},
-                       global_step=x) # Global step value to record
+                       global_step=x)  # Global step value to record
 writer.close()

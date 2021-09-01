@@ -9,12 +9,12 @@ log_dir = "./data/scalar"
 
 # Creates a SummaryWriter that will write out events and summaries to the event file.
 writer = SummaryWriter(log_dir=log_dir,
-                       filename_suffix="tb") # 可视化文件的后缀
+                       filename_suffix="tb")  # 可视化文件的后缀
 
 for x in range(100):
     # Add scalar data to summary.
-    writer.add_scalar(tag='y=pow_2_x', # Data identifier
-                      scalar_value=2 ** x, # Value to save
-                      global_step=x) # Global step value to record
+    writer.add_scalar(tag='y=pow_2_x',  # Data identifier
+                      scalar_value=2 ** x,  # Value to save
+                      global_step=x)  # Global step value to record
 
 writer.close()

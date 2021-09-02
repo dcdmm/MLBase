@@ -3,8 +3,8 @@ import torch
 import torch.nn as nn
 import matplotlib.pyplot as plt
 import numpy as np
-torch.manual_seed(10)
 
+torch.manual_seed(10)
 
 sample_nums = 100
 mean = 1.7
@@ -32,20 +32,20 @@ class LR(nn.Module, ABC):
     def forward(self, x):
         """模型的前向传播"""
         x = self.features(x)
-        x = self.sigmoid(x) # 逻辑斯蒂回归使用的为sigmoid函数
+        x = self.sigmoid(x)  # 逻辑斯蒂回归使用的为sigmoid函数
         return x
 
 
 lr_net = LR()
-loss_fn = nn.BCELoss() # 交叉熵损失函数
+loss_fn = nn.BCELoss()  # 交叉熵损失函数
 lr = 0.01  # 学习率
 optimizer = torch.optim.SGD(lr_net.parameters(), lr=lr, momentum=0.9)
 
 for iteration in range(1000):
-    optimizer.zero_grad() # 梯度清零
-    y_pred = lr_net(train_x) # 前向传播
+    optimizer.zero_grad()  # 梯度清零
+    y_pred = lr_net(train_x)  # 前向传播
     loss = loss_fn(y_pred.squeeze(), train_y)
-    loss.backward() # 反向传播
+    loss.backward()  # 反向传播
     optimizer.step()
 
     if iteration % 20 == 0:
@@ -70,5 +70,5 @@ for iteration in range(1000):
         plt.legend()
         plt.show()
 
-        if acc > 0.99: # 分类准确率大于0.99时退出循环
+        if acc > 0.99:  # 分类准确率大于0.99时退出循环
             break

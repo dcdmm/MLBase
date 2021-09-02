@@ -43,6 +43,6 @@ class RNNModel(nn.Module, ABC):
         output = self.drop(rnn_output)
 
         # decoded.shape=[text.shape[0]*BATCH_SIZE, num_embeddings]
-        decoded = self.linear(output.view(output.size(0)*output.size(1), -1))
+        decoded = self.linear(output.view(output.size(0) * output.size(1), -1))
         result = decoded.view(output.size(0), output.size(1), decoded.size(1))  # 恢复形状(3 dims)
         return result, hidden

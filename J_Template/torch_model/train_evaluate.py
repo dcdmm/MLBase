@@ -18,11 +18,14 @@ class Train_Evaluate:
         self.model.train()  # Sets the module in training mode
         for batch_idx, (data, target) in enumerate(train_loader):
             data, target = data.to(self.device), target.to(self.device)
-            self.optimizer.zero_grad()
+
+            # 反向传播固定格式
+            self.optimizer.zero_grad()  # 梯度清零
             output = self.model(data)
             loss = self.criterion(output, target)
-            loss.backward()
-            self.optimizer.step()
+            loss.backward()  # 反向传播
+            self.optimizer.step()  # 执行一次优化步骤
+
             if (batch_idx + 1) % verbose == 0 or batch_idx == 0:
                 if batch_idx == 0:
                     print('Train Epoch: {:<2} [{:<5}/{} ({:<3.0f}%)]\tLoss: {:.6f}'.
@@ -46,10 +49,10 @@ class Train_Evaluate:
         predict_result = []
         with torch.no_grad():
             for data in X_loader:
-                data = data.to(self.device)  # 对X_loader分批次预测(避免全量预测显存不够)
+                data = data.to(self.device)  # 对X_loader进行分批次预测(避免全量预测显存不够)
                 output = self.model(data)
                 predict_result.append(output.tolist())
-        # predict_result.shape=(len(X_loader), X_loader.batch_size, 模型分类数)
+        # predict_result.shape = (len(X_loader), X_loader.batch_size, 模型类别数)
         predict_result = torch.tensor(predict_result)
         predict_result = predict_result.reshape(len(X_loader.dataset), -1)
         return predict_result

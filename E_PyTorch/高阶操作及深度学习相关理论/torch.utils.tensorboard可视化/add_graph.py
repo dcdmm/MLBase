@@ -2,7 +2,7 @@ import torchvision.models as models
 import torch
 from torch.utils.tensorboard import SummaryWriter
 
-# 可视化展示:命令行执行tensorboard --logdir="graph文件夹所在的相对路径"
+# 可视化展示:命令行执行tensorboard --logdir= graph文件夹所在的相对路径
 
 writer = SummaryWriter(log_dir='./data/graph', filename_suffix="tb")
 

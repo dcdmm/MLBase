@@ -4,7 +4,10 @@ import torch.nn as nn
 
 
 class My_loss(nn.Module, ABC):
-    """若网络层有参数需要优化,参考nn.Linear"""
+    """
+    若网络层有参数需要优化,参考nn.Linear
+    损失函数也是继承自nn.Module
+    """
 
     def __init__(self, reduction='sum'):
         super(My_loss, self).__init__()

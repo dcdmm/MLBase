@@ -11,3 +11,4 @@ matplotlib.rcParams['axes.unicode_minus'] = False
 import torch.optim as optim
 
 
+print('test')

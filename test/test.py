@@ -9,6 +9,3 @@ import torch.nn.functional as F
 matplotlib.rcParams['font.sans-serif'] = ['SimHei']
 matplotlib.rcParams['axes.unicode_minus'] = False
 import torch.optim as optim
-
-
-print('test')

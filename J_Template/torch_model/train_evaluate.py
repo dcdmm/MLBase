@@ -44,7 +44,7 @@ class Train_Evaluate:
         print('-' * 100)
 
     def predict(self, X_loader):
-        """模型预测"""
+        """数据预测"""
         self.model.eval()  # Sets the module in training mode
         predict_result = []
         with torch.no_grad():
@@ -58,7 +58,7 @@ class Train_Evaluate:
         return predict_result
 
     def score(self, X_loader, y):
-        """验证数据集评估"""
+        """数据评估"""
         predict_result = self.predict(X_loader)
         predict_result, y = predict_result.to(self.device), y.to(self.device)
         return self.criterion(predict_result, y)

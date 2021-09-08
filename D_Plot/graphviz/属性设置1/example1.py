@@ -2,8 +2,8 @@ from graphviz import Digraph
 
 f = Digraph('example1', filename='example1.dot', format='png')
 
-# "TB", "LR", "BT", "RL"
-f.attr(rankdir='LR') # LR表示从左至右进行绘图(对整个图而言)
+# "TB", "逻辑斯蒂回归LR", "BT", "RL"
+f.attr(rankdir='逻辑斯蒂回归LR')  # LR表示从左至右进行绘图(对整个图而言)
 
 f.attr('node', shape='doublecircle')
 f.node('LR_0', label='跟结点', fontname='SimHei')

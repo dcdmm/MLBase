@@ -1,7 +1,7 @@
 from graphviz import Digraph
 
 s = Digraph(name='example6', filename='example6.dot',
-            node_attr={'shape': 'plaintext'}) # 设定shape为plaintext
+            node_attr={'shape': 'plaintext'})  # 设定shape为plaintext
 
 s.node('struct1', '''<
 <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
@@ -10,7 +10,7 @@ s.node('struct1', '''<
     <TD PORT="f1">middle</TD>
     <TD PORT="f2">right</TD>
   </TR>
-</TABLE>>''') # html表格代码
+</TABLE>>''')  # html表格代码
 s.node('struct2', '''<
 <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
   <TR>

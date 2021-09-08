@@ -10,7 +10,7 @@ class Train_Evaluate:
         self.model = model
         self.model.to(device)
         self.optimizer = optimizer  # 优化器
-        self.criterion = criterion  # 损失函数
+        self.criterion = criterion  # 损失函数losses
         self.epochs = epochs  # 训练轮数
 
     def fit(self, train_loader, epoch, verbose=10):

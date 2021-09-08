@@ -11,7 +11,7 @@ def train(dataset, embed_size, embed_dimension, lr=0.01, num_epochs=10):
     net_ = SkipGramModel(embed_size, embed_dimension)  # 模型初始化
     net_ = net_.to(device)
     optimizer = torch.optim.SparseAdam(net_.parameters(), lr=lr)  # 优化器
-    criteon = SkipGram_loss()  # 损失函数(自定义损失函数)
+    criteon = SkipGram_loss()  # 损失函数losses(自定义损失函数)
 
     for epoch in range(num_epochs):
         start, l_sum, n = time.time(), 0.0, 0

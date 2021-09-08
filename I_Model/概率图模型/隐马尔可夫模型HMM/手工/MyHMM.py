@@ -223,7 +223,7 @@ if __name__ == '__main__':
         visible_seq_init = np.array(['红', '白', '红'], dtype=object).reshape(-1, 1)
 
         enc = OrdinalEncoder(categories=[['红', '白']])
-        visible_seq = enc.fit_transform(visible_seq_init).astype(np.int).reshape(-1, )
+        visible_seq = enc.fit_transform(visible_seq_init).astype(np.int32).reshape(-1, )
 
         # forward_test = MyHMM(hidden_status_num=3, visible_status_num=2, pi=pi, A=A, B=B)
         # print(forward_test.forward(visible_seq=visible_seq)) # 前向算法测试

@@ -10,9 +10,9 @@ with g.subgraph(name='cluster1') as c:
     c.edges(['eg', 'ef'])
 
 g.edge('b', 'cluster1') # 从b指向cluster1(必须设定compound='true')
-g.edge('d', 'e')
+g.edge('from_tensor_slices.ipynb', 'e')
 g.edge('c', 'g', ltail='cluster0', lhead='cluster1') # 从cluster0指向cluster1(必须设定compound='true')
 g.edge('c', 'e', ltail='cluster0') # 从cluster1指向e(必须设定compound='true')
-g.edge('d', 'h')
+g.edge('from_tensor_slices.ipynb', 'h')
 
 g.view()

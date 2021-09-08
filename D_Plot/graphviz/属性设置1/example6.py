@@ -28,7 +28,7 @@ s.node('struct3', '''<
   </TR>
   <TR>
     <TD>c</TD>
-    <TD PORT="here">d</TD>
+    <TD PORT="here">from_tensor_slices.ipynb</TD>
     <TD>e</TD>
   </TR>
   <TR>

@@ -44,7 +44,10 @@ class Train_Evaluate:
         print('-' * 100)
 
     def predict(self, X_loader):
-        """数据预测"""
+        """
+        数据预测
+        X_loader不需要进行shuffle操作
+        """
         self.model.eval()  # Sets the module in training mode
         predict_result = []
         with torch.no_grad():
@@ -72,6 +75,6 @@ class Train_Evaluate:
                 for val in valid_sets:
                     metric_result = self.score(val[0], val[1])
                     temp.append(metric_result.item())
-                metric_lst.append(temp)
+                metric_lst.append(temp)  # 列表的第一列为第一组验证数据集的结果,第二列为第二列验证数据集的结果......
 
         return metric_lst

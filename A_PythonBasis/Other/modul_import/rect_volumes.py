@@ -1,4 +1,4 @@
-from dir_test.Test_print_hello import print_hello
+from dir_test.print_hello import print_hello
 
 
 class Rect_volumes:

@@ -6,6 +6,7 @@ def MyLightGBM(X_train_data, y_train_data, X_test_data, kfold,
                params, early_stopping_rounds=None, verbose_eval=True, feval=None, fweight=None,
                categorical_feature="auto"):
     """
+    原生lightgbm模型封装
     Parameters
     ---------
     X_train_data : numpy array (n_sample, n_feature)

@@ -5,6 +5,7 @@ import numpy as np
 def MyXgboost(X_train_data, y_train_data, X_test_data, kfold,
               params, early_stopping_rounds=None, verbose_eval=True, feval=None, fweight=None):
     """
+    原生xgboost模型封装
     Parameters
     ---------
     X_train_data : numpy array (n_sample, n_feature)

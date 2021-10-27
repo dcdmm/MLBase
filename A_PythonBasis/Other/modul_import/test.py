@@ -11,6 +11,6 @@ volum = Rect_volumes(area, 3)
 print(volum.volumes())
 volum.print_hello()
 
-from dir_test.print_hello import print_hello  # 模块的相对导入(dir_test与test.py位于同目录结构下)
+from dir_test.print_hello import print_hello  # 模块的相对导入(目录dir_test与test.py位于同目录结构下)
 
 print_hello("python")

@@ -10,5 +10,9 @@
 # torch.utils.tensorboard产生的数据文件
 *._tb
 
-# 模型
+# 大型数据集(储存位置:百度网盘)
+## datasets
+### cats_vs_dogs
+### Numpy
+### PyTorch
 Other/datasets

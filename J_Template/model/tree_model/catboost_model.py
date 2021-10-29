@@ -5,7 +5,7 @@ import numpy as np
 def MyCatboost(X_train_data, y_train_data, X_test_data, kfold,
                params, num_class=None, early_stopping_rounds=None, verbose_eval=True, fweight=None):
     """
-    原生Catboost模型封装
+    原生Catboost模型封装(具体任务微调)
     Parameters
     ---------
     X_train_data : numpy array (n_sample, n_feature)
@@ -15,7 +15,7 @@ def MyCatboost(X_train_data, y_train_data, X_test_data, kfold,
     X_test_data : numpy array (n_sample, n_feature)
         测试数据集
     kfold :
-        k折交叉验证对象
+        k折交叉验证对象(也可先生成交叉验证文件)
     params : dict
         catboost模型train方法params参数
     num_class : int
@@ -30,8 +30,10 @@ def MyCatboost(X_train_data, y_train_data, X_test_data, kfold,
     return
     ---------
     train_predictions : array
+        多分类:(n_sample, n_class)  二分类或回归:(n_sample, )
         训练数据集预测结果
     test_predictions : array
+        多分类:(n_sample, n_class)  二分类或回归:(n_sample, )
         测试数据集预测结果
     model_list : list
         训练模型组成的列表

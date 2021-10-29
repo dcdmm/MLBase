@@ -6,7 +6,7 @@ def MyLightGBM(X_train_data, y_train_data, X_test_data, kfold,
                params, early_stopping_rounds=None, verbose_eval=True, feval=None, fweight=None,
                categorical_feature="auto"):
     """
-    原生lightgbm模型封装
+    原生lightgbm模型封装(具体任务微调)
     Parameters
     ---------
     X_train_data : numpy array (n_sample, n_feature)
@@ -16,7 +16,7 @@ def MyLightGBM(X_train_data, y_train_data, X_test_data, kfold,
     X_test_data : numpy array (n_sample, n_feature)
         测试数据集
     kfold :
-        k折交叉验证对象
+        k折交叉验证对象(也可先生成交叉验证文件)
     params : dict
         lightgbm模型train方法params参数
     early_stopping_rounds:
@@ -33,8 +33,10 @@ def MyLightGBM(X_train_data, y_train_data, X_test_data, kfold,
     return
     ---------
     train_predictions : array
+        多分类:(n_sample, n_class)  二分类或回归:(n_sample, )
         训练数据集预测结果
     test_predictions : array
+        多分类:(n_sample, n_class)  二分类或回归:(n_sample, )
         测试数据集预测结果
     model_list : list
         训练模型组成的列表

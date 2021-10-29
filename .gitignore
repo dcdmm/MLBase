@@ -6,19 +6,9 @@
 *.idea
 .ipynb_checkpoints
 
-# vector_cache存放词向量的缓存文件
-vector_cache
 
-# .data为数据集
-.data
+# torch.utils.tensorboard产生的数据文件
+*._tb
 
-*.iml
-
-# *tb为tensorboard.SummaryWriter生成的文件
-*tb
-
-# 缓存文件
-__pycache__
-
-out
-gen
+# 模型
+Other/datasets

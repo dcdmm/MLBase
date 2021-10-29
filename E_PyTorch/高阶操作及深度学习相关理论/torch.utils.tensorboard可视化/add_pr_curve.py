@@ -6,7 +6,7 @@ predictions = np.random.rand(100)
 
 log_dir = "./data/pr_curve"
 writer = SummaryWriter(log_dir=log_dir,
-                       filename_suffix="tb")
+                       filename_suffix="._tb")
 
 # Adds precision recall curve.
 '''

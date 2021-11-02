@@ -15,7 +15,7 @@ def MyCatboost(X_train_data, y_train_data, X_test_data, kfold,
     X_test_data : numpy array (n_sample, n_feature)
         测试数据集
     kfold :
-        k折交叉验证对象(也可先生成交叉验证文件)
+        k折交叉验证对象(也可先生成交叉验证数据)
     params : dict
         catboost模型train方法params参数
     num_class : int

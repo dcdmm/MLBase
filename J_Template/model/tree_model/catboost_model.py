@@ -30,10 +30,10 @@ def MyCatboost(X_train_data, y_train_data, X_test_data, kfold,
     return
     ---------
     train_predictions : array
-        多分类:(n_sample, n_class)  二分类或回归:(n_sample, )
+        多分类:(n_sample, n_class)
         训练数据集预测结果
     test_predictions : array
-        多分类:(n_sample, n_class)  二分类或回归:(n_sample, )
+        多分类:(n_sample, n_class)
         测试数据集预测结果
     model_list : list
         训练模型组成的列表

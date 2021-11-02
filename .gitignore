@@ -6,10 +6,15 @@
 *.idea
 .ipynb_checkpoints
 
+# .pyc文件是.py文件编译后生成的字节码文件(byte code),类似Java的.class文件
+*.pyc
 
 # torch.utils.tensorboard产生的数据文件
 *._tb
 
+
+
+# *******************************************************************************************
 # 大型数据集(储存位置:百度网盘)
 ## datasets
 ### cats_vs_dogs

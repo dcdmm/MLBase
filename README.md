@@ -2,7 +2,7 @@
 1. 数学公式关键字(md),如:<font color='red' size=4>定理:</font>;<font color='red' size=4>定义:</font>;<font color='red' size=4>证明:</font> $ ...... $
 2. 算法伪代码标识(md),如:**for**  $ i=1,2,\dots, n $ **do**
 3. 代码or代码块标识(注释中),如:>import<;>%run<;>print("hello java)<
-4. 文件/文件夹命名,实现所用库-名称-任务-所用数据-待完成?,如:torch-example0-多分类-mnist-ing
+4. 文件/文件夹命名,实现所用库-名称-任务-所用数据-待完成?,如:torch-example0-多分类-mnist-ing*
 5. notebook笔记,vscode和notebook完全统一(后缀为-notebook的文件需使用notebook展示,vocode对公式编号支持还不够完善;不要逼我使用latex)
 6. 重要度标识
    1. 非常重要:★★★★★
@@ -105,19 +105,19 @@ $ E_{* \sim \mathcal{D}} [f( * )] $: 函数$f( * )$对$ * $在分布$\mathcal{D}
     * lightgbm: pip install lightgbm
     * catboost: pip install catboost  
     * PyTorch: https://pytorch.org/ 查看
+    * torchtext: conda install -c pytorch torchtext
     * tensorflow: pip install tensorflow-gpu
+    * pydot: conda install pydot(keras.utils.plot_model功能需要)
+    * pydot-ns: pip install pydot-ns(keras.utils.plot_model功能需要)
+    * pydot-plus: conda install pydot-plus(keras.utils.plot_model功能需要)
     * graphviz: pip install graphviz(需要安装Graphviz并配置环境变量Graphviz\bin)
     * jieba: pip install jieba
     * spacy: https://spacy.io/usage 查看(GPU版本和PyTorch GPU版本保持一致)
     * imblear: https://imbalanced-learn.org/stable/install.html 查看
-    * gensim: pip install gensim
     * torchsummary: pip install torchsummary
     * pytorch-tabnet: pip install pytorch-tabnet(依赖pytorch)
     * wget: pip install wget
     * bayesian-optimization: pip install bayesian-optimization
-    * tsfresh: pip install tsfresh(linux下先执行pip install --upgrade pip)
-    * pydot-ns: pip install pydot-ns(keras.utils.plot_model功能需要)
-    * pydot-plus: conda install pydot-plus(keras.utils.plot_model功能需要)
     * optuna: pip install optuna
 2. jupyter notebook目录功能安装及其配置
 	1. pip install jupyter_contrib_nbextensions   

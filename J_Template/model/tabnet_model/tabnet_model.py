@@ -43,6 +43,6 @@ def MyTabnet(X_train_data, y_train_data, X_test_data, kfold, tabnet_params, fit_
         model_list.append(clf)
 
         train_predictions[val_ind] = clf.predict(X_train_data[val_ind])
-        test_predictions += clf.predict(X_test_data).flatten() / 5
+        test_predictions += clf.predict(X_test_data).flatten() / kfold.n_splits
 
     return test_predictions, train_predictions, model_list

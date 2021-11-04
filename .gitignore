@@ -17,7 +17,16 @@
 # *******************************************************************************************
 # 大型数据集(储存位置:百度网盘)
 ## datasets
-### cats_vs_dogs
-### Numpy
-### PyTorch
+### 1. cats_vs_dogs
+### 2. Numpy
+### 3. PyTorch
 Other/datasets
+
+
+
+# *******************************************************************************************
+# 大型数据集(储存位置:百度网盘)
+## datasets
+### 1. movie.csv
+### 2. rating.csv
+J_Template/thinking/embedding_layers/datasets

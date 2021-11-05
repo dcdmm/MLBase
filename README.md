@@ -107,9 +107,8 @@ $ E_{* \sim \mathcal{D}} [f( * )] $: 函数$f( * )$对$ * $在分布$\mathcal{D}
     * PyTorch: https://pytorch.org/ 查看
     * torchtext: conda install -c pytorch torchtext
     * tensorflow: pip install tensorflow-gpu
-    * pydot: conda install pydot(keras.utils.plot_model功能需要)
-    * pydot-ns: pip install pydot-ns(keras.utils.plot_model功能需要)
-    * pydot-plus: conda install pydot-plus(keras.utils.plot_model功能需要)
+    * pydot: pip install pydot(keras.utils.plot_model功能需要)
+    * pydot-ns: pip install pydot-ng(keras.utils.plot_model功能需要)
     * graphviz: pip install graphviz(需要安装Graphviz并配置环境变量Graphviz\bin)
     * jieba: pip install jieba
     * spacy: https://spacy.io/usage 查看(GPU版本和PyTorch GPU版本保持一致)

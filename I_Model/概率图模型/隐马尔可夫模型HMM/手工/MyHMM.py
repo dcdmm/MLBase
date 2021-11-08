@@ -80,8 +80,10 @@ class MyHMM:
         """
         alpha = self.forward(visible_seq, t)
         beta = self.forward(visible_seq, t + 1)  # \beta_{t+1}(i)
-        part_above = alpha[pre_state] * self.A[pre_state, next_state] * self.B[next_state, visible_seq[t]] * beta[next_state]
-        part_below = np.sum(alpha * (self.A * (self.B[:, visible_seq[t]].reshape(-1, 1) * beta).reshape(1, -1)))  # 利用了不同形状下数组的广播机制
+        part_above = alpha[pre_state] * self.A[pre_state, next_state] * self.B[next_state, visible_seq[t]] * beta[
+            next_state]
+        part_below = np.sum(
+            alpha * (self.A * (self.B[:, visible_seq[t]].reshape(-1, 1) * beta).reshape(1, -1)))  # 利用了不同形状下数组的广播机制
         return part_above / part_below
 
     def baum_welch(self, visible_seq, n_iter=50, p=0.5):
@@ -136,7 +138,7 @@ class MyHMM:
             self.A = self.A / np.sum(self.A, axis=0)
             self.B = self.B / np.sum(self.B, axis=0)
 
-            zero_pro = (np.sum(self.pi == 0) + np.sum(self.A == 0) + np.sum(self.B == 0)) /\
+            zero_pro = (np.sum(self.pi == 0) + np.sum(self.A == 0) + np.sum(self.B == 0)) / \
                        (self.hidden_status_num * (self.hidden_status_num + self.visible_status_num + 1))
             if zero_pro > p:
                 break

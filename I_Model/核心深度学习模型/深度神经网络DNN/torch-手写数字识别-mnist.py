@@ -4,7 +4,6 @@ import torch.optim as optim
 from torchvision import datasets, transforms
 import torch.utils.data as Data
 
-
 batch_size = 200
 learning_rate = 0.01
 epochs = 100
@@ -23,9 +22,9 @@ train_loader = Data.DataLoader(
 test_loader = Data.DataLoader(
     datasets.MNIST('../../Other/datasets/PyTorch',
                    train=False, transform=transforms.Compose([
-                       transforms.ToTensor(),
-                       transforms.Normalize((0.1307,), (0.3081,))
-                   ])),
+            transforms.ToTensor(),
+            transforms.Normalize((0.1307,), (0.3081,))
+        ])),
     batch_size=batch_size, shuffle=True)
 
 
@@ -62,7 +61,7 @@ for epoch in range(1, epochs + 1):
         if (batch_idx + 1) % 100 == 0:
             print('Train Epoch: {} [{}/{} ({:.0f}%)]\tLoss: {:.6f}'.format(
                 epoch, (batch_idx + 1) * len(data), len(train_loader.dataset),
-                100. * batch_idx / len(train_loader), loss.item()))
+                       100. * batch_idx / len(train_loader), loss.item()))
 
     test_loss = 0
     correct = 0

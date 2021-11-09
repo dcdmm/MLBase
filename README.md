@@ -2,8 +2,8 @@
 1. 数学公式关键字(md),如:<font color='red' size=4>定理:</font>;<font color='red' size=4>定义:</font>;<font color='red' size=4>证明:</font> $ ...... $
 2. 算法伪代码标识(md),如:**for**  $ i=1,2,\dots, n $ **do**
 3. 代码or代码块标识(注释中),如:>import<;>%run<;>print("hello java)<
-4. 文件/文件夹命名,实现所用库_名称_任务_所用数据-待完成?,如:torch_example0_多分类_mnist-ing*
-5. notebook笔记,vscode和notebook完全统一(后缀为-notebook的文件需使用notebook展示,vocode对公式编号支持还不够完善;不要逼我使用latex)
+4. 文件/文件夹命名,实现所用库-名称-任务-所用数据-待完成?,如:torch-example0-多分类-mnist-ing
+5. notebook笔记命名,最后加"_help"(vscode和jupyter notebook基本统一;后缀为"_notebook"的文件需使用jupyter notebook展示,vocode对公式编号支持还不够完善;不要逼我使用latex)
 6. 重要度标识
    1. 非常重要:★★★★★
    2. 很重要:★★★★

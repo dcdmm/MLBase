@@ -27,8 +27,8 @@ def MyCatboost(X_train_data, y_train_data, X_test_data, kfold,
     fweight : 函数(返回训练数据集的权重)
         返回值为catboost模型Pool方法weight参数
 
-    return
-    ---------
+    Returns
+    -------
     train_predictions : array
         多分类:(n_sample, n_class)
         训练数据集预测结果

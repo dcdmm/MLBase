@@ -19,8 +19,9 @@ def MyTabnet(X_train_data, y_train_data, X_test_data, kfold, tabnet_params, fit_
         tabnet模型params参数
     fit_params : dict
         tabnet模型fit方法参数
-    return
-    ---------
+
+    Returns
+    -------
     train_predictions : array (n_sample, 1)
         训练数据集预测结果
     test_predictions : array (n_sample, )

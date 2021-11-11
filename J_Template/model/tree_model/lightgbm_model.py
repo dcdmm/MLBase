@@ -30,8 +30,8 @@ def MyLightGBM(X_train_data, y_train_data, X_test_data, kfold,
     categorical_feature : list(分类特征的索引) or 'auto'
         lightgbm模型Dataset方法categorical_feature参数
 
-    return
-    ---------
+    Returns
+    -------
     train_predictions : array
         多分类:(n_sample, n_class)  二分类或回归:(n_sample, )
         训练数据集预测结果

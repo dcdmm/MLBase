@@ -1,5 +1,4 @@
 import torch
-import torch.utils.data as Data
 
 
 class Train_Evaluate:
@@ -21,6 +20,7 @@ class Train_Evaluate:
     def train(self, train_loader, epoch, verbose, metric):
         """模型训练"""
         self.model.train()  # Sets the module in training mode
+        train_loader_len = len(train_loader.dataset)
         for batch_idx, (data, target) in enumerate(train_loader):
             data, target = data.to(self.device), target.to(self.device)
 
@@ -31,21 +31,25 @@ class Train_Evaluate:
             loss.backward()  # 反向传播
             self.optimizer.step()  # 执行一次优化步骤
             if (batch_idx + 1) % verbose == 0 or batch_idx == 0:
+                trained_num = (batch_idx + 1) * train_loader.batch_size
+                if trained_num >= train_loader_len:
+                    trained_num = train_loader_len  # 当drop_last=False时,trained_num可能会大于train_loader_len
                 if metric is not None:  # 带额外评估指标的输出
                     metric_name = metric.__name__
                     metric_result = metric(output, target)
                     if batch_idx == 0:
-                        print('Train Epoch: {:<2} [{:<5}/{} ({:<3.0f}%)]\tLoss: {:.6f}\t{}: {:.6f}'.format(epoch, 0,
-                                                                                                           len(train_loader.dataset),
-                                                                                                           0,
-                                                                                                           loss.item(),
-                                                                                                           metric_name,
-                                                                                                           metric_result))
+                        print('Train Epoch: {:<2} [{:<5}/{} ({:<3.0f}%)]\tLoss: {:.6f}\t{}: {:.6f}'.
+                              format(epoch, 0,
+                                     train_loader_len,
+                                     0,
+                                     loss.item(),
+                                     metric_name,
+                                     metric_result))
                     else:
                         print('Train Epoch: {:<2} [{:<5}/{} ({:<3.0f}%)]\tLoss: {:.6f}\t{}: {:6f}'.
                               format(epoch,
-                                     (batch_idx + 1) * len(data),
-                                     len(train_loader.dataset),
+                                     trained_num,
+                                     train_loader_len,
                                      (100. * (batch_idx + 1)) / len(train_loader),
                                      loss.item(), metric_name, metric_result))
                 else:
@@ -53,14 +57,14 @@ class Train_Evaluate:
                         print('Train Epoch: {:<2} [{:<5}/{} ({:<3.0f}%)]\tLoss: {:.6f}'.
                               format(epoch,
                                      0,
-                                     len(train_loader.dataset),
+                                     train_loader_len,
                                      0,
                                      loss.item()))
                     else:
                         print('Train Epoch: {:<2} [{:<5}/{} ({:<3.0f}%)]\tLoss: {:.6f}'.
                               format(epoch,
-                                     (batch_idx + 1) * len(data),
-                                     len(train_loader.dataset),
+                                     trained_num,
+                                     train_loader_len,
                                      (100. * (batch_idx + 1)) / len(train_loader),
                                      loss.item()))
 
@@ -68,17 +72,17 @@ class Train_Evaluate:
 
     def eval(self, data_loader, metric):
         """模型评估"""
-        data_loader_no_shuffle = Data.DataLoader(data_loader.dataset, batch_size=data_loader.batch_size,
-                                                 shuffle=False)  # 必须设定shuffle=False
         self.model.eval()  # Sets the module in training mode
         predict_list = []
+        y_true_list = []
         with torch.no_grad():
-            for data, _ in data_loader_no_shuffle:
+            for data, target in data_loader:
                 data = data.to(self.device)
                 predict = self.model(data)
                 predict_list.append(predict)
+                y_true_list.extend(target.tolist())
         predict_all = torch.cat(predict_list, dim=0)  # 合并每个批次的预测值
-        y_true = data_loader_no_shuffle.dataset.tensors[1].to(self.device)
+        y_true = torch.tensor(y_true_list).to(self.device)
         if metric is not None:
             return self.criterion(predict_all, y_true).item(), metric(predict_all, y_true).item()
         else:
@@ -96,14 +100,11 @@ class Train_Evaluate:
                 history['train_' + metric.__name__].append(self.eval(train_loader, metric=metric)[1])
                 if valid_loader is not None:
                     history['val_loss'].append(self.eval(valid_loader, metric=metric)[0])
-                    history['val_' + metric.__name__].append(self.eval(valid_loader, metric=metric)[0])
-                else:
-                    history.pop('val_loss')
+                    history['val_' + metric.__name__].append(self.eval(valid_loader, metric=metric)[1])
             else:
                 history['train_loss'].append(self.eval(train_loader, metric=metric))
                 if valid_loader is not None:
                     history['val_loss'].append(self.eval(valid_loader, metric=metric))
-                else:
-                    history.pop('val_loss')
+        if not history['val_loss']:
+            history.pop('val_loss')
         return history
-

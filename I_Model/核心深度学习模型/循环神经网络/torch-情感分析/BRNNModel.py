@@ -26,7 +26,7 @@ class BRNN(nn.Module, ABC):
         # embedded.sahpe=[sen len, batch_size, embedding_size]
         embedded = self.dropout(self.embed(text))
 
-        pack_embedded = nn.utils.rnn.pack_padded_sequence(embedded, text_lengths)  # pack sequence
+        pack_embedded = nn.utils.rnn.pack_padded_sequence(embedded, text_lengths, enforce_sorted=False)  # pack sequence
 
         # hidden.shape=[num_layers * num directions, batch_size, hidden_size]
         # cell.shape=[num_layers * num directions, batch_size, hidden_size]

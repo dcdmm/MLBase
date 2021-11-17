@@ -12,7 +12,11 @@
 # torch.utils.tensorboard产生的数据文件
 *._tb
 
+# 预训练词向量文件
+*.vector_cache
 
+# 网络下载的仅用于该小项目的文件
+*.data
 
 # *******************************************************************************************
 # 大型数据集(储存位置:百度网盘)
@@ -30,3 +34,5 @@ Other/datasets
 ### 1. movie.csv
 ### 2. rating.csv
 J_Template/thinking/embedding层处理类别特征/datasets
+
+

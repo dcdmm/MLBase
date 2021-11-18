@@ -1,0 +1,185 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "import torch\n",
+    "from torch.nn.utils.rnn import pad_sequence\n",
+    "import spacy\n",
+    "from torchtext.datasets import IMDB\n",
+    "from torchtext.vocab import build_vocab_from_iterator\n",
+    "import torch.utils.data as Data"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "outputs": [],
+   "source": [
+    "test_iter = IMDB(split='test')\n",
+    "spacy_en = spacy.load('en_core_web_sm')\n",
+    "\n",
+    "\n",
+    "def yield_tokens(data_iter):\n",
+    "    for _, text in data_iter:\n",
+    "        yield [tok.text for tok in spacy_en.tokenizer(text)]  # 分词\n",
+    "\n",
+    "\n",
+    "vocab = build_vocab_from_iterator(yield_tokens(test_iter))\n",
+    "vocab.insert_token(\"<unk>\", 0)\n",
+    "vocab.insert_token(\"<pad>\", 1)\n",
+    "vocab.insert_token(\"<SOS>\", 2)\n",
+    "vocab.insert_token(\"<EOS>\", 3)\n",
+    "vocab.set_default_index(0)"
+   ],
+   "metadata": {
+    "collapsed": false,
+    "pycharm": {
+     "name": "#%%\n"
+    }
+   }
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "outputs": [],
+   "source": [
+    "# 文本内容转换为数字\n",
+    "text_transform = lambda x: [vocab['<SOS>']] + [vocab[token] for token in\n",
+    "                                               [tok.text for tok in spacy_en.tokenizer(x)]] + [vocab['<EOS>']]\n",
+    "\n",
+    "# 文本标签转换为数字\n",
+    "label_transform = lambda x: 1.0 if x == 'pos' else 0.0\n",
+    "\n",
+    "\n",
+    "def collate_batch(batch):\n",
+    "    \"\"\"\n",
+    "    对文本标签和文本内容进行处理使之可以用于pack_padded_sequence操作\n",
+    "    Parameters\n",
+    "    ---------\n",
+    "    batch : 每个batch数据\n",
+    "\n",
+    "    Returns\n",
+    "    label_tensor : 每个batch数据文本标签的处理输出\n",
+    "    text_pad : 每个batch数据文本内容的处理输出\n",
+    "    lengths : 每个batch数据文本内容的长度\n",
+    "    -------\n",
+    "    \"\"\"\n",
+    "    label_list, text_list, lengths = [], [], []\n",
+    "    for (_label, _text) in batch:\n",
+    "        label_list.append(label_transform(_label))\n",
+    "        processed_text = torch.tensor(text_transform(_text))\n",
+    "        lengths.append(len(processed_text))\n",
+    "        text_list.append(processed_text)\n",
+    "    label_tensor = torch.tensor(label_list)\n",
+    "    text_pad = pad_sequence(text_list, batch_first=True, padding_value=0)\n",
+    "    lengths = torch.tensor(lengths)\n",
+    "    return label_tensor, text_pad, lengths"
+   ],
+   "metadata": {
+    "collapsed": false,
+    "pycharm": {
+     "name": "#%%\n"
+    }
+   }
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "outputs": [],
+   "source": [
+    "test_iter = IMDB(split='test')\n",
+    "test_dataloader = Data.DataLoader(test_iter, batch_size=128, shuffle=False, collate_fn=collate_batch)"
+   ],
+   "metadata": {
+    "collapsed": false,
+    "pycharm": {
+     "name": "#%%\n"
+    }
+   }
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "(tensor([0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,\n",
+      "        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,\n",
+      "        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,\n",
+      "        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,\n",
+      "        0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,\n",
+      "        0., 0., 0., 0., 0., 0., 0., 0.]), tensor([[   2,   13,  139,  ...,    0,    0,    0],\n",
+      "        [   2, 5632,    4,  ...,    0,    0,    0],\n",
+      "        [   2,  117,    7,  ...,    0,    0,    0],\n",
+      "        ...,\n",
+      "        [   2,   57,  215,  ...,    0,    0,    0],\n",
+      "        [   2,   69,   11,  ...,    0,    0,    0],\n",
+      "        [   2, 1655,  209,  ...,    0,    0,    0]]), tensor([ 305,  246,  147,  423,  153,  208,  333,  198,  170,  190,  152,  221,\n",
+      "         139,  472,  152,  224,  295,  181,  324,  257,  195,  500,  140,  432,\n",
+      "         301,  232,  273,  250,  160,   85,  248,  236,  454,  185,  259,  188,\n",
+      "         641,  270,  134,  203,  290,   30,  237,  259,  225,  147,  401,   66,\n",
+      "         176,   42,  667,   66,  213,  185,  507,  434,  765,  668,  329,  190,\n",
+      "         692,   63,  176,   89,   83,  124,   61,  471,  172,  613,  303,  321,\n",
+      "         225,  915,  489,  224,  568,  214,  406,  401,  171,  490,  170,  156,\n",
+      "         183,  326,  558,  221,  662,  318,  260,  193,  174,  744,  146,  289,\n",
+      "         171,  249,  532,  151,  155,   61,  306,  310,  180,  190,  256,   63,\n",
+      "         201,  782,  179,  154,  422,  156,  158,  317,  227, 1183,  451,  238,\n",
+      "         250,  388,  432,  202,  198,  302,  160,  189]))\n"
+     ]
+    }
+   ],
+   "source": [
+    "for i in test_dataloader:\n",
+    "    print(i)\n",
+    "    break"
+   ],
+   "metadata": {
+    "collapsed": false,
+    "pycharm": {
+     "name": "#%%\n"
+    }
+   }
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "outputs": [],
+   "source": [],
+   "metadata": {
+    "collapsed": false,
+    "pycharm": {
+     "name": "#%%\n"
+    }
+   }
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 2
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython2",
+   "version": "2.7.6"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 0
+}

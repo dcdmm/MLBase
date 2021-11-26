@@ -23,7 +23,7 @@ class Model_original:
                 X = X_train[d]
                 y = y_train[d]
                 if y * self.sign(X, self.w, self.b) <= 0:
-                    self.w = self.w + self.l_rate * np.dot(y, X)  # 梯度下降法(多维)
+                    self.w = self.w + self.l_rate * np.dot(y, X)  # 梯度下降法_多维
                     self.b = self.b + self.l_rate * y
                     wrong_count += 1
             if wrong_count == 0:

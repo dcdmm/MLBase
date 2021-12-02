@@ -5,7 +5,7 @@
 2. 算法伪代码标识(md),如:**for**  $ i=1,2,\dots, n $ **do**
 3. 代码or代码块标识(注释中),如:>import<;>%run<;>print("hello java)<
 4. 文件/文件夹命名,编号_名称_实现方式_所用数据_备注_待完成?(难以区分使用OOO进行区分),如:a_OOO__name__OOO_sklearn_mnist_多分类_ing
-5. notebook笔或帮助文件命名,最后加"_help"(vscode和jupyter notebook预览以统一;后缀为"_notebook"的文件需使用jupyter notebook展示,vocode对公式编号支持还不够完善)
+5. notebook笔或帮助文件命名,最后加"_help"(预览效果排序:jupyter notebook>vscode>pycharm;后缀为:"_notebook"表示需使用jupyter notebok预览)
 6. 重要度标识
     1. 非常重要:★★★★★
     2. 很重要:★★★★
@@ -37,8 +37,6 @@ $ E_{* \sim \mathcal{D}} [f( * )] $: 函数$f( * )$对$ * $在分布$\mathcal{D}
     * 均使用
         * reshape
         * ravel
-
-
 2. pandas模块
     * 均$*.*$
         * .replace
@@ -57,8 +55,6 @@ $ E_{* \sim \mathcal{D}} [f( * )] $: 函数$f( * )$对$ * $在分布$\mathcal{D}
         * pd.read_csv
         * ...
         * pd.set_option
-
-
 3. pytorch模块
     1. torch.\*
         1. torch.autograd
@@ -81,8 +77,6 @@ $ E_{* \sim \mathcal{D}} [f( * )] $: 函数$f( * )$对$ * $在分布$\mathcal{D}
         11. .repeat
     3. 均使用
         1. reshape
-
-
 4. tensorflow
     1. tf.\*
         1. torch.constant

@@ -16,7 +16,7 @@ class Residual(nn.Module, ABC):
                                kernel_size=3, padding=1)
         if use_1x1conv:
             self.conv3 = nn.Conv2d(in_channels, out_channels,
-                                   kernel_size=1, stride=stride)
+                                   kernel_size=1, stride=stride)  # 1x1的卷积核
         else:
             self.conv3 = None
         self.bn1 = nn.BatchNorm2d(out_channels)
@@ -27,8 +27,8 @@ class Residual(nn.Module, ABC):
         Y = self.bn2(self.conv2(Y))
         if self.conv3:
             X = self.conv3(X)
-
-        return F.relu(Y + X)
+        Y += X  # 残差连接
+        return F.relu(Y)
 
 
 if __name__ == '__main__':
@@ -36,5 +36,8 @@ if __name__ == '__main__':
     blk = Residual(3, 3)
     print(blk(img).shape)
 
-    blk1 = Residual(3, 6, use_1x1conv=True, stride=2)  # 也可以增加输出的通道数同时减半输出的高和宽
-    print(blk1(img).shape)
+    blk1 = Residual(3, 3, use_1x1conv=True)
+    print(blk1(img).shape)  # 输出大小不变
+
+    blk2 = Residual(3, 6, use_1x1conv=True, stride=2)  # 也可以增加输出的通道数同时减半输出的高和宽
+    print(blk2(img).shape)

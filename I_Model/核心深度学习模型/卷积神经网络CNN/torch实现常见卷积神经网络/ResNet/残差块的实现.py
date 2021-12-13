@@ -27,7 +27,7 @@ class Residual(nn.Module, ABC):
         Y = self.bn2(self.conv2(Y))
         if self.conv3:
             X = self.conv3(X)
-        Y += X  # 残差连接
+        Y += X  # 残差连接(保证Y和X可加)
         return F.relu(Y)
 
 

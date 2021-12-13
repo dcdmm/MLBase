@@ -3,7 +3,7 @@
 1. 数学公式关键字(md),如:<font color='red' size=4>定理:</font>;<font color='red' size=4>定义:</font>;<font color='red' size=4>
    证明:</font> $ ...... $
 2. 算法伪代码标识(md),如:**for**  $ i=1,2,\dots, n $ **do**
-3. 代码or代码块标识(注释中),如:>import<;>%run<;>print("hello java)<
+3. 代码or代码块标识(注释中),如:`import`;`%run`;`print("hello java)`
 4. 文件/文件夹命名,编号_名称_实现方式_所用数据_备注_待完成?(难以区分使用OOO进行区分),如:a_OOO__name__OOO_sklearn_mnist_多分类_ing
 5. notebook笔或帮助文件命名,最后加"_help"(预览效果排序:jupyter notebook>vscode>pycharm;后缀为:"_notebook"表示需使用jupyter notebok预览)
 6. 重要度标识

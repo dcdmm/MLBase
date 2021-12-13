@@ -4,7 +4,7 @@ from pytorch_tabnet.tab_model import TabNetRegressor
 
 def MyTabnet(X_train_data, y_train_data, X_test_data, kfold, tabnet_params, fit_params):
     """
-    Tabnet模型封装(回归为例;具体任务微调)
+    Tabnet模型封装(回归为例;具体任务对应修改)
     Parameters
     ---------
     X_train_data : numpy array (n_sample, n_feature)

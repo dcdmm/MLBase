@@ -7,18 +7,45 @@ class Train_Evaluate:
     """
 
     def __init__(self, model, optimizer, criterion, epochs=5, device=None):
+        """
+        模型初始化
+        Parameters
+        ---------
+        model :
+            神经网络模型
+        optimizer : torch optim
+            优化器
+        criterion : torch loss
+            损失函数(损失值必须为标量)
+        epochs : int
+            训练轮数
+        device : torch device(default=None)
+            设备
+        """
         if device is None:
             self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         else:
             self.device = device
         self.model = model
         self.model.to(device)
-        self.optimizer = optimizer  # 优化器
-        self.criterion = criterion  # 损失函数losses
-        self.epochs = epochs  # 训练轮数
+        self.optimizer = optimizer
+        self.criterion = criterion
+        self.epochs = epochs
 
     def train(self, train_loader, epoch, verbose, metric):
-        """模型训练"""
+        """
+        模型训练
+        Parameters
+        ---------
+        train_loader : torch dataloader.DataLoader
+            训练数据集
+        epoch: int
+            当前为第几轮训练
+        verbose: int
+            每多少个批次打印一次中间结果
+        metric:
+            其他评估指标
+        """
         self.model.train()  # Sets the module in training mode
         train_loader_len = len(train_loader.dataset)
         for batch_idx, (data, target) in enumerate(train_loader):
@@ -30,7 +57,11 @@ class Train_Evaluate:
             loss = self.criterion(output, target)
             loss.backward()  # 反向传播
             self.optimizer.step()  # 执行一次优化步骤
-            if (batch_idx + 1) % verbose == 0 or batch_idx == 0:
+
+            # 每verbose次输出一次中间结果
+            # 输出第一个批次的结果
+            # 输出所有数据的结果
+            if (batch_idx + 1) % verbose == 0 or batch_idx == 0 or batch_idx == (len(train_loader) - 1):
                 trained_num = (batch_idx + 1) * train_loader.batch_size
                 if trained_num >= train_loader_len:
                     trained_num = train_loader_len  # 当drop_last=False时,trained_num可能会大于train_loader_len
@@ -71,7 +102,15 @@ class Train_Evaluate:
         print('-' * 100)
 
     def eval(self, data_loader, metric):
-        """模型评估"""
+        """
+        模型评估
+        Parameters
+        ---------
+        data_loader : torch dataloader.DataLoader
+            验证数据集
+        metric :
+            其他评估指标
+        """
         self.model.eval()  # Sets the module in training mode
         predict_list = []
         y_true_list = []
@@ -91,6 +130,21 @@ class Train_Evaluate:
     def train_eval(self, train_loader, valid_loader=None, metric=None, verbose=20):
         """
         模型训练和评估
+        Parameters
+        ---------
+        train_loader : torch dataloader.DataLoader
+            训练数据集
+        valid_loader : torch dataloader.DataLoader
+            验证数据集
+        metric :
+            其他评估指标
+        verbose : int
+            每多少个批次打印一次中间结果
+
+        Returns
+        -------
+        history : Dict
+            不同轮次下训练数据集和验证数据集的损失值(和其他评估指标)
         """
         history = {'train_loss': [], 'val_loss': []}
         for epoch in range(self.epochs):

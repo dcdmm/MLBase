@@ -3,7 +3,7 @@ import torch
 
 class Train_Evaluate:
     """
-    pytorch模型训练与评估组件具体该找
+    pytorch模型训练与评估组件具体实现
     """
 
     def __init__(self, model, optimizer, criterion, epochs=5, device=None):

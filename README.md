@@ -95,24 +95,25 @@ $ E_{* \sim \mathcal{D}} [f( * )] $: 函数$f( * )$对$ * $在分布$\mathcal{D}
 
 #### 额外安装(初始安装为Anconda环境)
 
-1. 额外安装的模块
+1. 核心安装模块
     * xgboost: pip install xgboost(linux下先执行pip install --upgrade pip)
     * lightgbm: pip install lightgbm
     * catboost: pip install catboost
-    * PyTorch: [https://pytorch.org/](https://spacy.io/usage) 查看
+    * PyTorch: [https://pytorch.org/](https://pytorch.org/) 查看
     * torchtext: conda install -c pytorch torchtext
     * tensorflow: pip install tensorflow-gpu
-    * pydot: pip install pydot(keras.utils.plot_model功能需要)
-    * pydot-ns: pip install pydot-ng(keras.utils.plot_model功能需要)
-    * graphviz: pip install graphviz(需要安装Graphviz并配置环境变量Graphviz\bin)
+    * pydot: pip install pydot(keras.utils.plot_model依赖)
+    * pydot-ns: pip install pydot-ng(keras.utils.plot_model依赖)
+    * graphviz: pip install graphviz(需要安装Graphviz并配置系统环境变量Path +: Graphviz\bin)
     * jieba: pip install jieba
-    * spacy: [https://spacy.io/usage](https://spacy.io/usage) 查看(与其他模块可能存在冲突,虚拟环境单独安装,见虚拟环境spacy_test)
+    * spacy: [https://spacy.io/usage](https://spacy.io/usage) 查看(其他模块冲突,暂未解决,虚拟环境按照)
     * imblear: [https://imbalanced-learn.org/stable/install.html](https://imbalanced-learn.org/stable/install.html) 查看
     * torchsummary: pip install torchsummary
     * pytorch-tabnet: pip install pytorch-tabnet(依赖pytorch)
     * wget: pip install wget
     * bayesian-optimization: pip install bayesian-optimization
     * optuna: pip install optuna
+    * gensim: [https://radimrehurek.com/gensim/](https://radimrehurek.com/gensim/)查看(其他模块冲突,暂未解决,虚拟环境按照)
 2. jupyter notebook目录功能安装及其配置
     1. pip install jupyter_contrib_nbextensions
     2. pip install jupyter_nbextensions_configurator

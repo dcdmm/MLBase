@@ -28,7 +28,7 @@ class Train_Evaluate:
             self.optimizer.zero_grad()  # 梯度清零
             output = self.model(text, lengths).squeeze()  # 转换为向量
             loss = self.criterion(output, target)
-            loss.backward()  # 反向传播
+            loss.backward()  # 梯度计算
             self.optimizer.step()  # 执行一次优化步骤
             if (batch_idx + 1) % verbose == 0 or batch_idx == 0:
                 trained_num = (batch_idx + 1) * train_loader.batch_size

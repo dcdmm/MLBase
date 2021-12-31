@@ -35,6 +35,7 @@ class Train_Evaluate:
     def train(self, train_loader, epoch, verbose, metric):
         """
         模型训练
+
         Parameters
         ---------
         train_loader : torch dataloader.DataLoader
@@ -55,7 +56,7 @@ class Train_Evaluate:
             self.optimizer.zero_grad()  # 梯度清零
             output = self.model(data)
             loss = self.criterion(output, target)
-            loss.backward()  # 反向传播
+            loss.backward()  # 梯度计算
             self.optimizer.step()  # 执行一次优化步骤
 
             # 每verbose次输出一次中间结果
@@ -104,6 +105,7 @@ class Train_Evaluate:
     def eval(self, data_loader, metric):
         """
         模型评估
+
         Parameters
         ---------
         data_loader : torch dataloader.DataLoader
@@ -111,7 +113,7 @@ class Train_Evaluate:
         metric :
             其他评估指标
         """
-        self.model.eval()  # Sets the module in training mode
+        self.model.eval()  # Sets the module in evaluation mode.
         predict_list = []
         y_true_list = []
         with torch.no_grad():

@@ -18,6 +18,11 @@
 # 网络下载的仅用于该小项目的文件
 *.data
 
+# 忽略的词向量文件
+cnew*
+/I_Model/核心深度学习模型/word2vec/glove.6B.50d.txt
+
+
 # *******************************************************************************************
 # 大型数据集(储存位置:百度网盘)
 ## datasets
@@ -34,5 +39,3 @@ Other/datasets
 ### 1. movie.csv
 ### 2. rating.csv
 J_Template/paradigm/embedding层处理类别特征/datasets
-
-

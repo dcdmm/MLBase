@@ -4,6 +4,7 @@
 ### Example user template
 # IntelliJ project files
 *.idea
+
 .ipynb_checkpoints
 
 # .pyc文件是.py文件编译后生成的字节码文件(byte code),类似Java的.class文件
@@ -20,7 +21,7 @@
 
 # 忽略的词向量文件
 cnew*
-/I_Model/核心深度学习模型/word2vec/glove.6B.50d.txt
+/I_Model/核心深度学习模型/word2vec_glove/glove.6B.50d.txt
 
 
 # *******************************************************************************************
@@ -38,3 +39,4 @@ Other/datasets
 ### 1. movie.csv
 ### 2. rating.csv
 J_Template/paradigm/embedding层处理类别特征/datasets
+

@@ -1,7 +1,7 @@
 import pymysql
 
 
-class MysqlDB(object):
+class MysqlDB:
     def __init__(self, host, password, database, user='root', port=3306, charset='utf8'):
         # Host where the database server is located.
         self.host = host
@@ -9,11 +9,11 @@ class MysqlDB(object):
         self.password = password
         # Database to use, None to not use a particular one.
         self.database = database
-        # Username to log in as.
+        # Username to log in as. (default: 'root')
         self.user = user
         #  MySQL port to use, default is usually OK. (default: 3306)
         self.port = port
-        # Charset to use.
+        # Charset to use. (default: 'utf8')
         self.charset = charset
         # Establish a connection to the MySQL database
         self.connector = pymysql.connect(host=host, user=user, password=password, db=database, port=port,
@@ -39,7 +39,7 @@ class MysqlDB(object):
         # Execute a query.
         # Returns:  Number of affected rows.
         row_count = cur.execute(sql)
-        print(row_count + "of affected rows!")
+        print(row_count + " of affected rows!")
         # Fetch all the rows.
         data = cur.fetchall()
         columns = [col[0] for col in cur.description]

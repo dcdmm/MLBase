@@ -56,14 +56,14 @@ class MysqlDB:
             MySQL语句
         """
         cur = self.connector.cursor()
-        cur.execute(sql)
+        row_count = cur.execute(sql)
+        print(row_count + " of affected rows!")
         # Commit changes to stable storage
         self.connector.commit()
         cur.close()
         if close:
             self.connector.close()
 
-    def close_con(self, close=True):
-        """是否关闭数据连接"""
-        if close:
-            self.connector.close()
+    def close_con(self):
+        """关闭数据连接"""
+        self.connector.close()

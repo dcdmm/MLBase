@@ -29,7 +29,7 @@ $ E_{* \sim \mathcal{D}} [f( * )] $: 函数$f( * )$对$ * $在分布$\mathcal{D}
     * arr.\*
         * .astype
         * .flatten
-    * 均使用
+    * 均可
         * reshape
         * ravel
 2. pandas模块
@@ -40,7 +40,7 @@ $ E_{* \sim \mathcal{D}} [f( * )] $: 函数$f( * )$对$ * $在分布$\mathcal{D}
         * .sum
         * .concat
         * ...
-    * 除:
+    * 除(定义语句):
         * pd.DataFrame
         * pd.Series
         * pd.date_range
@@ -101,9 +101,10 @@ $ E_{* \sim \mathcal{D}} [f( * )] $: 函数$f( * )$对$ * $在分布$\mathcal{D}
     * tensorflow: pip install tensorflow-gpu
     * pydot: pip install pydot(keras.utils.plot_model依赖)
     * pydot-ns: pip install pydot-ng(keras.utils.plot_model依赖)
-    * gensim: [https://radimrehurek.com/gensim/](https://radimrehurek.com/gensim/)查看(其他模块冲突,暂未解决,虚拟环境安装)
+    * gensim: [https://radimrehurek.com/gensim/](https://radimrehurek.com/gensim/)查看(其他模块冲突,暂未解决,虚拟环境:gensim_test)
     * jieba: pip install jieba
-    * spacy: [https://spacy.io/usage](https://spacy.io/usage) 查看(其他模块冲突,暂未解决,虚拟环境按照)
+    * spacy: [https://spacy.io/usage](https://spacy.io/usage) 查看(其他模块冲突,暂未解决,虚拟环境:spacy_test)
+    * pip install nltk
     * imblear: [https://imbalanced-learn.org/stable/install.html](https://imbalanced-learn.org/stable/install.html) 查看
     * bayesian-optimization: pip install bayesian-optimization
     * optuna: pip install optuna
@@ -127,5 +128,6 @@ $ E_{* \sim \mathcal{D}} [f( * )] $: 函数$f( * )$对$ * $在分布$\mathcal{D}
 * <<统计推断>>(George Casella, Roger L. Berger)
 * <<矩阵分析与应用>>(张贤达)
 * 白板推导(B站)
+* 跟李沐学AI(B站)
 * python/numpy/pandas/matplotlib/seaborn/sklearn/pytorch等官网
 * ......

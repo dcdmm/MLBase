@@ -2,7 +2,7 @@ from tensorflow import keras
 
 
 def MyFFNN(num_input_shape, hidden_units, input_dim, output_dim):
-    """利用神经网络的embedding层处理类别特征"""
+    """使用embedding层处理类别特征"""
     # Each instance will consist of two inputs: a single user id, and a single movie id
     stock_id_input = keras.Input(shape=(1,), name='stock_id')
     num_input = keras.Input(shape=(num_input_shape,), name='num_data')

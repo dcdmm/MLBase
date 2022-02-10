@@ -14,8 +14,17 @@ class TodoSimple(Resource):
 
     def post(self, todo_id):
         """POST请求时调用"""
-        todos[todo_id] = request.form['data']  # 从form表单获取
-        return {todo_id: todos[todo_id]}
+        print(request.form)  # The form parameters
+        # url命令发送JSON数据
+        # curl  -H "Content-Type: application/json" http://127.0.0.1:5000/todo1  -X POST -d "{\"data\":123}"
+        # json里的双引号必须使用反斜杠转义
+        print(request.json)  # The parsed JSON data if :attr:`mimetype` indicates JSON
+        if request.json is None:
+            todos[todo_id] = request.form['data']
+            return {todo_id: todos[todo_id]}
+        else:
+            todos[todo_id] = request.json['data']
+            return {todo_id: todos[todo_id]}
 
 
 api.add_resource(TodoSimple, '/<string:todo_id>')  # todo_id表示变量

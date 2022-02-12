@@ -3,7 +3,7 @@ from flask import Flask
 app = Flask(__name__)
 
 
-# string: 字符串(除斜杠符(/));默认
+# string: 字符串(不包括斜杠符(/));默认
 # int: 整数
 # float: 浮点值
 # path: 接受用作目录分隔符的斜杠符(/)

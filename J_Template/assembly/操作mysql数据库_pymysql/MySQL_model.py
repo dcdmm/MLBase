@@ -39,7 +39,7 @@ class MysqlDB:
         # Execute a query.
         # Returns:  Number of affected rows.
         row_count = cur.execute(sql)
-        print(row_count + " of affected rows!")
+        print(row_count, " of affected rows!")
         # Fetch all the rows.
         data = cur.fetchall()
         columns = [col[0] for col in cur.description]
@@ -57,7 +57,7 @@ class MysqlDB:
         """
         cur = self.connector.cursor()
         row_count = cur.execute(sql)
-        print(row_count + " of affected rows!")
+        print(row_count, " of affected rows!")
         # Commit changes to stable storage
         self.connector.commit()
         cur.close()

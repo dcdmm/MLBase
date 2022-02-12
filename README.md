@@ -1,4 +1,4 @@
-#### 个人习惯规约
+### 个人习惯规约
 
 1. 数学公式关键字(md),如:<font color='red' size=4>定理:</font>;<font color='red' size=4>定义:</font>;<font color='red' size=4>
    证明:</font> $ ...... $
@@ -7,7 +7,7 @@
 4. 文件/文件夹命名,编号_名称_实现方式_所用数据_备注_待完成?_重要?(难以区分使用OOO进行区分),如:a_OOO__name__OOO_sklearn_mnist_多分类_ing_er
 5. notebook笔或帮助文件命名,最后加"_help"(预览效果排序:jupyter notebook~~vscode>pycharm;后缀为:"_notebook"表示需使用jupyter notebok预览)
 
-#### 符号系统
+### 符号系统
 
 $ x $: 标量      
 $ \mathbf{x}$:向量or序列(某些字符不能加粗,使用"\boldsymbol",如$\boldsymbol{\mu}$)
@@ -17,7 +17,7 @@ $ \mathbb{I}(*) $:  指示函数,在$*$为真/假时分别取值为1/0
 $ \mathrm{sign}(*) $:  符号函数,在<0,=0,>0时分别取值为-1,0,1  
 $ E_{* \sim \mathcal{D}} [f( * )] $: 函数$f( * )$对$ * $在分布$\mathcal{D}$下的数学期望;明确意义时可省略$\mathcal{D}$[和,或]$ * $
 
-#### 模块使用习惯
+### 模块使用习惯
 
 1. numpy模块
     * np.\*
@@ -88,7 +88,7 @@ $ E_{* \sim \mathcal{D}} [f( * )] $: 函数$f( * )$对$ * $在分布$\mathcal{D}
         3. .assign_add
         4. .assign_sub
 
-#### 额外安装(初始安装为Anconda环境)
+### 额外安装(初始安装为Anconda环境)
 
 1. 核心安装模块
     * xgboost: pip install xgboost(linux下先执行pip install --upgrade pip)
@@ -116,7 +116,7 @@ $ E_{* \sim \mathcal{D}} [f( * )] $: 函数$f( * )$对$ * $在分布$\mathcal{D}
     2. pip install jupyter_nbextensions_configurator
     3. jupyter contrib nbextension install --user
 
-#### 主要参考(排名不分先后)
+### 主要参考(排名不分先后)
 
 * <<统计学习方法>>(李航)
 * <<机器学习>>(周志华)

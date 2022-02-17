@@ -1,8 +1,8 @@
 ### 个人习惯规约
 
-1. 数学公式关键字(md),如:<font color='red' size=4>定理:</font>;<font color='red' size=4>定义:</font>;<font color='red' size=4>
-   证明:</font> $ ...... $
-2. 算法伪代码标识(md),如:**for**  $ i=1,2,\dots, n $ **do**
+1. 数学关键字(.md),如:<font color='red' size=4>定理:</font>;<font color='red' size=4>定义:</font>;<font color='red' size=4>
+   证明:</font>;<font color='red' size=4>分析:</font>$ ...... $
+2. 算法伪代码标识(.md),如:**for**  $ i=1,2,\dots, n $ **do**
 3. 代码or代码块标识(注释中),如:`import`;`%run`;`print("hello java)`
 4. 文件/文件夹命名,编号_名称_实现方式_所用数据_备注_待完成?_重要?(难以区分使用OOO进行区分),如:a_OOO__name__OOO_sklearn_mnist_多分类_ing_er
 5. notebook笔或帮助文件命名,最后加"_help"(预览效果排序:jupyter notebook~~vscode>pycharm;后缀为:"_notebook"表示需使用jupyter notebok预览)
@@ -130,5 +130,7 @@ $ E_{* \sim \mathcal{D}} [f( * )] $: 函数$f( * )$对$ * $在分布$\mathcal{D}
 * <<矩阵分析与应用>>(张贤达)
 * 白板推导(B站)
 * 跟李沐学AI(B站)
+* 2021春机器学习课程(李宏毅)
+* Natural Language Processing with Attention Models(吴恩达)
 * python/numpy/pandas/matplotlib/sklearn/pytorch/tensorflow等官网
 * ......

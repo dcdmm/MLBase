@@ -48,7 +48,8 @@ class Trainer:
             self.test_acc_list.append(test_acc)
 
             if self.verbose:
-                print("======current_iter:" + str(self.current_iter) + ", train acc:" + str(train_acc) + ", dir_test acc:" + str(test_acc) + "=======")
+                print("======current_iter:" + str(self.current_iter) + ", train acc:" + str(
+                    train_acc) + ", dir_test acc:" + str(test_acc) + "=======")
         self.current_iter += 1
 
     def train(self):

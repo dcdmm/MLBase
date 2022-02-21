@@ -21,7 +21,8 @@ class Convolution:
         """卷积层的前向传播"""
         N, C, H, W = x.shape  # batch_num, channel, height, width
         FN, C, FH, FW = self.W.shape  # 滤波器数量, channel, height, width;滤波器通道数必须与输入数据通道数相等
-        out_h, out_w, col = im2col(x, FH, FW, self.stride, self.pad)  # (输出高,输出宽,x的二维展开);col.shape=(N*out_h*out_w, C*FH*FW)
+        out_h, out_w, col = im2col(x, FH, FW, self.stride,
+                                   self.pad)  # (输出高,输出宽,x的二维展开);col.shape=(N*out_h*out_w, C*FH*FW)
         col_W = self.W.reshape(FN, -1).T  # 滤波器合适的二维展开(C*FH*FW, FN)
         out = np.dot(col, col_W) + self.b  # out.shape=(N*out_h*out_w, FN)
         out = out.reshape(N, out_h, out_w, -1).transpose(0, 3, 1, 2)  # out.shape=(N, FN, out_h, out_w)

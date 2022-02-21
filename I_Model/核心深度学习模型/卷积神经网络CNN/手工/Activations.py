@@ -46,6 +46,7 @@ if __name__ == '__main__':
     sigmoid_forward = sigmoid.forward(arr_test)
 
     import matplotlib.pyplot as plt
+
     plt.plot(arr_test, relu_forward, color='red')
     plt.plot(arr_test, sigmoid_forward, color='b')
     plt.show()

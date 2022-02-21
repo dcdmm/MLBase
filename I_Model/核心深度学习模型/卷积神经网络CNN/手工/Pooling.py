@@ -17,8 +17,9 @@ class Pooling:
     def forward(self, x):
         """池化层的前向传播"""
         N, C, H, W = x.shape
-        out_h, out_w, col = im2col(x, self.pool_h, self.pool_w, self.stride, self.pad)  # col.shape=(N*out_h*out_w, c*self.pool_h*self.pool_w)
-        col = col.reshape(-1, self.pool_h*self.pool_w)  # col.shape=(N*out_h*out_w*c, self.pool_h*self.pool_w)
+        out_h, out_w, col = im2col(x, self.pool_h, self.pool_w, self.stride,
+                                   self.pad)  # col.shape=(N*out_h*out_w, c*self.pool_h*self.pool_w)
+        col = col.reshape(-1, self.pool_h * self.pool_w)  # col.shape=(N*out_h*out_w*c, self.pool_h*self.pool_w)
 
         arg_max = np.argmax(col, axis=1)
         out = np.max(col, axis=1)  # 每一行的最大值(Max池化)

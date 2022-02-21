@@ -37,20 +37,23 @@ class SimpleConvNet:
         pool_pad = pool_param['pool_pid']
         pool_stride = pool_param['pool_stride']
 
-        conv_output_size = int(np.floor((input_dim[1] - filter_size + 2*filter_pad + filter_stride) / filter_stride))  # 卷积层每个通道的形状
-        pool_out_h = int(np.floor((conv_output_size + 2 * pool_pad - pool_h + pool_stride) / pool_stride))  # 池化层输出每个通道的高
-        pool_out_w = int(np.floor((conv_output_size + 2 * pool_pad - pool_w + pool_stride) / pool_stride))  # 池化层输出每个通道的宽
+        conv_output_size = int(
+            np.floor((input_dim[1] - filter_size + 2 * filter_pad + filter_stride) / filter_stride))  # 卷积层每个通道的形状
+        pool_out_h = int(
+            np.floor((conv_output_size + 2 * pool_pad - pool_h + pool_stride) / pool_stride))  # 池化层输出每个通道的高
+        pool_out_w = int(
+            np.floor((conv_output_size + 2 * pool_pad - pool_w + pool_stride) / pool_stride))  # 池化层输出每个通道的宽
         pool_output_size = filter_num * pool_out_h * pool_out_w  # 第一个全连接层的输入数
 
         # 参数初始化
         self.params = {'W1': weight_init_std *
-                       np.random.randn(filter_num, input_dim[0], filter_size, filter_size),  # 卷积层滤波器
+                             np.random.randn(filter_num, input_dim[0], filter_size, filter_size),  # 卷积层滤波器
                        'b1': np.zeros(filter_num),  # 卷积层偏置
                        'W2': weight_init_std *
-                       np.random.randn(pool_output_size, hidden_size),  # 第一个全连接层权重
+                             np.random.randn(pool_output_size, hidden_size),  # 第一个全连接层权重
                        'b2': np.zeros(hidden_size),  # 第一个全连接层偏置
                        'W3': weight_init_std *
-                       np.random.randn(hidden_size, output_size),  # 第二个全连接层权重
+                             np.random.randn(hidden_size, output_size),  # 第二个全连接层权重
                        'b3': np.zeros(output_size)}  # 第二个全连接层偏置
 
         # 网络层生成
@@ -84,8 +87,8 @@ class SimpleConvNet:
             t = np.argmax(t, axis=1)
         acc = 0.0
         for i in range(int(x.shape[0] / batch_size)):
-            tx = x[i*batch_size:(i+1)*batch_size]
-            tt = t[i*batch_size:(i+1)*batch_size]
+            tx = x[i * batch_size:(i + 1) * batch_size]
+            tt = t[i * batch_size:(i + 1) * batch_size]
             y = self.predict(tx)
             y = np.argmax(y, axis=1)
             acc += np.sum(y == tt)

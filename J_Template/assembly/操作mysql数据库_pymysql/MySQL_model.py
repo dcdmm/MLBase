@@ -46,7 +46,7 @@ class MysqlDB:
         cur.close()
         return data, columns
 
-    def change_data(self, sql, close=False):
+    def change_data(self, sql):
         """
         修改数据---增、删、改
 
@@ -61,9 +61,11 @@ class MysqlDB:
         # Commit changes to stable storage
         self.connector.commit()
         cur.close()
-        if close:
-            self.connector.close()
 
     def close_con(self):
         """关闭数据连接"""
         self.connector.close()
+
+    def rollback(self):
+        """Roll back the current transaction"""
+        self.connector.rollback()

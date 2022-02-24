@@ -130,7 +130,7 @@ $ E_{* \sim \mathcal{D}} [f( * )] $: 函数$f( * )$对$ * $在分布$\mathcal{D}
 * <<矩阵分析与应用>>(张贤达)
 * 白板推导(B站)
 * 跟李沐学AI(B站)
-* 2021春机器学习课程(李宏毅)
+* 2021春机器学习课程(B站)(李宏毅)
 * Natural Language Processing with Attention Models(吴恩达)
 * python/numpy/pandas/matplotlib/sklearn/pytorch/tensorflow等官网
 * ......

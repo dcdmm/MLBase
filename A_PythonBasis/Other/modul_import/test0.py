@@ -1,5 +1,6 @@
 # from A_PythonBasis.Other.modul_import.import_model_test0 import Rect_Area # 绝对路径导入
 from rect_area import Rect_Area  # 模块的相对导入(reac_area.py与test.py位于同目录结构下)
+# 在与rect_volumes.py平级的的文件中执行rect_volumns.py,要求rect_volumns.py不能包含相对路径(./../...)
 from rect_volumes import *
 
 # 1. 若源文件发生改变,运行test.py文件立马可以得到改变

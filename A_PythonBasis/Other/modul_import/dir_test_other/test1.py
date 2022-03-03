@@ -17,4 +17,4 @@ for i in sys.path:
 
 from print_hello import print_hello  # test.py与print_hello.py位于不同目录结构下
 
-print_hello("php")  # 进入导入库的源代码
+print_hello("php")

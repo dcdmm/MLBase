@@ -20,9 +20,6 @@ def MyFFNN(num_input_shape, hidden_units, input_dim, output_dim):
     # A single output: our predicted rating
     out = keras.layers.Dense(1, activation='linear', name='prediction')(out)
 
-    model = keras.Model(
-        inputs=[stock_id_input, num_input],
-        outputs=out,
-    )
+    model = keras.Model(inputs=[stock_id_input, num_input], outputs=out)
 
     return model

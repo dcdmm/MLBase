@@ -44,7 +44,7 @@ class Train_Evaluate:
             当前为第几轮训练
         verbose: int
             每多少个批次打印一次中间结果
-        metric:
+        metric: func
             其他评估指标
         """
         self.model.train()  # Sets the module in training mode
@@ -110,7 +110,7 @@ class Train_Evaluate:
         ---------
         data_loader : torch dataloader.DataLoader
             验证数据集
-        metric :
+        metric : func
             其他评估指标
         """
         self.model.eval()  # Sets the module in evaluation mode.
@@ -138,14 +138,14 @@ class Train_Evaluate:
             训练数据集
         valid_loader : torch dataloader.DataLoader
             验证数据集
-        metric :
+        metric : func
             其他评估指标
         verbose : int
             每多少个批次打印一次中间结果
 
         Returns
         -------
-        history : Dict
+        history : dict
             不同轮次下训练数据集和验证数据集的损失值(和其他评估指标)
         """
         history = {'train_loss': [], 'val_loss': []}

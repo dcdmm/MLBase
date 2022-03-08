@@ -15,16 +15,16 @@ class TextCNN(nn.Module):
     kernel_sizes : tuple
         一般来说:不同大小卷积核的组合通常优于同样大小的卷积核
         不同卷积层卷积核的宽度;如kernel_sizes=(3, 4, 5)
-    kfold :
-        k折交叉验证对象(也可先生成交叉验证数据)
     num_channels : tuple
         不同卷积层输出通道数;如num_channels=(100, 100, 100)
+    dropput : float
+        dropout层p值
     """
 
     def __init__(self, vocab_size, embed_size, kernel_sizes, num_channels, dropout=0.5):
         super(TextCNN, self).__init__()
         self.embedding = nn.Embedding(vocab_size, embed_size)
-        # 不需要训练的词嵌入层(冻结网络层)
+        # 预训练的词嵌入层
         self.constant_embedding = nn.Embedding(vocab_size, embed_size)
         self.dropout = nn.Dropout(p=dropout)
         # 二分类问题

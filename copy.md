@@ -15,4 +15,4 @@
 
 ### other
 
-<img src="Other/img/注意力机制.png"  style="width:750px;height:400px;float:bottom">
+<img src="Other/img/LSTM示意图.png" width="400" height="310">

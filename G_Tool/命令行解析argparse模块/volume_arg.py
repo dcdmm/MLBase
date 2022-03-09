@@ -1,11 +1,12 @@
-from  my_argment import  my_argment
+from my_argment import my_argment
 
 para = my_argment()
 le = my_argment().parse_args().length
 wi = my_argment().parse_args().width
 hi = my_argment().parse_args().hight
 
-var_dict = vars(para.parse_args()) # 返回参数的字典
+var_dict = vars(para.parse_args())  # 返回参数的字典
+
 
 class volume_arg:
     def __init__(self, length, width, higth):

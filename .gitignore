@@ -13,17 +13,20 @@
 # torch.utils.tensorboard产生的数据文件
 *._tb
 
-# 预训练词向量文件
-*.vector_cache
+# 通过torchtext加载的预训练词向量
+.vector_cache
 
-# 网络下载的仅用于该小项目的文件
-*.data
+# 通过torchtext加载的数据
+.data
 
-# 忽略的词向量文件
-cnew*
+# `word2vec_glove`学习使用到的预训练词向量
+cnew_200
+cnew_200.txt
+cnew_200.wv.vectors.npy
+cnew_200.syn1neg.npy
 /I_Model/核心深度学习模型/word2vec_glove/glove.6B.50d.txt
 
-# 忽略的预训练文件
+# `HuggingFace工具集`学习保存预训练模型
 /G_Tool/自然语言处理HuggingFace工具集/save_model
 
 

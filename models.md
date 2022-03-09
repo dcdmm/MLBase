@@ -9,7 +9,3 @@
 ***
 
 [TextCNN模型封装](I_Model/核心深度学习模型/卷积神经网络CNN/torch实现常见卷积神经网络/TextCNN/models)
-
-***
-
-[FastText模型封装](I_Model/other_AI_model/FastText/models)

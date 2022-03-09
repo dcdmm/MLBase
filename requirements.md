@@ -13,11 +13,12 @@
     * pydot-ns: pip install pydot-ng(keras.utils.plot_model函数依赖)
     * transformers(Hugging Face): pip install transformers
     * datasets(Hugging Face): pip install datasets
-    * gensim: [https://radimrehurek.com/gensim/](https://radimrehurek.com/gensim/)查看
+    * gensim: [https://radimrehurek.com/gensim/](https://radimrehurek.com/gensim/) 查看
     * jieba: pip install jieba
     * nltk: pip install nltk
     * spacy: [https://spacy.io/usage](https://spacy.io/usage) 查看(其他模块冲突,暂未解决,虚拟环境:spacy_test)
-    * pip install nltk
+    * nltk: pip install nltk
+    * FastText: [https://github.com/facebookresearch/fastText](https://github.com/facebookresearch/fastText) 查看(Windows通过 https://www.lfd.uci.edu/~gohlke/pythonlibs/#fasttext 下载安装*.whl安装)
     * imblear: [https://imbalanced-learn.org/stable/install.html](https://imbalanced-learn.org/stable/install.html) 查看
     * bayesian-optimization: pip install bayesian-optimization
     * optuna: pip install optuna

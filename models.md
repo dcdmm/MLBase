@@ -4,7 +4,7 @@
 
 ***
 
-[Tabnet模型封装](I_Model/other_AI_model/tabnet/models)
+[Tabnet模型封装](I_Model/other_AI_model/tabnet_pytorch_tabnet/models)
 
 ***
 

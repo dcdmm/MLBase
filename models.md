@@ -9,3 +9,7 @@
 ***
 
 [TextCNN模型封装](I_Model/核心深度学习模型/卷积神经网络CNN/torch实现常见卷积神经网络/TextCNN/models)
+
+***
+
+[crf模型封装](I_Model/概率图模型/条件随机场CRF/models)

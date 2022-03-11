@@ -34,7 +34,7 @@ class Train_Evaluate:
 
     def train(self, train_loader, epoch, verbose, metric):
         """
-        模型训练
+        模型训练组件
 
         Parameters
         ---------
@@ -104,7 +104,7 @@ class Train_Evaluate:
 
     def eval(self, data_loader, metric):
         """
-        模型评估
+        模型验证与测试
 
         Parameters
         ---------

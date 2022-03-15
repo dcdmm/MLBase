@@ -20,6 +20,18 @@
 *.data
 
 
+# *******************************************************************************************
+# 大型数据集(储存位置:百度网盘)
+## datasets
+### acllmcb
+### cats_vs_dogs
+### cnews
+### hotdog
+### NumPy
+### PyTorch
+Other/datasets
+
+
 # *****************************************************************************
 # `word2vec_glove`学习使用到的预训练词向量
 /I_Model/核心深度学习模型/word2vec_glove/cnew_200.syn1neg.npy
@@ -34,15 +46,6 @@
 # fasttext保存的模型文件
 /I_Model/other_AI_model/FastText_fasttext/sava_model.bin
 
-
-# *******************************************************************************************
-# 大型数据集(储存位置:百度网盘)
-## datasets
-### acllmcb
-### cats_vs_dogs
-### cnews
-### hotdog
-### NumPy
-### PyTorch
-Other/datasets
-
+# joblib模块数组保存测试
+/G_Tool/性能优化joblib模块/arr_huge_joblib.pkl
+/G_Tool/性能优化joblib模块/arr_huge_numpy.pkl.npy

@@ -3,7 +3,7 @@ import numpy as np
 
 
 def MyLightGBM(X_train_data, y_train_data, X_test_data, kfold,
-               params, early_stopping_rounds=None, verbose_eval=True, feval=None, fweight=None,
+               params, callbacks=None, feval=None, fweight=None,
                categorical_feature="auto"):
     """
     原生lightgbm模型封装(具体任务对应修改)
@@ -20,10 +20,8 @@ def MyLightGBM(X_train_data, y_train_data, X_test_data, kfold,
         k折交叉验证对象(也可先生成交叉验证文件)
     params : dict
         lightgbm模型train方法params参数
-    early_stopping_rounds:
-        lightgbm模型train方法early_stopping_rounds参数
-    verbose_eval :
-        lightgbm模型train方法verbose_eval参数
+    callbacks : []
+        lightgbm模型callbacks参数
     feval :
         lightgbm模型train方法feval参数
     fweight : 函数(返回训练数据集的权重)
@@ -69,8 +67,7 @@ def MyLightGBM(X_train_data, y_train_data, X_test_data, kfold,
                           train_set=train_dataset,
                           valid_sets=[train_dataset, val_dataset],
                           num_boost_round=num_boost_round,
-                          early_stopping_rounds=early_stopping_rounds,
-                          verbose_eval=verbose_eval,
+                          callbacks=callbacks,
                           feval=feval)
         model_list.append(model)
         train_predictions[val_ind] = model.predict(x_val)

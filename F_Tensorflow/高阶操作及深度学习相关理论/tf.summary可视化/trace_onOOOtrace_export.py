@@ -2,8 +2,6 @@ import tensorflow as tf
 from tensorflow.keras.layers import Dense, Flatten, Conv2D
 import os
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "-1"  # 使用cpu训练
-
 
 class MyModel(tf.keras.Model):
     def __init__(self, **kwargs):

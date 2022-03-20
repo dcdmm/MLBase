@@ -1,1 +1,1 @@
-* output可能为浮点数,则input必须要求为浮点数
+* 若output可能为浮点数,则input必须要求为浮点数

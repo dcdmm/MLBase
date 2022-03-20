@@ -4,18 +4,18 @@
    证明:</font>;<font color='red' size=4>分析:</font>$ ...... $
 2. 算法伪代码标识(.md),如:**for**  $ i=1,2,\dots, n $ **do**
 3. 代码or代码块标识(注释中),如:`import`;`%run`;`print("hello java)`
-4. 文件/文件夹命名,编号_名称_实现方式_所用数据_备注_待完成?_重要?(难以区分使用OOO进行区分),如:a_example1_sklearn_mnist_多分类问题_ing_er
-5. notebook笔或帮助文件命名,最后加"_help"(预览效果排序:jupyter notebook~~vscode>pycharm;后缀为:"_notebook"表示需使用jupyter notebok预览)
+4. 文件/文件夹命名,编号\_名称\_实现方式\_所用数据\_备注\_待完成?\_重要?(难以区分时使用OOO进行分隔),如:a\_example1\_sklearn\_mnist\_多分类问题\_ing_er
 
 ### 符号系统
 
 $ x $: 标量      
-$ \mathbf{x}$:向量or序列(某些字符不能加粗,使用"\boldsymbol",如$\boldsymbol{\mu}$)
+$ \mathbf{x}$:向量or序列(不能加粗的字母使用"\boldsymbol"修饰,如$\boldsymbol{\mu}$)
 $ X $: 矩阵or随机变量or数据集   
-$ \mathbf{I}_n$:n行n列单位矩阵 $ \mathcal{X} $: 样本空间或状态空间,也可以用来表示概率分布,如$\mathcal{D}$     
+$ \mathbf{I}_n$:n行n列单位矩阵 
+$ \mathcal{X} $: 样本空间或状态空间,也可以用来表示概率分布,如$\mathcal{D}$     
 $ \mathbb{I}(*) $:  指示函数,在$*$为真/假时分别取值为1/0   
 $ \mathrm{sign}(*) $:  符号函数,在<0,=0,>0时分别取值为-1,0,1  
-$ E_{* \sim \mathcal{D}} [f( * )] $: 函数$f( * )$对$ * $在分布$\mathcal{D}$下的数学期望;明确意义时可省略$\mathcal{D}$[和,或]$ * $
+$ E_{* \sim \mathcal{D}} [f( * )] $: 函数$f$对$ * $在分布$\mathcal{D}$下的数学期望;明确意义时可省略$\mathcal{D}$[和,或]$ * $
 
 ### 模块使用习惯
 

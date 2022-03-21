@@ -8,6 +8,8 @@
 * imblear: [https://imbalanced-learn.org/stable/install.html](https://imbalanced-learn.org/stable/install.html) 查看
 * bayesian-optimization: pip install bayesian-optimization
 * optuna: pip install optuna
+* seaborn: pip install seaborn
+* heamy: pip install -U heamy
 
 #### 深度学习
 
@@ -49,3 +51,5 @@
     * pip install jupyter_contrib_nbextensions
     * pip install jupyter_nbextensions_configurator
     * jupyter contrib nbextension install --user
+* PyMySQL: pip install PyMySQL
+* autopep8(vscode代码格式化): pip install --upgrade autopep8 

@@ -2,7 +2,7 @@ import os
 
 print(os.getcwd())  # 获取当前工作路径
 
-path = os.path.abspath("../dir_test")  # 要临时添加到path路径的第三方模块的路径
+path = os.path.abspath("../dir_example")  # 要临时添加到path路径的第三方模块的路径
 print(path)
 
 import sys

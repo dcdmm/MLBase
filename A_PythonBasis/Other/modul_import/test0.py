@@ -12,10 +12,10 @@ volum = Rect_volumes(area, 3)
 print(volum.volumes())
 volum.print_hello()
 
-from dir_test.print_hello import print_hello  # 模块的相对导入(print_hello.py目录结构比test.py低)
+from dir_example.print_hello import print_hello  # 模块的相对导入(print_hello.py目录结构比test.py低)
 
 print_hello("python")  # 不包含相对路径(./../...)导入的代码
 
-from dir_test.print_hello1 import print_hello1
+from dir_example.print_hello1 import print_hello1
 
 print_hello1("c++")  # 包括相对路径(./../...)导入的代码

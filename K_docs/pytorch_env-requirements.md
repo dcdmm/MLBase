@@ -18,7 +18,7 @@
 * torchtext: conda install -c pytorch torchtext
 * torchsummary: pip install torchsummary
 * tensorflow(CPU版本): pip install tensorflow
-* pip install tensorflow-addons
+* tensorflow-addons: pip install tensorflow-addons
 * pydot(keras.utils.plot_model函数依赖): pip install pydot
 * pydot-ns(keras.utils.plot_model函数依赖): pip install pydot-ng
 * FastText:

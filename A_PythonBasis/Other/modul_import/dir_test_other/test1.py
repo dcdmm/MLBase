@@ -15,6 +15,6 @@ sys.path.append(path)
 for i in sys.path:
     print(i)
 
-from print_hello import print_hello  # test.py与print_hello.py位于不同目录结构下
+from print_hello import print_hello  # test1.py与print_hello.py位于不同目录结构下
 
 print_hello("php")

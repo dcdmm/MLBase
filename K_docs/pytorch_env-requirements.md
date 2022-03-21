@@ -42,6 +42,7 @@
 #### 其他
 
 * wget: pip install wget
+* PyQt5(交互方式绘图依赖): pip install PyQt5
 * graphviz:
     * Windows:pip install graphviz(需要安装Graphviz并配置系统环境变量Path +: Graphviz\bin)
 * jupyter notebook目录功能安装及其配置

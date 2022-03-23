@@ -44,12 +44,13 @@
 #### 其他
 
 * wget: pip install wget
+* openpyxl(pandas读取excel依赖): pip install openpyxl
 * PyQt5(交互方式绘图依赖): pip install PyQt5
 * graphviz:
     * Windows:pip install graphviz(需要安装Graphviz并配置系统环境变量Path +: Graphviz\bin)
-* jupyter notebook目录功能安装及其配置
+* PyMySQL: pip install PyMySQL
+* autopep8(vscode代码格式化): pip install --upgrade autopep8
+* jupyter notebook目录功能安装及其配置(base环境安装即可)
     * pip install jupyter_contrib_nbextensions
     * pip install jupyter_nbextensions_configurator
     * jupyter contrib nbextension install --user
-* PyMySQL: pip install PyMySQL
-* autopep8(vscode代码格式化): pip install --upgrade autopep8 

@@ -10,7 +10,7 @@ epochs = 100
 
 # 手写数字训练数据集
 train_loader = Data.DataLoader(
-    datasets.MNIST('../../Other/datasets/PyTorch',
+    datasets.MNIST('../../other/datasets/PyTorch',
                    train=True, download=True,
                    transform=transforms.Compose([
                        transforms.ToTensor(),  # 转换为tensor
@@ -20,7 +20,7 @@ train_loader = Data.DataLoader(
 
 # 手写数字测试数据集
 test_loader = Data.DataLoader(
-    datasets.MNIST('../../Other/datasets/PyTorch',
+    datasets.MNIST('../../other/datasets/PyTorch',
                    train=False, transform=transforms.Compose([
             transforms.ToTensor(),
             transforms.Normalize((0.1307,), (0.3081,))

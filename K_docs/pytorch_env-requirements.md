@@ -44,6 +44,7 @@
 #### 其他
 
 * wget: pip install wget
+* bertviz(注意力可视化): pip install bertviz
 * openpyxl(pandas读取excel依赖): pip install openpyxl
 * PyQt5(交互方式绘图依赖): pip install PyQt5
 * graphviz:

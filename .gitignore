@@ -49,3 +49,6 @@ Other/datasets
 # joblib模块数组保存测试
 /G_Tool/性能优化joblib模块/arr_huge_joblib.pkl
 /G_Tool/性能优化joblib模块/arr_huge_numpy.pkl.npy
+
+# 临时测试
+/tests/

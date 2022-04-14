@@ -52,3 +52,6 @@ Other/datasets
 
 # 临时测试
 /tests/
+
+# 模型保存文件
+/G_Tool/自然语言处理HuggingFace工具集/实战/企业隐患排查质量分析_二分类/best_model_state.bin

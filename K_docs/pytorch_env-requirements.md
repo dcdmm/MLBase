@@ -43,8 +43,9 @@
 
 #### 其他
 
+* pipreqs(requirements.txt文件生成): pip install pipreqs
 * wget: pip install wget
-* bertviz(注意力可视化): pip install bertviz
+* bertviz(注意力层可视化): pip install bertviz
 * openpyxl(pandas读取excel依赖): pip install openpyxl
 * PyQt5(交互方式绘图依赖): pip install PyQt5
 * graphviz:

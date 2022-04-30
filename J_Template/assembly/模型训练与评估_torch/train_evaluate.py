@@ -32,9 +32,9 @@ class Train_Evaluate:
         self.criterion = criterion
         self.epochs = epochs
 
-    def train(self, train_loader, epoch, verbose, metric):
+    def train(self, train_loader, epoch=-1, verbose=20, metric=None):
         """
-        模型训练组件
+        单轮模型训练
 
         Parameters
         ---------
@@ -102,7 +102,7 @@ class Train_Evaluate:
 
         print('-' * 100)
 
-    def eval(self, data_loader, metric):
+    def eval(self, data_loader, metric=None):
         """
         模型验证与测试
 

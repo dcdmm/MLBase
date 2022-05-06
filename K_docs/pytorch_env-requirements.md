@@ -16,7 +16,7 @@
 * PyTorch: [https://pytorch.org/](https://pytorch.org/) 查看
 * pytorch-tabnet: pip install pytorch-tabnet(依赖pytorch)
 * torchtext: conda install -c pytorch torchtext
-* torchsummary: pip install torchsummary
+* torchinfo: conda install -c conda-forge torchinfo
 * tensorflow(CPU版本): pip install tensorflow
 * tensorflow-addons: pip install tensorflow-addons
 * pydot(keras.utils.plot_model函数依赖): pip install pydot

@@ -12,4 +12,4 @@
 
 ***
 
-[crf模型封装](../I_Model/概率图模型/条件随机场CRF/models)
+[CRF模型封装](../I_Model/概率图模型/条件随机场CRF/models)

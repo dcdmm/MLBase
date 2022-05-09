@@ -10,7 +10,7 @@ sys.path.append(os.path.abspath(".."))
 # # # --->dir_relative.demos_0.demo0.py调用dir_relative.core.config.py
 # # # --->dir_relative.demos_0.demos_1.demo1.py调用dir_relative.core.config.py
 # 默认模块搜索路径为:A_PythonBasis.other.module_import.dir_relative
-# 需添加模块搜索路径,A_PythonBasis.other.module_import,从而可以从dir_relative处开始导入
+# 添加模块搜索路径`A_PythonBasis.other.module_import`,从而可以从dir_relative处开始导入
 from dir_relative.demos_0.demo0 import hello_demo0
 from dir_relative.demos_0.demos_1.demo1 import hello_demo1
 from dir_relative.demo import hello_demo

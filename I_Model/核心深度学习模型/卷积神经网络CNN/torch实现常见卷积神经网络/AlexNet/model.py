@@ -1,5 +1,5 @@
 from abc import ABC
-from torchsummary import summary
+from torchinfo import summary
 import torch
 import torch.nn as nn
 
@@ -46,5 +46,5 @@ class AlexNet(nn.Module, ABC):
 if __name__ == '__main__':
     net = AlexNet()
     print(summary(model=net,
-                  input_size=(3, 224, 224),  # 输入形状;input_size=(channels, H, W)
+                  input_size=(1, 3, 224, 224),  # 输入形状;input_size=(batch_size, channels, H, W)
                   device="cpu"))

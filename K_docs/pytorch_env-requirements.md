@@ -32,6 +32,7 @@
 
 * transformers(Hugging Face): pip install transformers
 * datasets(Hugging Face): pip install datasets
+* sentence_transformers: pip install -U sentence-transformers
 * gensim: [https://radimrehurek.com/gensim/](https://radimrehurek.com/gensim/) 查看
 * jieba: pip install jieba
 * nltk: pip install nltk

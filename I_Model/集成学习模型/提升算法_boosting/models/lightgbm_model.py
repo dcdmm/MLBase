@@ -10,11 +10,14 @@ def MyLightGBM(X_train_data, y_train_data, X_test_data, kfold,
 
     Parameters
     ---------
-    X_train_data : numpy array (n_sample, n_feature)
+    X_train_data : numpy array
+        shape=(n_sample, n_feature)
         训练数据集
-    y_train_data : numpy array (n_sample, )
+    y_train_data : numpy array
+        shape=(n_sample, )
         训练数据集标签
-    X_test_data : numpy array (n_sample, n_feature)
+    X_test_data : numpy array
+        shape=(n_sample, n_feature)
         测试数据集
     kfold :
         k折交叉验证对象(也可先生成交叉验证文件)
@@ -32,10 +35,10 @@ def MyLightGBM(X_train_data, y_train_data, X_test_data, kfold,
     Returns
     -------
     train_predictions : array
-        多分类:(n_sample, n_class)  二分类或回归:(n_sample, )
+        多分类:shape=(n_sample, n_class)  二分类或回归:shape=(n_sample, )
         训练数据集预测结果
     test_predictions : array
-        多分类:(n_sample, n_class)  二分类或回归:(n_sample, )
+        多分类:shape=(n_sample, n_class)  二分类或回归:shape=(n_sample, )
         测试数据集预测结果
     model_list : list
         训练模型组成的列表

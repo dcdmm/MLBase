@@ -4,7 +4,7 @@
 
 ***
 
-[常见学习率预热的pytorch实现](../E_PyTorch/高阶操作及深度学习相关理论/torch.optim优化算法/学习率调整/学习率预热)
+[常见学习率预热的pytorch实现(参考transformer库)](../E_PyTorch/高阶操作及深度学习相关理论/torch.optim优化算法/学习率调整/学习率预热)
 
 * get_constant_schedule_with_warmup
 * get_linear_schedule_with_warmup

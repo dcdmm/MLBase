@@ -42,6 +42,7 @@ Other/datasets
 
 # `HuggingFace工具集`学习保存预训练模型
 /G_Tool/自然语言处理HuggingFace工具集/save_model
+/G_Tool/自然语言处理HuggingFace工具集/load_huggingFace
 
 # fasttext保存的模型文件
 /I_Model/other_AI_model/FastText_fasttext/sava_model.bin
@@ -55,3 +56,4 @@ Other/datasets
 
 # 模型保存文件
 /G_Tool/自然语言处理HuggingFace工具集/实战/企业隐患排查质量分析_二分类/best_model_state.bin
+e/

@@ -17,16 +17,16 @@ class TextCNN(nn.Module):
         不同卷积层卷积核的宽度;如kernel_sizes=(3, 4, 5)
     num_channels : tuple
         不同卷积层输出通道数;如num_channels=(100, 100, 100)
-    dropput : float
+    dropput_ratio : float
         dropout层p值
     """
 
-    def __init__(self, vocab_size, embed_size, kernel_sizes, num_channels, dropout=0.5):
+    def __init__(self, vocab_size, embed_size, kernel_sizes, num_channels, dropout_ratio=0.5):
         super(TextCNN, self).__init__()
-        self.embedding = nn.Embedding(vocab_size, embed_size)
+        self.embedding = nn.Embedding(vocab_size, embed_size, padding_idx=None)
         # 预训练的词嵌入层
         self.constant_embedding = nn.Embedding(vocab_size, embed_size)
-        self.dropout = nn.Dropout(p=dropout)
+        self.dropout = nn.Dropout(p=dropout_ratio)
         # 二分类问题
         self.decoder = nn.Linear(sum(num_channels), 2)
         self.pool = nn.AdaptiveMaxPool1d(1)

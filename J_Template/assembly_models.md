@@ -12,4 +12,8 @@
 
 ***
 
+[TextRNN模型封装](../I_Model/核心深度学习模型/循环神经网络/TextRNN/models)
+
+***
+
 [CRF模型封装(待补充)](../I_Model/概率图模型/条件随机场CRF/models)

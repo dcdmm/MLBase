@@ -18,3 +18,6 @@
 
 [随机权重平均SWA](../E_PyTorch/高阶操作及深度学习相关理论/torch.optim优化算法/随机权重平均SWA_example.ipynb)
 
+***
+
+[分布一致性与最大长度截断依据](../G_Tool/自然语言处理HuggingFace工具集/实战/企业隐患排查质量分析_二分类)

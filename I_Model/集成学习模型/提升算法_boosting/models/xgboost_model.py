@@ -13,7 +13,7 @@ def MyXgboost(X_train_data, y_train_data, X_test_data, kfold,
         shape=(n_sample, n_feature)
         训练数据集
     y_train_data : numpy array
-        shape=(n_sample, 1)
+        shape=(n_sample, )
         训练数据集标签
     X_test_data : numpy array
         shape=(n_sample, n_feature)

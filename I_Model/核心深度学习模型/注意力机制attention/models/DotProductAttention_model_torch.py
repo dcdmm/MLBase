@@ -5,7 +5,7 @@ import torch.nn.functional as F
 
 
 class DotProductAttention(nn.Module):
-    """缩放点积注意力(Attention ls All You Need的注意力计算方式;模仿pytorch)"""
+    """缩放点积注意力(论文`Attention ls All You Need`的注意力计算方式;模仿pytorch)"""
 
     def __init__(self, dropout):
         super(DotProductAttention, self).__init__()

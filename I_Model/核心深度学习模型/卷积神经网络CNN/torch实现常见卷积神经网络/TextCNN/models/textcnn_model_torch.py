@@ -27,8 +27,7 @@ class TextCNN(nn.Module):
         # 预训练的词嵌入层
         self.constant_embedding = nn.Embedding(vocab_size, embed_size)
         self.dropout = nn.Dropout(p=dropout_ratio)
-        # 二分类问题
-        self.decoder = nn.Linear(sum(num_channels), 2)
+        self.decoder = nn.Linear(sum(num_channels), 2)  # 二分类
         self.pool = nn.AdaptiveMaxPool1d(1)
         self.relu = nn.ReLU()
         # 通过nn.ModuleList()创建多个⼀维卷积层

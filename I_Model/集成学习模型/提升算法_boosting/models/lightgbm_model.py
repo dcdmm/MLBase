@@ -48,6 +48,13 @@ def MyLightGBM(X_train_data, y_train_data, X_test_data, kfold,
         X_train_data.shape[0] if num_class is None else [X_train_data.shape[0], num_class])  # 训练数据集预测结果
     test_predictions = np.zeros(
         X_test_data.shape[0] if num_class is None else [X_test_data.shape[0], num_class])  # 测试数据集预测结果
+
+    # 警告的避免
+    if 'num_boost_round' in params:
+        num_boost_round = params.pop('num_boost_round')
+    else:
+        num_boost_round = 1000
+
     model_list = list()  # k折交叉验证模型结果
     for fold, (trn_ind, val_ind) in enumerate(kfold.split(X_train_data)):
         print(f'Training fold {fold + 1}')
@@ -59,12 +66,6 @@ def MyLightGBM(X_train_data, y_train_data, X_test_data, kfold,
 
         train_dataset = lgb.Dataset(x_train, y_train, weight=train_weights, categorical_feature=categorical_feature)
         val_dataset = lgb.Dataset(x_val, y_val, weight=val_weights, categorical_feature=categorical_feature)
-
-        # 警告的避免
-        if 'num_boost_round' in params:
-            num_boost_round = params.pop('num_boost_round')
-        else:
-            num_boost_round = 1000
 
         model = lgb.train(params=params,
                           train_set=train_dataset,

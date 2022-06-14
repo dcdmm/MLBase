@@ -45,6 +45,13 @@ def MyXgboost(X_train_data, y_train_data, X_test_data, kfold,
         X_train_data.shape[0] if num_class is None else [X_train_data.shape[0], num_class])  # 训练数据集预测结果
     test_predictions = np.zeros(
         X_test_data.shape[0] if num_class is None else [X_test_data.shape[0], num_class])  # 测试数据集预测结果
+
+    # 警告的避免
+    if 'num_boost_round' in params:
+        num_boost_round = params.pop('num_boost_round')
+    else:
+        num_boost_round = 10
+
     model_list = list()  # k折交叉验证模型结果
     X_test_data = xgb.DMatrix(X_test_data)
     for fold, (trn_ind, val_ind) in enumerate(kfold.split(X_train_data)):
@@ -63,6 +70,7 @@ def MyXgboost(X_train_data, y_train_data, X_test_data, kfold,
         model = xgb.train(params=params,
                           dtrain=train_dataset,
                           evals=eval_set,
+                          num_boost_round=num_boost_round,
                           early_stopping_rounds=early_stopping_rounds,
                           verbose_eval=verbose_eval,
                           feval=feval)

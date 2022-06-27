@@ -36,6 +36,7 @@
 * gensim: [https://radimrehurek.com/gensim/](https://radimrehurek.com/gensim/) 查看
 * jieba: pip install jieba
 * nltk: pip install nltk
+* bertviz(注意力层可视化): pip install bertviz
 * spacy(CPU版本):
     * pip install -U pip setuptools wheel
     * pip install -U spacy
@@ -47,9 +48,9 @@
 * pipreqs(requirements.txt文件生成): pip install pipreqs
 * XlsxWriter(pandas保存excel文件): pip install XlsxWriter
 * wget: pip install wget
-* bertviz(注意力层可视化): pip install bertviz
 * openpyxl(pandas读取excel依赖): pip install openpyxl
 * PyQt5(交互方式绘图依赖): pip install PyQt5
+* SymPy: pip install sympy
 * graphviz:
     * Windows:pip install graphviz(需要安装Graphviz并配置系统环境变量Path +: Graphviz\bin)
 * PyMySQL: pip install PyMySQL

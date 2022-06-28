@@ -3,8 +3,8 @@ from torch import nn
 import torch.utils.data as Data
 from torch.nn import init
 import torch.optim as optim
-torch.manual_seed(1)  # 随机数种子
 
+torch.manual_seed(1)  # 随机数种子
 
 num_inputs = 2
 num_examples = 1000
@@ -21,7 +21,8 @@ data_iter = Data.DataLoader(
     dataset=dataset,
     batch_size=batch_size,
     shuffle=True,
-    num_workers=2  # how many subprocesses to use for test_text loading. 0 means that the test_text will be loaded in the main process. (default: 0)
+    num_workers=2
+    # how many subprocesses to use for test_text loading. 0 means that the test_text will be loaded in the main process. (default: 0)
 )
 
 
@@ -43,10 +44,8 @@ init.constant_(net.linear.bias, val=0.0)
 
 loss = nn.MSELoss()  # 损失函数为均方误差
 
-
 optimizer = optim.SGD(net.parameters(), lr=0.03)  # 优化器
 num_epochs = 20  # 最大训练轮数
-
 
 if __name__ == '__main__':
     for epoch in range(1, num_epochs + 1):

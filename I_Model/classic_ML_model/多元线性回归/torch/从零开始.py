@@ -7,8 +7,7 @@ lr = 0.05
 
 # 创建训练数据
 x = torch.rand(20, 1) * 10
-y = 2*x + (5 + torch.randn_like(x))
-
+y = 2 * x + (5 + torch.randn_like(x))
 
 # 初始化线性回归参数
 w = torch.randn(1, requires_grad=True)
@@ -31,7 +30,7 @@ for iteration in range(1000):
 
         plt.scatter(x.data.numpy(), y.data.numpy())
         plt.plot(x.data.numpy(), y_pred.data.numpy(), 'r-', lw=5)
-        plt.text(2, 20, 'Loss=%.4f' % loss.data.numpy(), fontdict={'size': 20, 'color':  'red'})
+        plt.text(2, 20, 'Loss=%.4f' % loss.data.numpy(), fontdict={'size': 20, 'color': 'red'})
         plt.xlim(1.5, 10)
         plt.ylim(8, 28)
         plt.title("Iteration: {}\nw: {} b: {}".format(iteration, w.data.numpy(), b.data.numpy()))

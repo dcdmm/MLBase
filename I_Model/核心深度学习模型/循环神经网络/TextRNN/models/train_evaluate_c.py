@@ -5,25 +5,22 @@ from collections import OrderedDict
 class Trainer:
     """
     pytorch模型训练与评估组件(功能模仿`transformers.Trainer`)
+
+    Parameters
+    ---------
+    model :
+        神经网络模型
+    optimizer : torch optim
+        优化器
+    criterion : torch loss
+        损失函数(损失值必须为标量)
+    epochs : int
+        训练轮数
+    device : torch device(default=None)
+        设备
     """
 
     def __init__(self, model, optimizer, criterion, epochs=5, device=None):
-        """
-        模型初始化
-
-        Parameters
-        ---------
-        model :
-            神经网络模型
-        optimizer : torch optim
-            优化器
-        criterion : torch loss
-            损失函数(损失值必须为标量)
-        epochs : int
-            训练轮数
-        device : torch device(default=None)
-            设备
-        """
         if device is None:
             self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         else:

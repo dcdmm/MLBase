@@ -18,3 +18,6 @@ for i in sys.path:
 from print_hello import print_hello  # test1.py与print_hello.py位于不同目录结构下
 
 print_hello("php")
+
+# 存在相对路径导入的代码不能直接执行
+from ..dir_example.print_hello import print_hello

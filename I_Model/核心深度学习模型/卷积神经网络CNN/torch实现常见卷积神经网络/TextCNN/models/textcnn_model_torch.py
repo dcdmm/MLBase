@@ -38,7 +38,7 @@ class TextCNN(nn.Module):
                 nn.Conv1d(in_channels=2 * embed_size, out_channels=out_channels, kernel_size=kernel_sizes))
 
     def forward(self, inputs):
-        # inputs.shape=(N, L);其实L表示序列长度
+        # inputs.shape=(N, L);其中L表示序列长度
         # 沿着向量维度将两个嵌⼊层连接起来
         # embeddings.shape=(N, L, 2 * C);其中C表示输出词向量的维度大小
         embeddings = torch.cat((self.embedding(inputs), self.constant_embedding(inputs)), dim=2)

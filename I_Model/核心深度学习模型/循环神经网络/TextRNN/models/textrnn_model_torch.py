@@ -45,7 +45,7 @@ class TextRNN(nn.Module, ABC):
                 text_lengths=None):  # 每个batch数据文本内容的真实长度
         # text.shape=[sent len, batch_size]
 
-        # embedded.sahpe=[sen len, batch_size, embedding_size]
+        # embedded.shape=[sen len, batch_size, embedding_size]
         embedded = self.dropout(self.embed(text))
 
         if text_lengths is not None:
@@ -62,15 +62,13 @@ class TextRNN(nn.Module, ABC):
             # output, output_lengths = nn.utils.rnn.pad_packed_sequence(pack_out)  # output.shape=[seq len, batch size, hidden_size * num directions]
             # ********************************************************************************************
         else:
-            # ********************************************************************************************
-            #  input=(sen len, batch_size, embedding_size)
             out_normal, (hidden, cell) = self.rnn(embedded)
-            # ********************************************************************************************
 
         if self.bidirectional:  # 双向时
-            # hidden = [batch_size, hid dim * num directions]
-            hidden = self.dropout(torch.cat((hidden[-2, :, :], hidden[-1, :, :]), dim=1))  # 利用前向后后向的信息
+            # hidden.shape= [num_layers * num directions, batch_size, hid dim]
+            # hidden_.shape = [batch_size, hid dim * num directions]
+            hidden_ = self.dropout(torch.cat((hidden[-2, :, :], hidden[-1, :, :]), dim=1))  # 利用前向和后向最后一个序列的信息
         else:
-            hidden = self.dropout(hidden[-1, :, :])
-        result = self.linear(hidden)  # result.shape=[batch_size, out_size]
+            hidden_ = self.dropout(hidden[-1, :, :])
+        result = self.linear(hidden_)  # result.shape=[batch_size, out_size]
         return result

@@ -65,8 +65,7 @@ class TextRNN(nn.Module, ABC):
             out_normal, (hidden, cell) = self.rnn(embedded)
 
         if self.bidirectional:  # 双向时
-            # hidden.shape= [num_layers * num directions, batch_size, hid dim]
-            # hidden_.shape = [batch_size, hid dim * num directions]
+            # hidden_.shape = [batch_size, hidden_size * num directions]
             hidden_ = self.dropout(torch.cat((hidden[-2, :, :], hidden[-1, :, :]), dim=1))  # 利用前向和后向最后一个序列的信息
         else:
             hidden_ = self.dropout(hidden[-1, :, :])

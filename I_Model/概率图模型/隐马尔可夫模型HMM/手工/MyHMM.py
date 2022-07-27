@@ -62,10 +62,9 @@ class MyHMM:
         :param state:状态
         :return: P(i_t=q_i|O,\lambda)
         """
-        alpha = self.forward(visible_seq, t)  # alpha_t(i)
-        beta = self.forward(visible_seq, t)  # \beta_t(i)
+        alpha = self.forward(visible_seq, t)  # \alpha_t(i)
+        beta = self.backward(visible_seq, t)  # \beta_t(i)
         part_above = (alpha * beta)[state].item()
-        part_below = 0
         part_below = np.sum(alpha * beta)
         return part_above / part_below
 
@@ -133,7 +132,7 @@ class MyHMM:
                     new_A_ij = part_above / part_below
                     self.A[m, n] = new_A_ij  # 更新参数self.A
 
-            # 概率需要进行归一化
+            # 归一化操作(概率总和为1)
             self.pi = self.pi / np.sum(self.pi)
             self.A = self.A / np.sum(self.A, axis=0)
             self.B = self.B / np.sum(self.B, axis=0)
@@ -232,18 +231,18 @@ if __name__ == '__main__':
         # print(forward_test.forward(visible_seq=visible_seq, want_t=1))
         # print(forward_test.forward(visible_seq=visible_seq, want_t=2))
         # print(forward_test.forward(visible_seq=visible_seq, want_t=3))
-        #
+
         # backward_test = MyHMM(hidden_status_num=3, visible_status_num=2, pi=pi, A=A, B=B)
         # print(backward_test.backward(visible_seq=visible_seq)) # 后向算法测试
         # print(backward_test.backward(visible_seq=visible_seq, want_t=1))
         # print(backward_test.backward(visible_seq=visible_seq, want_t=2))
         # print(backward_test.backward(visible_seq=visible_seq, want_t=3))
-        #
+
         # gamma_test = MyHMM(hidden_status_num=3, visible_status_num=2, pi=pi, A=A, B=B)
         # print(gamma_test.gamma_t(visible_seq=visible_seq, t=1, state=0)) # \gamma计算测试
         # print(gamma_test.gamma_t(visible_seq=visible_seq, t=1, state=1))
         # print(gamma_test.gamma_t(visible_seq=visible_seq, t=1, state=2))
-        #
+
         # xi_test = MyHMM(hidden_status_num=3, visible_status_num=2, pi=pi, A=A, B=B)
         # print(xi_test.xi_t(visible_seq=visible_seq, t=1, pre_state=0, next_state=1)) # \xi计算测试
         # print(xi_test.xi_t(visible_seq=visible_seq, t=2, pre_state=0, next_state=0)) # \xi计算测试

@@ -17,51 +17,51 @@ class MyHMM:
         self.A = A
         self.B = B
 
-    def forward(self, visible_seq, want_t=None):
+    def forward(self, visible_seq, t=None):
         """
         前向算法
         :param visible_seq: 观测序列
-        :param want_t: \alpha_t(i)中的t
+        :param t: \alpha_t(i)中的t
         :return: P(O|\lambda)或\alpha_t(i)
         """
-        if want_t is None:
-            want_t = len(visible_seq) + 1
+        if t is None:
+            t = len(visible_seq) + 1
         alpha = self.pi * self.B[:, [visible_seq[0]]]  # 计算初值
-        if want_t == 1:
+        if t == 1:
             return alpha
         for step in range(1, len(visible_seq)):
             """递推"""
             alpha = self.A.T.dot(alpha) * self.B[:, [visible_seq[step]]]
-            if step + 1 == want_t:
+            if step + 1 == t:
                 return alpha
         return np.sum(alpha)
 
-    def backward(self, visible_seq, want_t=None):
+    def backward(self, visible_seq, t=None):
         """
         后向算法
         :param visible_seq: 观测序列
-        :param want_t: \beta_t(i)中的t
+        :param t: \beta_t(i)中的t
         :return: P(O|\lambda)或\beta_t(i)
         """
         beta = np.ones_like(self.pi)  # 初始化
-        if want_t == len(visible_seq):
+        if t == len(visible_seq):
             return beta
         for step in range(len(visible_seq) - 1, 0, -1):
             """递推"""
             beta = self.A.dot(self.B[:, [visible_seq[step]]] * beta)
-            if step == want_t:
+            if step == t:
                 return beta
         return np.sum(self.pi * self.B[:, [visible_seq[0]]] * beta)
 
-    def gamma_t(self, visible_seq, want_t):
+    def gamma_t(self, visible_seq, t):
         """
         给定模型\lambda和观测O,计算在时刻t处于状态q_i的概率
         :param visible_seq: 观测序列
-        :param t: 时刻(从1开始)
+        :param t: P(i_t=q_i|O,\lambda)中的t
         :return: P(i_t=q_i|O,\lambda)
         """
-        alpha = self.forward(visible_seq, want_t)  # \alpha_t(i)
-        beta = self.backward(visible_seq, want_t)  # \beta_t(i)
+        alpha = self.forward(visible_seq, t)  # \alpha_t(i)
+        beta = self.backward(visible_seq, t)  # \beta_t(i)
         part_above = (alpha * beta)
         part_below = np.sum(alpha * beta)
         return part_above / part_below

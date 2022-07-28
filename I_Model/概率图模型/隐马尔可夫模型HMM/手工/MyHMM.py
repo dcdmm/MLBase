@@ -1,5 +1,4 @@
 import numpy as np
-from sklearn.preprocessing import OrdinalEncoder
 
 
 class MyHMM:
@@ -35,7 +34,7 @@ class MyHMM:
             alpha = self.A.T.dot(alpha) * self.B[:, [visible_seq[step]]]
             if step + 1 == want_t:
                 return alpha
-        return np.sum(alpha)  # 求和
+        return np.sum(alpha)
 
     def backward(self, visible_seq, want_t=None):
         """
@@ -52,35 +51,31 @@ class MyHMM:
             beta = self.A.dot(self.B[:, [visible_seq[step]]] * beta)
             if step == want_t:
                 return beta
-        return np.sum(self.pi * self.B[:, [visible_seq[0]]] * beta)  # 求和
+        return np.sum(self.pi * self.B[:, [visible_seq[0]]] * beta)
 
-    def gamma_t(self, visible_seq, t, state):
+    def gamma_t(self, visible_seq, want_t):
         """
         给定模型\lambda和观测O,计算在时刻t处于状态q_i的概率
         :param visible_seq: 观测序列
         :param t: 时刻(从1开始)
-        :param state:状态
         :return: P(i_t=q_i|O,\lambda)
         """
-        alpha = self.forward(visible_seq, t)  # \alpha_t(i)
-        beta = self.backward(visible_seq, t)  # \beta_t(i)
-        part_above = (alpha * beta)[state].item()
+        alpha = self.forward(visible_seq, want_t)  # \alpha_t(i)
+        beta = self.backward(visible_seq, want_t)  # \beta_t(i)
+        part_above = (alpha * beta)
         part_below = np.sum(alpha * beta)
         return part_above / part_below
 
-    def xi_t(self, visible_seq, t, pre_state, next_state):
+    def xi_t(self, visible_seq, t):
         """
         给定模型\lambda和观测O,在时刻t处于状态q_i且在时刻t+1处于状态q_j的概率
         :param visible_seq: 观测序列
         :param t: 时刻(从1开始)
-        :param pre_state: 时刻t的状态
-        :param next_state: 时刻t+1的状态
         :return: P(i_t=q_i,i_{t+1}=q_j|O,\lambda)
         """
         alpha = self.forward(visible_seq, t)
-        beta = self.forward(visible_seq, t + 1)  # \beta_{t+1}(i)
-        part_above = alpha[pre_state] * self.A[pre_state, next_state] * self.B[next_state, visible_seq[t]] * beta[
-            next_state]
+        beta = self.backward(visible_seq, t + 1)  # \beta_{t+1}(i)
+        part_above = alpha * (self.A * (self.B[:, visible_seq[t]].reshape(-1, 1) * beta).reshape(1, -1))
         part_below = np.sum(
             alpha * (self.A * (self.B[:, visible_seq[t]].reshape(-1, 1) * beta).reshape(1, -1)))  # 利用了不同形状下数组的广播机制
         return part_above / part_below
@@ -107,7 +102,7 @@ class MyHMM:
 
         for _ in range(n_iter):
             for i in range(self.hidden_status_num):
-                new_p_i = self.gamma_t(visible_seq, 1, i)
+                new_p_i = self.gamma_t(visible_seq, 1)[i, 0]
                 self.pi[i] = new_p_i  # 更新参数self.pi
 
             for j in range(self.hidden_status_num):
@@ -116,23 +111,23 @@ class MyHMM:
                     part_below = 0
                     for t in range(1, T + 1):
                         if visible_seq[t - 1] == k:
-                            part_above += self.gamma_t(visible_seq, t, j)
-                        part_below += self.gamma_t(visible_seq, t, j)
+                            part_above += self.gamma_t(visible_seq, t)[j, 0]
+                        part_below += self.gamma_t(visible_seq, t)[j, 0]
                     new_B_jk = part_above / part_below
                     self.B[j, k] = new_B_jk  # 更新参数self.B
 
             for m in range(self.hidden_status_num):
                 part_below = 0
                 for t in range(1, T):
-                    part_below += self.gamma_t(visible_seq, t, m)
+                    part_below += self.gamma_t(visible_seq, t)[m, 0]
                 for n in range(self.hidden_status_num):
                     part_above = 0
                     for t in range(1, T):
-                        part_above += self.xi_t(visible_seq, t, m, n)
+                        part_above += self.xi_t(visible_seq, t)[m, n]
                     new_A_ij = part_above / part_below
                     self.A[m, n] = new_A_ij  # 更新参数self.A
 
-            # 归一化操作(概率总和为1)
+            # 归一化操作(概率总和必须为1)
             self.pi = self.pi / np.sum(self.pi)
             self.A = self.A / np.sum(self.A, axis=0)
             self.B = self.B / np.sum(self.B, axis=0)
@@ -160,7 +155,7 @@ class MyHMM:
             for j in range(len(hidden_status) - 1):
                 self.A[hidden_status[j], hidden_status[j + 1]] += 1
                 self.B[hidden_status[j], visible_status[j]] += 1
-        # 归一化
+        # 归一化操作
         self.pi = self.pi / np.sum(self.pi)
         self.A = self.A / np.sum(self.A, axis=0)
         self.B = self.B / np.sum(self.B, axis=0)
@@ -209,68 +204,3 @@ class MyHMM:
             best_hidden_status.append(next_status)
         best_hidden_status.reverse()
         return best_hidden_status, bset_hidden_status_pro
-
-
-if __name__ == '__main__':
-    test_forward_backwwar_gamma_xi_viterbi = 1
-    if test_forward_backwwar_gamma_xi_viterbi:
-        A = np.array([[0.5, 0.2, 0.3],
-                      [0.3, 0.5, 0.2],
-                      [0.2, 0.3, 0.5]])
-        B = np.array([[0.5, 0.5],
-                      [0.4, 0.6],
-                      [0.7, 0.3]])
-        pi = np.array([[0.2, 0.4, 0.4]]).T
-        visible_seq_init = np.array(['红', '白', '红'], dtype=object).reshape(-1, 1)
-
-        enc = OrdinalEncoder(categories=[['红', '白']])
-        visible_seq = enc.fit_transform(visible_seq_init).astype(np.int32).reshape(-1, )
-
-        # forward_test = MyHMM(hidden_status_num=3, visible_status_num=2, pi=pi, A=A, B=B)
-        # print(forward_test.forward(visible_seq=visible_seq)) # 前向算法测试
-        # print(forward_test.forward(visible_seq=visible_seq, want_t=1))
-        # print(forward_test.forward(visible_seq=visible_seq, want_t=2))
-        # print(forward_test.forward(visible_seq=visible_seq, want_t=3))
-
-        # backward_test = MyHMM(hidden_status_num=3, visible_status_num=2, pi=pi, A=A, B=B)
-        # print(backward_test.backward(visible_seq=visible_seq)) # 后向算法测试
-        # print(backward_test.backward(visible_seq=visible_seq, want_t=1))
-        # print(backward_test.backward(visible_seq=visible_seq, want_t=2))
-        # print(backward_test.backward(visible_seq=visible_seq, want_t=3))
-
-        # gamma_test = MyHMM(hidden_status_num=3, visible_status_num=2, pi=pi, A=A, B=B)
-        # print(gamma_test.gamma_t(visible_seq=visible_seq, t=1, state=0)) # \gamma计算测试
-        # print(gamma_test.gamma_t(visible_seq=visible_seq, t=1, state=1))
-        # print(gamma_test.gamma_t(visible_seq=visible_seq, t=1, state=2))
-
-        # xi_test = MyHMM(hidden_status_num=3, visible_status_num=2, pi=pi, A=A, B=B)
-        # print(xi_test.xi_t(visible_seq=visible_seq, t=1, pre_state=0, next_state=1)) # \xi计算测试
-        # print(xi_test.xi_t(visible_seq=visible_seq, t=2, pre_state=0, next_state=0)) # \xi计算测试
-        # print(xi_test.xi_t(visible_seq=visible_seq, t=2, pre_state=2, next_state=0)) # \xi计算测试
-
-        # vitiver_test = MyHMM(hidden_status_num=3, visible_status_num=2, pi=pi, A=A, B=B)
-        # best_hidden_status, bset_hidden_status_pro = vitiver_test.viterbi(visible_seq=visible_seq)
-        # print("最优路径:", best_hidden_status, '最优路径概率:', bset_hidden_status_pro)
-
-    test_Baum_Welch = 1
-    if test_Baum_Welch:
-        O = [
-            [1, 2, 3, 0, 1, 3, 4],
-            [1, 2, 3],
-            [0, 2, 4, 2],
-            [4, 3, 2, 1],
-            [3, 1, 1, 1, 1],
-            [2, 1, 3, 2, 1, 3, 4]]
-        I = O
-
-        hmm_supervision = MyHMM(hidden_status_num=5, visible_status_num=5)
-        hmm_supervision.supervision(visible_seq=O, hidden_seq=I)
-        print(hmm_supervision.pi)
-        print(hmm_supervision.A)
-        print(hmm_supervision.B)
-
-        # hmm_no_supervision = MyHMM(hidden_status_num=5, visible_status_num=5)
-        # hmm_no_supervision.baum_welch(O[0] + O[1] + O[2] + O[3] + O[4] + O[5])
-        # print(hmm_no_supervision.pi)
-        # print(hmm_no_supervision.A)
-        # print(hmm_no_supervision.B)

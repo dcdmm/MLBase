@@ -14,7 +14,7 @@ class TextRNN(nn.Module, ABC):
     embedding_size : int
         输出词向量的维度大小
     hidden_size : int
-        隐含变量的维度大小(权重矩阵W_{ih}、W_{hh}中h的大小)
+        隐含变量的维度大小(即权重矩阵W_{ih}、W_{hh}中h的大小)
     num_layers : int
         循环神经网络层数
     bidirectional : bool
@@ -66,7 +66,7 @@ class TextRNN(nn.Module, ABC):
 
         if self.bidirectional:  # 双向时
             # hidden_.shape = [batch_size, hidden_size * num directions]
-            hidden_ = self.dropout(torch.cat((hidden[-2, :, :], hidden[-1, :, :]), dim=1))  # 利用前向和后向最后一个序列的信息
+            hidden_ = self.dropout(torch.cat((hidden[-2, :, :], hidden[-1, :, :]), dim=1))  # 这里利用前向和后向最后一个序列的信息
         else:
             hidden_ = self.dropout(hidden[-1, :, :])
         result = self.linear(hidden_)  # result.shape=[batch_size, out_size]

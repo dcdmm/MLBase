@@ -15,6 +15,7 @@
 
 * PyTorch: [https://pytorch.org/](https://pytorch.org/) 查看
 * pytorch-tabnet: pip install pytorch-tabnet(依赖pytorch)
+* pytorch-crf:[https://pytorch-crf.readthedocs.io/en/stable/](https://pytorch-crf.readthedocs.io/en/stable) 查看
 * torchtext: pip install torchtext==0.12.0(版本号参考https://github.com/pytorch/text)
 * torchinfo: conda install -c conda-forge torchinfo
 * tensorflow(CPU版本): pip install tensorflow

@@ -1,10 +1,10 @@
 ### other
 
-[最优阈值的搜索(网格搜索/optuna实现)](../G_Tool/自然语言处理HuggingFace工具集/实战/有毒评论分类_多标签分类/train.ipynb)
+[最优阈值的搜索(网格搜索/optuna实现)](../G_Tool/自然语言处理HuggingFace工具集/实战demo/有毒评论分类_多标签分类/train.ipynb)
 
 ***
 
-[梯度累加](../G_Tool/自然语言处理HuggingFace工具集/实战/句子相似度识别/main.ipynb)
+[梯度累加](../G_Tool/自然语言处理HuggingFace工具集/实战demo/句子相似度识别/main.ipynb)
 
 ***
 
@@ -20,8 +20,8 @@
 
 ***
 
-[文本长度判断分布、最大长度截断](../G_Tool/自然语言处理HuggingFace工具集/实战/企业隐患排查质量分析_二分类)
+[文本长度判断分布、最大长度截断](../G_Tool/自然语言处理HuggingFace工具集/实战demo/企业隐患排查质量分析_二分类)
 
 ***
 
-[继续训练预训练模型](../G_Tool/自然语言处理HuggingFace工具集/实战/PreTrained_Bert/继续训练预训练模型.ipynb)
+[继续训练预训练模型](../G_Tool/自然语言处理HuggingFace工具集/实战demo/PreTrained_Bert/继续训练预训练模型.ipynb)

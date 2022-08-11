@@ -20,4 +20,4 @@
 
 ***
 
-[返回collate_fun函数与pytorch灵活训练模型](../G_Tool/自然语言处理HuggingFace工具集/Train_with_pytorch.ipynb)
+[返回collate_fun函数与pytorch灵活训练模型](../K_demo/way_of_training/pytorch_base.ipynb)

@@ -49,6 +49,7 @@
 * pipreqs(requirements.txt文件生成): pip install pipreqs
 * XlsxWriter(pandas保存excel文件): pip install XlsxWriter
 * wget: pip install wget
+* colorama(彩色打印): pip install colorama 
 * openpyxl(pandas读取excel依赖): pip install openpyxl
 * PyQt5(交互方式绘图依赖): pip install PyQt5
 * SymPy: pip install sympy

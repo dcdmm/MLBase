@@ -10,6 +10,7 @@
 * optuna: pip install optuna
 * seaborn: pip install seaborn
 * heamy: pip install -U heamy
+* networkx: pip install networkx
 
 #### 深度学习
 

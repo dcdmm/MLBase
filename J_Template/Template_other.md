@@ -1,4 +1,4 @@
-### 每折交叉验证最优模型
+### 每折交叉验证验证数据集最优模型
 
 * GitHubProjects\PyCompetition\tianchi_NewsTextClassification\trains\textrnn\TextRNN_p.py
 * line:274

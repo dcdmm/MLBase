@@ -1,0 +1,71 @@
+2022-09-05 18:17:45,157 - INFO - 34 - device:cuda 
+2022-09-05 18:17:45,166 - INFO - 65 - dataset_train text First for cycle:选择珠江花园的原因就是方便，有电动扶梯直接到达海边，周围餐馆、食廊、商场、超市、摊位一应俱全。酒店装修一般，但还算整洁。 泳池在大堂的屋顶，因此很小，不过女儿倒是喜欢。 包的早餐是西式的，还算丰富。 服务吗，一般 
+2022-09-05 18:17:45,166 - INFO - 66 - dataset_train label First for cycle:1 
+2022-09-05 18:17:45,166 - INFO - 71 - dataset_test text First for cycle:('这个宾馆比较陈旧了，特价的房间也很一般。总体来说一般',) 
+2022-09-05 18:17:50,459 - INFO - 76 - token.model_input_names:['input_ids', 'token_type_ids', 'attention_mask'] 
+Some weights of the model checkpoint at bert-base-chinese were not used when initializing BertModel: ['cls.predictions.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.decoder.weight', 'cls.seq_relationship.bias', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.weight']
+- This IS expected if you are initializing BertModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+2022-09-05 18:17:54,384 - INFO - 78 - pretrained.num_parameters():102267648 
+2022-09-05 18:17:54,389 - INFO - 122 - dataLoader_test First for cycle:{'input_ids': tensor([[ 101, 6821,  702,  ...,    0,    0,    0],
+        [ 101, 2577, 4708,  ...,    0,    0,    0]]), 'attention_mask': tensor([[1, 1, 1,  ..., 0, 0, 0],
+        [1, 1, 1,  ..., 0, 0, 0]]), 'token_type_ids': tensor([[0, 0, 0,  ..., 0, 0, 0],
+        [0, 0, 0,  ..., 0, 0, 0]])} 
+***** Running training *****
+  Num examples = 9600
+  Num Epochs = 5
+  Instantaneous batch size per device = 64
+  Total train batch size (w. parallel, distributed & accumulation) = 64
+  Gradient Accumulation steps = 1
+  Total optimization steps = 750
+***** Running Evaluation *****
+  Num examples = 1200
+  Batch size = 64
+Saving model checkpoint to bert-base-chinese-finetuned-emotion/checkpoint-150
+Trainer.model is not a `PreTrainedModel`, only saving its state dict.
+tokenizer config file saved in bert-base-chinese-finetuned-emotion/checkpoint-150/tokenizer_config.json
+Special tokens file saved in bert-base-chinese-finetuned-emotion/checkpoint-150/special_tokens_map.json
+***** Running Evaluation *****
+  Num examples = 1200
+  Batch size = 64
+Saving model checkpoint to bert-base-chinese-finetuned-emotion/checkpoint-300
+Trainer.model is not a `PreTrainedModel`, only saving its state dict.
+tokenizer config file saved in bert-base-chinese-finetuned-emotion/checkpoint-300/tokenizer_config.json
+Special tokens file saved in bert-base-chinese-finetuned-emotion/checkpoint-300/special_tokens_map.json
+***** Running Evaluation *****
+  Num examples = 1200
+  Batch size = 64
+Saving model checkpoint to bert-base-chinese-finetuned-emotion/checkpoint-450
+Trainer.model is not a `PreTrainedModel`, only saving its state dict.
+tokenizer config file saved in bert-base-chinese-finetuned-emotion/checkpoint-450/tokenizer_config.json
+Special tokens file saved in bert-base-chinese-finetuned-emotion/checkpoint-450/special_tokens_map.json
+***** Running Evaluation *****
+  Num examples = 1200
+  Batch size = 64
+Saving model checkpoint to bert-base-chinese-finetuned-emotion/checkpoint-600
+Trainer.model is not a `PreTrainedModel`, only saving its state dict.
+tokenizer config file saved in bert-base-chinese-finetuned-emotion/checkpoint-600/tokenizer_config.json
+Special tokens file saved in bert-base-chinese-finetuned-emotion/checkpoint-600/special_tokens_map.json
+***** Running Evaluation *****
+  Num examples = 1200
+  Batch size = 64
+Saving model checkpoint to bert-base-chinese-finetuned-emotion/checkpoint-750
+Trainer.model is not a `PreTrainedModel`, only saving its state dict.
+tokenizer config file saved in bert-base-chinese-finetuned-emotion/checkpoint-750/tokenizer_config.json
+Special tokens file saved in bert-base-chinese-finetuned-emotion/checkpoint-750/special_tokens_map.json
+
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+{'loss': 0.5969, 'learning_rate': 0.00042, 'epoch': 1.0}
+{'eval_loss': 0.5381966233253479, 'eval_accuracy': 0.7975, 'eval_runtime': 7.3444, 'eval_samples_per_second': 163.389, 'eval_steps_per_second': 2.587, 'epoch': 1.0}
+{'loss': 0.5211, 'learning_rate': 0.0003, 'epoch': 2.0}
+{'eval_loss': 0.5103058218955994, 'eval_accuracy': 0.825, 'eval_runtime': 7.326, 'eval_samples_per_second': 163.801, 'eval_steps_per_second': 2.594, 'epoch': 2.0}
+{'loss': 0.5036, 'learning_rate': 0.00017999999999999998, 'epoch': 3.0}
+{'eval_loss': 0.49933457374572754, 'eval_accuracy': 0.8283333333333334, 'eval_runtime': 7.3503, 'eval_samples_per_second': 163.259, 'eval_steps_per_second': 2.585, 'epoch': 3.0}
+{'loss': 0.4969, 'learning_rate': 6e-05, 'epoch': 4.0}
+{'eval_loss': 0.49713408946990967, 'eval_accuracy': 0.8291666666666667, 'eval_runtime': 7.3403, 'eval_samples_per_second': 163.482, 'eval_steps_per_second': 2.588, 'epoch': 4.0}
+{'loss': 0.4961, 'learning_rate': 0.0, 'epoch': 5.0}
+{'eval_loss': 0.4959185719490051, 'eval_accuracy': 0.8283333333333334, 'eval_runtime': 7.365, 'eval_samples_per_second': 162.933, 'eval_steps_per_second': 2.58, 'epoch': 5.0}
+{'train_runtime': 364.0476, 'train_samples_per_second': 131.851, 'train_steps_per_second': 2.06, 'train_loss': 0.5229294738769531, 'epoch': 5.0}

@@ -19,6 +19,7 @@
 * pytorch-crf:[https://pytorch-crf.readthedocs.io/en/stable/](https://pytorch-crf.readthedocs.io/en/stable) 查看
 * torchtext: pip install torchtext==0.12.0(版本号参考https://github.com/pytorch/text)
 * torchinfo: conda install -c conda-forge torchinfo
+* pytorch-lightning: pip install pytorch-lightning
 * tensorflow(CPU版本): pip install tensorflow
 * tensorflow-addons: pip install tensorflow-addons
 * pydot(keras.utils.plot_model函数依赖): pip install pydot

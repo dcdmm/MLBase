@@ -40,7 +40,7 @@ Other/datasets
 /I_Model/核心深度学习模型/word2vec_glove/cnew_200.wv.vectors.npy
 /I_Model/核心深度学习模型/word2vec_glove/glove.6B.50d.txt
 
-# `HuggingFace工具集`学习保存预训练模型和分词器
+# `HuggingFace工具集`学习保存的预训练模型及其配置
 /G_Tool/自然语言处理HuggingFace工具集/save_model
 /K_demo/PreTrained_Bert/save_pretrained_model/
 
@@ -57,8 +57,11 @@ Other/datasets
 /G_Tool/性能优化joblib模块/arr_huge_joblib.pkl
 /G_Tool/性能优化joblib模块/arr_huge_numpy.pkl.npy
 
-# 模型保存文件
+# demo(企业隐患排查质量分析)保存的模型文件
 /K_demo/企业隐患排查质量分析_二分类/best_model_state.bin
+
+# `Pytorch-lightning`学习保存的检查点
+/G_Tool/Pytorch高级封装Pytorch-lightning/model_checkpoint.pkl
 
 # 临时测试
 /tests/

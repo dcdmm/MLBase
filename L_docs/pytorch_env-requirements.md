@@ -11,6 +11,7 @@
 * seaborn: pip install seaborn
 * heamy: pip install -U heamy
 * networkx: pip install networkx
+* iterative-stratification(多标签分层k折): pip install iterative-stratification
 
 #### 深度学习
 

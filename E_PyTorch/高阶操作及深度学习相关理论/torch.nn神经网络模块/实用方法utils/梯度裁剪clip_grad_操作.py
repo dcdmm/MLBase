@@ -30,13 +30,14 @@ for iteration in range(500):
     loss.backward()
 
     # 梯度裁剪示例1
-    # nn.utils.clip_grad_norm_(lr_net.parameters(),
-    #                          max_norm=3,  # 梯度的最大范数
-    #                          norm_type=2)  # p范数的类型,inf表示无穷范数
+    # Returns: Total norm of the parameter gradients (viewed as a single vector).
+    # grad_norm = nn.utils.clip_grad_norm_(lr_net.parameters(),
+    #                                      max_norm=3,  # 梯度的最大范数
+    #                                      norm_type=2)  # p范数的类型,inf表示无穷范数
 
     # 梯度裁剪示例2
-    nn.utils.clip_grad_value_(lr_net.parameters(),
-                              clip_value=5)  # 梯度的范围[-clip_value, clip_value]
+    grad_norm = nn.utils.clip_grad_value_(lr_net.parameters(),
+                                          clip_value=5)  # 梯度的范围[-clip_value, clip_value]
 
     optimizer.step()
 

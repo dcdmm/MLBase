@@ -29,12 +29,12 @@ def loss_fun(y_true, y_pred):
 
 class MetricsCalculator:
     """查准率、查全率、F1 score"""
-    
+
     def __init__(self):
         self.TP = 0
         self.TP_FP = 0
-        self.TP_FN = 0       
-    
+        self.TP_FN = 0
+
     def calc_confusion_matrix(self, y_pred, y_true):
         self.TP, self.TP_FP, self.TP_FN = 1e-15, 1e-15, 1e-15
         y_pred = y_pred.data.cpu().numpy()
@@ -49,8 +49,8 @@ class MetricsCalculator:
         R = set(pred)
         T = set(true)
         self.TP += len(R & T)
-        self.TP_FP += len(R) 
-        self.TP_FN += len(T) 
+        self.TP_FP += len(R)
+        self.TP_FN += len(T)
 
     @property
     def precision(self):

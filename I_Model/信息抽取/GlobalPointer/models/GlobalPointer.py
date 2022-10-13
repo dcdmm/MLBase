@@ -1,5 +1,4 @@
 import torch
-import numpy as np
 import torch.nn as nn
 
 
@@ -73,7 +72,7 @@ class GlobalPointer(nn.Module):
             kw = kw * cos_pos + kw2 * sin_pos
         # logits.shape=[batch_size, ent_type_size, seq_len, seq_len]
         logits = torch.einsum('bmhd,bnhd->bhmn', qw, kw)  # 计算内积
-        
+
         # 排除padding
         # attention.shape=[batch_size, seq_len]
         # pad_mask.shape=[batch_size, seq_len, seq_len, seq_len]
@@ -85,4 +84,3 @@ class GlobalPointer(nn.Module):
         logits = logits - mask * 1e12
 
         return logits / self.inner_dim ** 0.5
-

@@ -3,6 +3,8 @@ import torch.nn as nn
 
 
 class GlobalPointer(nn.Module):
+    """原理见:https://kexue.fm/archives/8373"""
+
     def __init__(self, encoder, ent_type_size, inner_dim, RoPE=True):
         super().__init__()
         self.encoder = encoder

@@ -21,3 +21,7 @@
 * 加性注意力
 * 缩放点击注意力
 * 多头注意力
+
+[BILSTM-CRF](../I_Model/信息抽取/BILSTM-CRF/models)
+
+[GlobalPointer](../I_Model/信息抽取/GlobalPointer/models)

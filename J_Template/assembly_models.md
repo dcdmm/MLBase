@@ -1,27 +1,27 @@
 ### 模型封装
 
-[xgb/lgb/cat模型封装](../I_Model/集成学习模型/提升算法_boosting/models)
+[xgb/lgb/cat模型封装](../I_Model/classic_ML_model/gather_集成学习算法/提升算法_boosting/models)
 
 ***
 
-[Tabnet模型封装](../I_Model/other_AI_model/tabnet_pytorch_tabnet/models)
+[Tabnet模型封装](../I_Model/other/tabnet_pytorch_tabnet/models)
 
 ***
 
-[TextCNN模型封装](../I_Model/核心深度学习模型/卷积神经网络CNN/torch实现常见卷积神经网络/TextCNN/models)
+[TextCNN模型封装](../I_Model/deep_learning_base/卷积神经网络CNN/torch实现常见卷积神经网络/TextCNN/models)
 
 ***
 
-[TextRNN模型封装](../I_Model/核心深度学习模型/循环神经网络/TextRNN/models)
+[TextRNN模型封装](../I_Model/deep_learning_base/循环神经网络/TextRNN/models)
 
 ***
 
-[注意力机制模型封装](../I_Model/核心深度学习模型/注意力机制attention/models)
+[注意力机制模型封装](../I_Model/deep_learning_base/注意力机制attention/models)
 
 * 加性注意力
 * 缩放点击注意力
 * 多头注意力
 
-[BILSTM-CRF](../I_Model/信息抽取/BILSTM-CRF/models)
+[BILSTM-CRF](../I_Model/task_信息抽取/BILSTM-CRF/models)
 
-[GlobalPointer](../I_Model/信息抽取/GlobalPointer/models)
+[GlobalPointer](../I_Model/task_信息抽取/GlobalPointer/models)

@@ -1,6 +1,6 @@
 ### 模型相关扩展
 
-[xgb/lgb决策规则提取](../I_Model/集成学习模型/提升算法_boosting/决策规则提取_extend)
+[xgb/lgb决策规则提取](../I_Model/classic_ML_model/gather_集成学习算法/提升算法_boosting/决策规则提取_extend)
 
 ***
 

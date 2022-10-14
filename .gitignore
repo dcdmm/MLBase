@@ -34,11 +34,11 @@ Other/datasets
 
 # *****************************************************************************
 # `word2vec_glove`学习使用到的预训练词向量
-/I_Model/核心深度学习模型/word2vec_glove/cnew_200.syn1neg.npy
-/I_Model/核心深度学习模型/word2vec_glove/cnew_200
-/I_Model/核心深度学习模型/word2vec_glove/cnew_200.txt
-/I_Model/核心深度学习模型/word2vec_glove/cnew_200.wv.vectors.npy
-/I_Model/核心深度学习模型/word2vec_glove/glove.6B.50d.txt
+/I_Model/deep_learning_base/word2vec_glove/cnew_200.syn1neg.npy
+/I_Model/deep_learning_base/word2vec_glove/cnew_200
+/I_Model/deep_learning_base/word2vec_glove/cnew_200.txt
+/I_Model/deep_learning_base/word2vec_glove/cnew_200.wv.vectors.npy
+/I_Model/deep_learning_base/word2vec_glove/glove.6B.50d.txt
 
 # `HuggingFace工具集`学习保存的预训练模型及其配置
 /G_Tool/自然语言处理HuggingFace工具集/save_model
@@ -51,7 +51,7 @@ Other/datasets
 /K_demo/PreTrained_Bert/wikitext-103-raw/
 
 # fasttext保存的模型文件
-/I_Model/other_AI_model/FastText_fasttext/sava_model.bin
+/I_Model/other/FastText_fasttext/sava_model.bin
 
 # joblib模块数组保存测试
 /G_Tool/性能优化joblib模块/arr_huge_joblib.pkl

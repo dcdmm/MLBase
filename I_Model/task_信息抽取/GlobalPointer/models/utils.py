@@ -36,7 +36,6 @@ class MetricsCalculator:
         self.TP_FN = 0
 
     def calc_confusion_matrix(self, y_pred, y_true):
-        self.TP, self.TP_FP, self.TP_FN = 1e-15, 1e-15, 1e-15
         y_pred = y_pred.data.cpu().numpy()
         y_true = y_true.data.cpu().numpy()
         pred = []
@@ -54,12 +53,12 @@ class MetricsCalculator:
 
     @property
     def precision(self):
-        return self.TP / self.TP_FP  # 查准率
+        return 0 if self.TP_FP == 0 else self.TP / self.TP_FP  # 查准率
 
     @property
     def recall(self):
-        return self.TP / self.TP_FN  # 查全率
+        return 0 if self.TP_FP == 0 else self.TP / self.TP_FN  # 查全率
 
     @property
     def f1(self):
-        return 2 * self.TP / (self.TP_FP + self.TP_FN)  # f1 score
+        return 0 if (self.TP_FP + self.TP_FN) == 0 else 2 * self.TP / (self.TP_FP + self.TP_FN)  # f1 score

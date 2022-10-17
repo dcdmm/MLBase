@@ -8,7 +8,7 @@ class GlobalPointer(nn.Module):
     def __init__(self, encoder, ent_type_size, inner_dim, RoPE=True):
         super().__init__()
         self.encoder = encoder
-        self.ent_type_size = ent_type_size
+        self.ent_type_size = ent_type_size  # 实体类型个数
         self.inner_dim = inner_dim
         self.hidden_size = encoder.config.hidden_size
         self.dense = nn.Linear(self.hidden_size, self.ent_type_size * self.inner_dim * 2)

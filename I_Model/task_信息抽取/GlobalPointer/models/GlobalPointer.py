@@ -77,7 +77,8 @@ class GlobalPointer(nn.Module):
 
         # 排除padding
         # attention.shape=[batch_size, seq_len]
-        # pad_mask.shape=[batch_size, seq_len, seq_len, seq_len]
+        # pad_mask.shape=[batch_size, ent_type_size, seq_len, seq_len]
+        # 类似Multi-Head Attention的一个简化版,有多少种实体就对应多少个head(ent_type_size)
         pad_mask = attention_mask.unsqueeze(1).unsqueeze(1).expand(batch_size, self.ent_type_size, seq_len, seq_len)
         logits = logits * pad_mask - (1 - pad_mask) * 1e12  # padding部分值为很小的负数
 

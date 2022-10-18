@@ -3,7 +3,7 @@ import numpy as np
 
 
 def multilabel_categorical_crossentropy(y_pred, y_true):
-    """多标签分类的交叉熵.原理见https://kexue.fm/archives/7359"""
+    """"softmax+交叉熵"推广到多标签分类.原理见:https://kexue.fm/archives/7359"""
     y_pred = (1 - 2 * y_true) * y_pred  # -1 -> pos classes, 1 -> neg classes
     y_pred_neg = y_pred - y_true * 1e12  # mask the pred outputs of pos classes
     y_pred_pos = y_pred - (1 - y_true) * 1e12  # mask the pred outputs of neg classes

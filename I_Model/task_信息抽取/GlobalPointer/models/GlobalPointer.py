@@ -12,7 +12,7 @@ class GlobalPointer(nn.Module):
         self.inner_dim = inner_dim
         self.hidden_size = encoder.config.hidden_size
         self.dense = nn.Linear(self.hidden_size, self.ent_type_size * self.inner_dim * 2)
-        self.RoPE = RoPE
+        self.RoPE = RoPE  # 是否添加旋转式位置编码RoPE
 
     def sinusoidal_position_embedding(self, batch_size, seq_len, output_dim):
         """旋转式位置编码RoPE"""

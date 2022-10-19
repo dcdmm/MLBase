@@ -10,8 +10,7 @@ class GlobalPointer(nn.Module):
         self.encoder = encoder
         self.ent_type_size = ent_type_size  # 实体类型个数
         self.inner_dim = inner_dim
-        self.hidden_size = encoder.config.hidden_size
-        self.dense = nn.Linear(self.hidden_size, self.ent_type_size * self.inner_dim * 2)
+        self.linear = nn.Linear(encoder.config.hidden_size, self.ent_type_size * self.inner_dim * 2)
         self.RoPE = RoPE  # 是否添加旋转式位置编码RoPE
 
     def sinusoidal_position_embedding(self, batch_size, seq_len, output_dim):
@@ -44,7 +43,7 @@ class GlobalPointer(nn.Module):
         last_hidden_state = context_outputs[0]
 
         # outputs.shape=[batch_size, seq_len, ent_type_size * inner_dim * 2]
-        outputs = self.dense(last_hidden_state)
+        outputs = self.linear(last_hidden_state)
         # output[0].shape=[batch_size, seq_len, self.inner_dim * 2]
         # output[1].shape=[batch_size, seq_len, self.inner_dim * 2]
         # ......
@@ -63,9 +62,9 @@ class GlobalPointer(nn.Module):
             # sin_pos.shape=[batch_size, seq_len, 1, inner_dim]
             cos_pos = pos_emb[..., None, 1::2].repeat_interleave(2, dim=-1)
             sin_pos = pos_emb[..., None, ::2].repeat_interleave(2, dim=-1)
-            # qw2.shape=[batch_size, seq_len, inner_dim // 2, 2]
+            # qw2.shape=[batch_size, seq_len, ent_type_size, inner_dim // 2, 2]
             qw2 = torch.stack([-qw[..., 1::2], qw[..., ::2]], -1)
-            # qw2.shape=[batch_size, seq_len, inner_dim]
+            # qw2.shape=[batch_size, seq_len, ent_type_size, inner_dim]
             qw2 = qw2.reshape(qw.shape)
             # qw.shape=[batch_size, seq_len, ent_type_size, inner_dim]
             qw = qw * cos_pos + qw2 * sin_pos

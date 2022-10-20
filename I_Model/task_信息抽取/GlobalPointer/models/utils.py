@@ -4,6 +4,7 @@ import numpy as np
 
 def multilabel_categorical_crossentropy(y_pred, y_true):
     """"softmax+交叉熵"推广到多标签分类.原理见:https://kexue.fm/archives/7359"""
+    # 必须确保y_pred=y_true
     y_pred = (1 - 2 * y_true) * y_pred  # -1 -> pos classes, 1 -> neg classes
     y_pred_neg = y_pred - y_true * 1e12  # mask the pred outputs of pos classes
     y_pred_pos = y_pred - (1 - y_true) * 1e12  # mask the pred outputs of neg classes
@@ -21,6 +22,7 @@ def loss_fun(y_true, y_pred):
     y_pred.shape=[batch_size, ent_type_size, seq_len, seq_len]
     """
     batch_size, ent_type_size = y_pred.shape[:2]
+    # y_true.shape=y_pred.shape=[batch_size * ent_type_size, seq_len, seq_len]
     y_true = y_true.reshape(batch_size * ent_type_size, -1)
     y_pred = y_pred.reshape(batch_size * ent_type_size, -1)
     loss = multilabel_categorical_crossentropy(y_true, y_pred)

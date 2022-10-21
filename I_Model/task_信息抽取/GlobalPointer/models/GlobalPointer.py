@@ -16,7 +16,7 @@ class GlobalPointer(nn.Module):
     def sinusoidal_position_embedding(self, batch_size, seq_len, output_dim):
         """旋转式位置编码RoPE"""
         # position_ids.shape=[seq_len, 1]
-        position_ids = torch.arange(0, seq_len, dtype=torch.float).unsqueeze(-1)
+        position_ids = torch.arange(0, seq_len, dtype=torch.float).unsqueeze(-1)  # 绝对位置嵌入
         # indices.shape=[output_dim // 2]
         indices = torch.arange(0, output_dim // 2, dtype=torch.float)
         # indices.shape=[output_dim // 2]

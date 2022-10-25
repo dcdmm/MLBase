@@ -5,13 +5,14 @@ import torch.nn as nn
 class GlobalPointer(nn.Module):
     """原理见:https://kexue.fm/archives/8373"""
 
-    def __init__(self, encoder, ent_type_size, inner_dim, RoPE=True):
+    def __init__(self, encoder, ent_type_size, inner_dim, RoPE=True, tril_mask=True):
         super().__init__()
         self.encoder = encoder
         self.ent_type_size = ent_type_size  # 实体类型个数
         self.inner_dim = inner_dim
         self.dense = nn.Linear(encoder.config.hidden_size, self.ent_type_size * self.inner_dim * 2)
         self.RoPE = RoPE
+        self.tril_mask = tril_mask
 
     def sinusoidal_position_embedding(self, batch_size, seq_len, output_dim):
         """旋转式位置编码RoPE"""
@@ -81,8 +82,9 @@ class GlobalPointer(nn.Module):
         logits = logits * pad_mask - (1 - pad_mask) * 1e12  # padding部分值为很小的负数
 
         # 排除下三角
-        mask = torch.tril(torch.ones_like(logits), -1)
-        logits = logits - mask * 1e12
+        if self.tril_mask:
+            mask = torch.tril(torch.ones_like(logits), -1)
+            logits = logits - mask * 1e12
 
         return logits / self.inner_dim ** 0.5
 

@@ -90,7 +90,7 @@ class GlobalPointer(nn.Module):
 
 
 class CustomRelation(nn.Module):
-    """自定义关系抽取模型"""
+    """自定义关系抽取模型(借鉴GlobalPointer,加入旋转式位置编码RoPE)"""
 
     def __init__(self, encoder, inner_dim, RoPE=True):
         super().__init__()

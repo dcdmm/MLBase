@@ -51,6 +51,8 @@ class MetricsCalculator:
         self.TP_FN += len(T)
 
     def calc_confusion_matrix_rel(self, y_pred, y_true):
+        # y_pred.shape=[batch_size, relation_max_len]
+        # y_true.shape=[batch_size, relation_max_len]
         y_pred = y_pred.data.cpu().numpy() > 0
         y_pred = y_pred.astype(np.float32)
         y_true = y_true.data.cpu().numpy()

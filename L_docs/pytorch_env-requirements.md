@@ -56,6 +56,7 @@
 * openpyxl(pandas读取excel依赖): pip install openpyxl
 * PyQt5(交互方式绘图依赖): pip install PyQt5
 * SymPy: pip install sympy
+* jsonlines: pip install jsonlines
 * graphviz:
     * Windows:pip install graphviz(需要安装Graphviz并配置系统环境变量Path +: Graphviz\bin)
 * PyMySQL: pip install PyMySQL

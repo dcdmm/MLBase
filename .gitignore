@@ -31,6 +31,9 @@
 ### PyTorch
 Other/datasets
 
+# 临时测试
+/tests/
+
 
 # *****************************************************************************
 # `word2vec_glove`学习使用到的预训练词向量
@@ -70,5 +73,10 @@ Other/datasets
 /K_demo/医疗实体及关系识别_信息抽取/result_data/ner_rel_predict.json
 /K_demo/医疗实体及关系识别_信息抽取/save_tokenizer/
 
-# 临时测试
-/tests/
+# SBERT保存的模型文件
+/I_Model/task_SentenceEmbeddings/SBERT/save_sbert/
+
+# Chinese-SNLI数据集
+/I_Model/task_SentenceEmbeddings/SimCSE/SimCSE/cnsd-snli/
+# Chinese-STS-B数据集
+/I_Model/task_SentenceEmbeddings/SimCSE/SimCSE/STS-B/

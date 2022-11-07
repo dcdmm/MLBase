@@ -66,12 +66,12 @@ Other/datasets
 # `Pytorch-lightning`学习保存的检查点
 /G_Tool/Pytorch高级封装Pytorch-lightning/model_checkpoint.pkl
 
-# demo(医疗实体及关系识别_信息抽取)数据中间结果
-/K_demo/医疗实体及关系识别_信息抽取/datasets/train_ner.json
-/K_demo/医疗实体及关系识别_信息抽取/datasets/train_rel.json
-/K_demo/医疗实体及关系识别_信息抽取/result_data/ner.json
-/K_demo/医疗实体及关系识别_信息抽取/result_data/ner_rel_predict.json
-/K_demo/医疗实体及关系识别_信息抽取/save_tokenizer/
+# demo(PURE(pipeline))数据中间结果
+/I_Model/task_NER_RelationExtraction/PURE(pipeline)/datasets/train_ner.json
+/I_Model/task_NER_RelationExtraction/PURE(pipeline)/datasets/train_rel.json
+/I_Model/task_NER_RelationExtraction/PURE(pipeline)/result_data/ner.json
+/I_Model/task_NER_RelationExtraction/PURE(pipeline)/result_data/ner_rel_predict.json
+/I_Model/task_NER_RelationExtraction/PURE(pipeline)/save_tokenizer/
 
 # SBERT保存的模型文件
 /I_Model/task_SentenceEmbeddings/SBERT/save_sbert/

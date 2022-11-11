@@ -1,4 +1,4 @@
-### pytorch_env虚拟环境安装
+### pytorch_env虚拟环境核心包安装安装
 
 #### 机器学习/数据分析
 
@@ -22,9 +22,9 @@
 * torchinfo: conda install -c conda-forge torchinfo
 * pytorch-lightning: pip install pytorch-lightning
 * tensorflow(CPU版本): pip install tensorflow
+    * pydot(keras.utils.plot_model函数依赖): pip install pydot
+    * pydot-ns(keras.utils.plot_model函数依赖): pip install pydot-ng
 * tensorflow-addons: pip install tensorflow-addons
-* pydot(keras.utils.plot_model函数依赖): pip install pydot
-* pydot-ns(keras.utils.plot_model函数依赖): pip install pydot-ng
 * FastText:
     * Linux: [https://github.com/facebookresearch/fastText](https://github.com/facebookresearch/fastText) 查看
     * Windows:
@@ -50,18 +50,20 @@
 #### 其他
 
 * pipreqs(requirements.txt文件生成): pip install pipreqs
-* XlsxWriter(pandas保存excel文件): pip install XlsxWriter
 * wget: pip install wget
-* colorama(彩色打印): pip install colorama 
-* openpyxl(pandas读取excel依赖): pip install openpyxl
-* PyQt5(交互方式绘图依赖): pip install PyQt5
+* colorama(彩色打印): pip install colorama
 * SymPy: pip install sympy
 * jsonlines: pip install jsonlines
 * graphviz:
     * Windows:pip install graphviz(需要安装Graphviz并配置系统环境变量Path +: Graphviz\bin)
 * PyMySQL: pip install PyMySQL
-* autopep8(vscode代码格式化依赖): pip install --upgrade autopep8
 * jupyter notebook目录功能安装及其配置(base环境安装即可)
     * pip install jupyter_contrib_nbextensions
     * pip install jupyter_nbextensions_configurator
     * jupyter contrib nbextension install --user
+* 依赖项
+    * XlsxWriter(pandas保存excel文件依赖): pip install XlsxWriter
+    * openpyxl(pandas读取excel文件依赖): pip install openpyxl
+    * tabulate(pandas DataFrame保存markdown格式依赖): pip install tabulate
+    * PyQt5(交互方式绘图依赖): pip install PyQt5
+    * autopep8(vscode代码格式化依赖): pip install --upgrade autopep8

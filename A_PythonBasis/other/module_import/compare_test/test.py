@@ -2,7 +2,7 @@ import os
 
 print(os.getcwd())  # 获取当前工作路径
 
-path = os.path.abspath("../dir_example")  # 要临时添加到path路径的第三方模块的路径
+path = os.path.abspath("../compare")  # 要临时添加到path路径的第三方模块的路径
 print(path)
 
 import sys
@@ -15,9 +15,9 @@ sys.path.append(path)
 for i in sys.path:
     print(i)
 
-from print_hello import print_hello  # test1.py与print_hello.py位于不同目录结构下
+from print_hello import print_hello  # test.py与print_hello.py位于不同目录结构下
 
 print_hello("php")
 
 # 存在相对路径导入的代码不能直接执行
-from ..dir_example.print_hello import print_hello
+from ..compare.print_hello import print_hello

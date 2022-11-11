@@ -6,7 +6,7 @@ print('__file__={0:<35} | __name__={1:<20} | __package__={2:<20}'.format(__file_
 # # # --->dir_relative.demo.py调用dir_relative.core.config.py
 # # # --->dir_relative.demos_0.demo0.py调用dir_relative.core.config.py
 # # # --->dir_relative.demos_0.demos_1.demo1.py调用dir_relative.core.config.py
-# 解决1:从dir_relative处开始导入(即与dir_relative平级)
+# 解决1:从dir_relative处开始导入(即目录结构与dir_relative平级)
 # 解决2:从比dir_relative目录结构更高的位置开始导入(即目录结构比dir_relative更高)
 
 

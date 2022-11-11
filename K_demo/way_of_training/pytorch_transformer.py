@@ -50,7 +50,7 @@ class Dataset(Data.Dataset):
     def __getitem__(self, i):
         """定义索引方式"""
         text = self.dataset[i]['text']
-        if self.split == 'test':
+        if self.split == 'compare_test':
             return text,  # 测试数据集不含标签
         else:
             label = self.dataset[i]['label']
@@ -59,7 +59,7 @@ class Dataset(Data.Dataset):
 
 dataset_train = Dataset('train')
 dataset_validation = Dataset('validation')
-dataset_test = Dataset('test')
+dataset_test = Dataset('compare_test')
 
 for text, label in dataset_train:
     # 调用__getitem__方法

@@ -49,7 +49,7 @@ class Trainer:
 
             if self.verbose:
                 print("======current_iter:" + str(self.current_iter) + ", train acc:" + str(
-                    train_acc) + ", dir_example acc:" + str(test_acc) + "=======")
+                    train_acc) + ", compare acc:" + str(test_acc) + "=======")
         self.current_iter += 1
 
     def train(self):
@@ -60,4 +60,4 @@ class Trainer:
 
         if self.verbose:
             print("=============== Final Test Accuracy ===============")
-            print("dir_example acc:" + str(test_acc))  # 最终测试数据集的精度
+            print("compare acc:" + str(test_acc))  # 最终测试数据集的精度

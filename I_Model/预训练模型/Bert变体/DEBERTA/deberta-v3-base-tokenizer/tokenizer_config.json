@@ -1,1 +1,16 @@
-{"do_lower_case": false, "bos_token": "[CLS]", "eos_token": "[SEP]", "unk_token": "[UNK]", "sep_token": "[SEP]", "pad_token": "[PAD]", "cls_token": "[CLS]", "mask_token": "[MASK]", "split_by_punct": false, "sp_model_kwargs": {}, "vocab_type": "spm", "special_tokens_map_file": null, "name_or_path": "microsoft/deberta-v3-base", "tokenizer_class": "DebertaV2Tokenizer"}
+{
+  "bos_token": "[CLS]",
+  "cls_token": "[CLS]",
+  "do_lower_case": false,
+  "eos_token": "[SEP]",
+  "mask_token": "[MASK]",
+  "name_or_path": "microsoft/deberta-v3-base",
+  "pad_token": "[PAD]",
+  "sep_token": "[SEP]",
+  "sp_model_kwargs": {},
+  "special_tokens_map_file": null,
+  "split_by_punct": false,
+  "tokenizer_class": "DebertaV2Tokenizer",
+  "unk_token": "[UNK]",
+  "vocab_type": "spm"
+}

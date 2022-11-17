@@ -20,4 +20,4 @@ for i in range(len(number1_list)):
         else:
             logging.info(msg="result=" + str(result))
     except ZeroDivisionError as reason:
-        logging.error("Error" + str(reason))
+        logging.error("Error:" + str(reason))

@@ -12,7 +12,7 @@ logging.basicConfig(
     # If filename is specified, open the file in this mode. Defaults to 'a'.
     filemode='a',  # 日志文件的打开模式
     # Set the root logger level to the specified level.
-    level=logging.DEBUG,  # 日志级别
+    level=logging.WARNING,  # 日志级别
     # se the specified format string for the handler.
     # Defaults to attributes levelname, name and message separated by colons.
     format="%(asctime)s %(name)s %(levelname)s %(message)s",

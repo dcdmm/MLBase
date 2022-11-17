@@ -64,7 +64,7 @@ Other/datasets
 /K_demo/企业隐患排查质量分析_文本二分类/best_model_state.bin
 
 # `Pytorch-lightning`学习保存的检查点
-/G_Tool/Pytorch高级封装Pytorch-lightning/model_checkpoint.pkl
+/G_Tool/other/Pytorch高级封装Pytorch-lightning/model_checkpoint.pkl
 
 # demo(PURE(pipeline))数据中间结果
 /I_Model/task_NER_RelationExtraction/PURE(pipeline)/datasets/train_ner.json

@@ -1,5 +1,5 @@
 class QuestionPaser:
-    """根据问题生成对应的CQL查询语句"""
+    """根据问句生成对应的CQL查询语句"""
 
     def parser_main(self, res_classify):
         args = res_classify['args']

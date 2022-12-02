@@ -3,7 +3,7 @@ import ahocorasick
 
 
 class QuestionClassifier:
-    """问题分类"""
+    """问句分类"""
 
     def __init__(self):
         cur_dir = os.path.abspath(os.path.dirname(__file__))

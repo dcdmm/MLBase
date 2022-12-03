@@ -7,8 +7,8 @@ class MedicalGraph:
     """创建图数据库"""
 
     def __init__(self):
-        self.data_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'datasets/medical_example.json')
-        self.g = Graph('http://localhost:7474', auth=('neo4j', '123456'), name='test')
+        self.data_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'datasets/medical.json')
+        self.g = Graph('http://localhost:7474', auth=('neo4j', '123456'), name='medicalkg')
         self.g.delete_all()
 
     def extract_info(self):

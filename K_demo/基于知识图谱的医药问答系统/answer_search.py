@@ -119,8 +119,14 @@ class AnswerSearcher:
         elif question_type == 'disease_check':
             for i in answers:
                 subject = i[0]['m.name']
-                desc = [j['n.name'] for j in i]
-                final_answer += '{0}通常可以通过以下方式检查出来：{1}。\n'.format(subject, '；'.join(list(set(desc))[:self.num_limit]))
+                if i[0]['r.name'] == '诊断检查':
+                    check_desc = [j['n.name'] for j in i]
+                    final_answer += '{0}通常可以通过以下方式检查出来：{1}。\n'.format(subject,
+                                                                      '；'.join(list(set(check_desc))[:self.num_limit]))
+                if i[0]['r.name'] == '所属科室':
+                    belong_to_desc = [j['n.name'] for j in i]
+                    final_answer += '{0}的检查科室为：{1}。\n'.format(subject,
+                                                              '；'.join(list(set(belong_to_desc))[:self.num_limit]))
         elif question_type == 'check_disease':
             for i in answers:
                 subject = i[0]['n.name']

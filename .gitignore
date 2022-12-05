@@ -80,3 +80,6 @@ Other/datasets
 /I_Model/task_SentenceEmbeddings/SimCSE/SimCSE/cnsd-snli/
 # Chinese-STS-B数据集
 /I_Model/task_SentenceEmbeddings/SimCSE/SimCSE/STS-B/
+
+# 基于知识图谱的医药问答系统保存的模型文件
+/K_demo/基于知识图谱的医药问答系统/QIC/torch_model.bin

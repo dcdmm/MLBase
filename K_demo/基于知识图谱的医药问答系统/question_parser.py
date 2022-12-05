@@ -151,8 +151,11 @@ class QuestionPaser:
             cql = cql1 + cql2
         # neo4j查询疾病应该进行的检查的CQL语句
         elif question_type == 'disease_check':
-            cql = ["MATCH (m:diseases)-[r:need_check]->(n:checks) where m.name = '{0}' return m.name, r.name, n.name".
+            cql1 = ["MATCH (m:diseases)-[r:need_check]->(n:checks) where m.name = '{0}' return m.name, r.name, n.name".
                        format(i) for i in entities]
+            cql2 =  ["MATCH (m:diseases)-[r:belongs_to]->(n:departments) where m.name = '{0}' return m.name, r.name, n.name".
+                       format(i) for i in entities]
+            cql = cql1 + cql2
         # neo4j已知检查查询疾病的CQL语句
         elif question_type == 'check_disease':
             cql = ["MATCH (m:diseases)-[r:need_check]->(n:checks) where n.name = '{0}' return m.name, r.name, n.name".

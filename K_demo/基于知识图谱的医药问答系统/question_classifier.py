@@ -1,5 +1,9 @@
 import os
 import ahocorasick
+from transformers import AutoTokenizer, AutoModel
+import torch
+
+from QIC.model import Model
 
 
 class QuestionClassifier:
@@ -64,6 +68,8 @@ class QuestionClassifier:
         self.cure_qwds = ['治疗什么', '治啥', '治疗啥', '医治啥', '治愈啥', '主治啥', '主治什么', '有什么用', '有何用', '用处',
                           '用途', '有什么好处', '有什么益处', '有何益处', '用来', '用来做啥', '用来作甚', '需要', '要']
 
+        self.model_path = os.path.join(cur_dir, 'QIC/torch_model.bin')
+
     def classify(self, question):
         data = {}
 
@@ -76,6 +82,11 @@ class QuestionClassifier:
         for type_ in medical_dict.values():
             types += type_
         question_types = []
+
+        intention_predict = self.intention_predict(question)
+        if intention_predict != '':
+            question_types.append(intention_predict)
+
         if self.check_words(self.symptom_qwds, question) and ('disease' in types):
             question_type = 'disease_symptom'  # 疾病->症状
             question_types.append(question_type)
@@ -152,7 +163,7 @@ class QuestionClassifier:
         if question_types == [] and 'symptom' in types:
             question_types = ['symptom_disease']
 
-        data['question_types'] = question_types
+        data['question_types'] = list(set(question_types))
         return data
 
     def cus_update(self, d1, d2):
@@ -183,6 +194,26 @@ class QuestionClassifier:
         final_wds = [i for i in region_wds if i not in stop_wds]
         final_dict = {i: self.wdtype_dict.get(i) for i in final_wds}
         return final_dict
+
+    def intention_predict(self, question):
+        """意图分类,使用KUAKE-QIC数据集进行训练"""
+        token = AutoTokenizer.from_pretrained("nghuyong/ernie-health-zh")
+        best_model = Model(AutoModel.from_pretrained("nghuyong/ernie-health-zh"))
+        best_model.load_state_dict(torch.load(self.model_path))  # 加载最优模型
+        text_encode = token([question], return_tensors='pt')
+        predict = best_model(text_encode['input_ids'], text_encode['attention_mask'], text_encode['token_type_ids'])
+        if torch.max(predict) > 0.85:
+            if torch.argmax(predict) == 0:  # 对应病情诊断
+                return 'symptom_disease'
+            if torch.argmax(predict) == 1:  # 对应病因分析
+                return 'disease_cause'
+            if torch.argmax(predict) == 2:  # 对应治疗方案
+                return 'disease_cureway'
+            if torch.argmax(predict) == 3:  # 对应就医建议
+                return 'disease_check'
+            if torch.argmax(predict) == 5:  # 对应疾病表述
+                return 'symptom_qwds'
+        return ''
 
     def check_words(self, wds, sent):  # wds中是否有词属于sent
         for wd in wds:

@@ -11,7 +11,7 @@ class QuestionPaser:
             cql_ = {'question_type': question_type}
 
             if question_type == 'disease_symptom':
-                cql = self.cql_transfer(question_type, entity_dict.get('disease'))
+                cql = self.cql_transfer(question_type, entity_dict.get('disease'))  # 获取疾病列表(可能有多个疾病)
             elif question_type == 'symptom_disease':
                 cql = self.cql_transfer(question_type, entity_dict.get('symptom'))
             elif question_type == 'disease_cause':
@@ -159,7 +159,7 @@ class QuestionPaser:
                        format(i) for i in entities]
         else:
             cql = []
-        return cql  # CQL查询语句
+        return cql  # 对应的CQL查询语句
 
 
 if __name__ == '__main__':

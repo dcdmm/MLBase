@@ -40,7 +40,7 @@ class QuestionClassifier:
         self.deny_path = os.path.join(cur_dir, 'nodes/deny.txt')
         self.deny_words = [i.strip() for i in open(self.deny_path, encoding="utf-8") if i.strip()]
 
-        # 问句疑问词
+        # 疑问词关键字匹配问句类似(规则)
         self.symptom_qwds = ['症状', '表征', '现象', '症候', '表现']
         self.cause_qwds = ['原因', '成因', '为什么', '怎么会', '怎样才', '咋样才', '怎样会', '如何会', '为啥', '为何', '如何才会',
                            '怎么才会', '会导致', '会造成']
@@ -197,6 +197,9 @@ if __name__ == '__main__':
 
     # input:苯中毒和肺炎该吃什么
     # result:{'args': {'苯中毒': ['disease'], '肺炎': ['disease']}, 'question_types': ['disease_do_food']}
+
+    # input:苯中毒和肺炎该吃什么该如何预防
+    # result:{'args': {'苯中毒': ['disease'], '肺炎': ['disease']}, 'question_types': ['disease_do_food', 'disease_prevent']}
 
     # 测试通过
     q = QuestionClassifier()

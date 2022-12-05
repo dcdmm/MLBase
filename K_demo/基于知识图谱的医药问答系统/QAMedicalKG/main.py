@@ -18,7 +18,7 @@ class ChatBotGraph:
             return answer
         res_sql = self.parser.parser_main(res_classify)  # 根据问题生成对应的CQL查询语句
         final_answers = self.searcher.search_main(res_sql)  # CQL查询语句neo4j搜索并输出对应的答案
-        if not final_answers:
+        if final_answers == '':
             return answer
         else:
             return '\n'.join(final_answers)

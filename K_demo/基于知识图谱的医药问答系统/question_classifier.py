@@ -196,7 +196,7 @@ class QuestionClassifier:
         return final_dict
 
     def intention_predict(self, question):
-        """意图分类,使用KUAKE-QIC数据集进行训练"""
+        """意图分类,通过KUAKE-QIC数据集训练得"""
         token = AutoTokenizer.from_pretrained("nghuyong/ernie-health-zh")
         best_model = Model(AutoModel.from_pretrained("nghuyong/ernie-health-zh"))
         best_model.load_state_dict(torch.load(self.model_path))  # 加载最优模型

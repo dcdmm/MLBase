@@ -52,7 +52,8 @@
 * pipreqs(requirements.txt文件生成): pip install pipreqs
 * wget: pip install wget
 * colorama(彩色打印): pip install colorama
-* SymPy: pip install sympy
+* SymPy: pip install sympy 
+* pyahocorasick: pip install pyahocorasick
 * jsonlines: pip install jsonlines
 * graphviz:
     * Windows:pip install graphviz(需要安装Graphviz并配置系统环境变量Path +: Graphviz\bin)

@@ -1,9 +1,6 @@
 import os
-import ahocorasick
-from transformers import AutoTokenizer, AutoModel
-import torch
 
-from QIC.model import Model
+from utils import cus_update, build_actree, check_words, check_medical, model_intention_predict
 
 
 class QuestionClassifier:
@@ -23,22 +20,22 @@ class QuestionClassifier:
 
         self.wdtype_dict = {}
         # 一个实体可能对应多种标签,实体标签使用列表存储
-        self.cus_update(self.wdtype_dict,
-                        {i.strip(): ['disease'] for i in open(self.disease_path, encoding="utf-8") if i.strip()})
-        self.cus_update(self.wdtype_dict,
-                        {i.strip(): ['department'] for i in open(self.department_path, encoding="utf-8") if i.strip()})
-        self.cus_update(self.wdtype_dict,
-                        {i.strip(): ['check'] for i in open(self.check_path, encoding="utf-8") if i.strip()})
-        self.cus_update(self.wdtype_dict,
-                        {i.strip(): ['drug'] for i in open(self.drug_path, encoding="utf-8") if i.strip()})
-        self.cus_update(self.wdtype_dict,
-                        {i.strip(): ['food'] for i in open(self.food_path, encoding="utf-8") if i.strip()})
-        self.cus_update(self.wdtype_dict,
-                        {i.strip(): ['producer'] for i in open(self.producer_path, encoding="utf-8") if i.strip()})
-        self.cus_update(self.wdtype_dict,
-                        {i.strip(): ['producer'] for i in open(self.symptom_path, encoding="utf-8") if i.strip()})
+        cus_update(self.wdtype_dict,
+                   {i.strip(): ['disease'] for i in open(self.disease_path, encoding="utf-8") if i.strip()})
+        cus_update(self.wdtype_dict,
+                   {i.strip(): ['department'] for i in open(self.department_path, encoding="utf-8") if i.strip()})
+        cus_update(self.wdtype_dict,
+                   {i.strip(): ['check'] for i in open(self.check_path, encoding="utf-8") if i.strip()})
+        cus_update(self.wdtype_dict,
+                   {i.strip(): ['drug'] for i in open(self.drug_path, encoding="utf-8") if i.strip()})
+        cus_update(self.wdtype_dict,
+                   {i.strip(): ['food'] for i in open(self.food_path, encoding="utf-8") if i.strip()})
+        cus_update(self.wdtype_dict,
+                   {i.strip(): ['producer'] for i in open(self.producer_path, encoding="utf-8") if i.strip()})
+        cus_update(self.wdtype_dict,
+                   {i.strip(): ['producer'] for i in open(self.symptom_path, encoding="utf-8") if i.strip()})
 
-        self.region_tree = self.build_actree(list(self.wdtype_dict.keys()))
+        self.region_tree = build_actree(list(self.wdtype_dict.keys()))
 
         # 否定词
         self.deny_path = os.path.join(cur_dir, 'nodes/deny.txt')
@@ -73,7 +70,7 @@ class QuestionClassifier:
     def classify(self, question):
         data = {}
 
-        medical_dict = self.check_medical(question)
+        medical_dict = check_medical(self.region_tree, self.wdtype_dict, question)
         if not medical_dict:
             return {}
         data['args'] = medical_dict
@@ -83,75 +80,75 @@ class QuestionClassifier:
             types += type_
         question_types = []
 
-        intention_predict = self.intention_predict(question)
+        intention_predict = model_intention_predict(question)
         if intention_predict != '':
             question_types.append(intention_predict)
 
-        if self.check_words(self.symptom_qwds, question) and ('disease' in types):
+        if check_words(self.symptom_qwds, question) and ('disease' in types):
             question_type = 'disease_symptom'  # 疾病->症状
             question_types.append(question_type)
 
-        if self.check_words(self.symptom_qwds, question) and ('symptom' in types):
+        if check_words(self.symptom_qwds, question) and ('symptom' in types):
             question_type = 'symptom_disease'  # 症状->疾病
             question_types.append(question_type)
 
-        if self.check_words(self.cause_qwds, question) and ('disease' in types):
+        if check_words(self.cause_qwds, question) and ('disease' in types):
             question_type = 'disease_cause'  # 疾病->造成
             question_types.append(question_type)
 
-        if self.check_words(self.acompany_qwds, question) and ('disease' in types):
+        if check_words(self.acompany_qwds, question) and ('disease' in types):
             question_type = 'disease_acompany'  # 疾病->并发
             question_types.append(question_type)
 
-        if self.check_words(self.food_qwds, question) and 'disease' in types:
-            deny_status = self.check_words(self.deny_words, question)
+        if check_words(self.food_qwds, question) and 'disease' in types:
+            deny_status = check_words(self.deny_words, question)
             if deny_status:
                 question_type = 'disease_not_food'  # 疾病->忌吃食物
             else:
                 question_type = 'disease_do_food'  # 疾病->宜吃食物
             question_types.append(question_type)
 
-        if self.check_words(self.food_qwds + self.cure_qwds, question) and 'food' in types:
-            deny_status = self.check_words(self.deny_words, question)
+        if check_words(self.food_qwds + self.cure_qwds, question) and 'food' in types:
+            deny_status = check_words(self.deny_words, question)
             if deny_status:
                 question_type = 'food_not_disease'  # 忌吃食物->疾病
             else:
                 question_type = 'food_do_disease'  # 宜吃食物->疾病
             question_types.append(question_type)
 
-        if self.check_words(self.drug_qwds, question) and 'disease' in types:
+        if check_words(self.drug_qwds, question) and 'disease' in types:
             question_type = 'disease_drug'  # 疾病->药物
             question_types.append(question_type)
 
-        if self.check_words(self.cure_qwds, question) and 'drug' in types:
+        if check_words(self.cure_qwds, question) and 'drug' in types:
             question_type = 'drug_disease'  # 药物->疾病
             question_types.append(question_type)
 
-        if self.check_words(self.check_qwds, question) and 'disease' in types:
+        if check_words(self.check_qwds, question) and 'disease' in types:
             question_type = 'disease_check'  # 疾病->检查
             question_types.append(question_type)
 
-        if self.check_words(self.check_qwds + self.cure_qwds, question) and 'check' in types:
+        if check_words(self.check_qwds + self.cure_qwds, question) and 'check' in types:
             question_type = 'check_disease'  # 检查->疾病
             question_types.append(question_type)
 
-        if self.check_words(self.prevent_qwds, question) and 'disease' in types:
+        if check_words(self.prevent_qwds, question) and 'disease' in types:
             question_type = 'disease_prevent'  # 疾病->防范
             question_types.append(question_type)
 
-        if self.check_words(self.lasttime_qwds, question) and 'disease' in types:
+        if check_words(self.lasttime_qwds, question) and 'disease' in types:
             question_type = 'disease_lasttime'  # 疾病->治疗周期
             question_types.append(question_type)
 
-        if self.check_words(self.cureway_qwds, question) and 'disease' in types:
+        if check_words(self.cureway_qwds, question) and 'disease' in types:
             question_type = 'disease_cureway'  # 疾病->治疗方式
             question_types.append(question_type)
 
-        if self.check_words(self.cureprob_qwds, question) and 'disease' in types:
+        if check_words(self.cureprob_qwds, question) and 'disease' in types:
             question_type = 'disease_cureprob'  # 疾病->治愈可能性
             question_types.append(question_type)
 
-        if self.check_words(self.easyget_qwds, question) and 'disease' in types:
+        if check_words(self.easyget_qwds, question) and 'disease' in types:
             question_type = 'disease_easyget'  # 疾病->易感染人群
             question_types.append(question_type)
 
@@ -165,61 +162,6 @@ class QuestionClassifier:
 
         data['question_types'] = list(set(question_types))
         return data
-
-    def cus_update(self, d1, d2):
-        """自定义字典更新方式,用于替代字典内置update方法"""
-        for key in d2.keys():
-            if key in d1:
-                d1[key].extend(d2[key])
-            else:
-                d1[key] = d2[key]
-
-    def build_actree(self, wordlist):
-        actree = ahocorasick.Automaton()  # create an Automaton
-        for index, word in enumerate(wordlist):
-            actree.add_word(word, (index, word))
-        actree.make_automaton()  # convert the trie to an Aho-Corasick automaton to enable Aho-Corasick search
-        return actree
-
-    def check_medical(self, question):
-        region_wds = []
-        for i in self.region_tree.iter(question):  # 匹配所有字符串
-            wd = i[1][1]
-            region_wds.append(wd)
-        stop_wds = []
-        for wd1 in region_wds:
-            for wd2 in region_wds:
-                if wd1 in wd2 and wd1 != wd2:
-                    stop_wds.append(wd1)
-        final_wds = [i for i in region_wds if i not in stop_wds]
-        final_dict = {i: self.wdtype_dict.get(i) for i in final_wds}
-        return final_dict
-
-    def intention_predict(self, question):
-        """意图分类,通过KUAKE-QIC数据集训练得"""
-        token = AutoTokenizer.from_pretrained("nghuyong/ernie-health-zh")
-        best_model = Model(AutoModel.from_pretrained("nghuyong/ernie-health-zh"))
-        best_model.load_state_dict(torch.load(self.model_path))  # 加载最优模型
-        text_encode = token([question], return_tensors='pt')
-        predict = best_model(text_encode['input_ids'], text_encode['attention_mask'], text_encode['token_type_ids'])
-        if torch.max(predict) > 0.85:
-            if torch.argmax(predict) == 0:  # 对应病情诊断
-                return 'symptom_disease'
-            if torch.argmax(predict) == 1:  # 对应病因分析
-                return 'disease_cause'
-            if torch.argmax(predict) == 2:  # 对应治疗方案
-                return 'disease_cureway'
-            if torch.argmax(predict) == 3:  # 对应就医建议
-                return 'disease_check'
-            if torch.argmax(predict) == 5:  # 对应疾病表述
-                return 'symptom_qwds'
-        return ''
-
-    def check_words(self, wds, sent):  # wds中是否有词属于sent
-        for wd in wds:
-            if wd in sent:
-                return True
-        return False
 
 
 if __name__ == '__main__':

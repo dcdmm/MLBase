@@ -1,9 +1,12 @@
+from utils import build_entitydict
+
+
 class QuestionPaser:
     """根据问句生成对应的CQL查询语句"""
 
     def parser_main(self, res_classify):
         args = res_classify['args']
-        entity_dict = self.build_entitydict(args)
+        entity_dict = build_entitydict(args)
         question_types = res_classify['question_types']
 
         cqls = []
@@ -53,18 +56,6 @@ class QuestionPaser:
                 cql_['cql'] = cql
                 cqls.append(cql_)
         return cqls
-
-    def build_entitydict(self, args):
-        # input:{'苯中毒': ['disease'], '肺炎': ['disease'], '黄酒': ['food']}
-        # result:{'disease': ['苯中毒', '肺炎'], 'food': ['黄酒']}
-        entity_dict = {}
-        for arg, types in args.items():
-            for ts in types:
-                if ts not in entity_dict:
-                    entity_dict[ts] = [arg]
-                else:
-                    entity_dict[ts].append(arg)
-        return entity_dict
 
     def cql_transfer(self, question_type, entities):
         if not entities:
@@ -152,9 +143,10 @@ class QuestionPaser:
         # neo4j查询疾病应该进行的检查的CQL语句
         elif question_type == 'disease_check':
             cql1 = ["MATCH (m:diseases)-[r:need_check]->(n:checks) where m.name = '{0}' return m.name, r.name, n.name".
-                       format(i) for i in entities]
-            cql2 =  ["MATCH (m:diseases)-[r:belongs_to]->(n:departments) where m.name = '{0}' return m.name, r.name, n.name".
-                       format(i) for i in entities]
+                        format(i) for i in entities]
+            cql2 = [
+                "MATCH (m:diseases)-[r:belongs_to]->(n:departments) where m.name = '{0}' return m.name, r.name, n.name".
+                    format(i) for i in entities]
             cql = cql1 + cql2
         # neo4j已知检查查询疾病的CQL语句
         elif question_type == 'check_disease':

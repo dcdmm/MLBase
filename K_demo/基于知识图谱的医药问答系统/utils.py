@@ -2,6 +2,9 @@ import ahocorasick
 from transformers import AutoTokenizer, AutoModel
 import torch
 import os
+import jieba
+import re
+import string
 
 from QIC.model import Model
 
@@ -83,7 +86,7 @@ def model_intention_predict(question):
 
 
 def editDistanceDP(w1, w2):
-    """计算编辑距离"""
+    """计算字符串编辑距离"""
     m = len(w1)
     n = len(w2)
     solution = [[0 for _ in range(n + 1)] for _ in range(m + 1)]
@@ -102,6 +105,32 @@ def editDistanceDP(w1, w2):
     return solution[m][n]
 
 
+def simcal(question, stopwords, wdtype_dict, word2vec):
+    # 数据清洗
+    question = re.sub("[" + string.punctuation + "]", " ", question)
+    question = re.sub("[，。‘’；：？、！【】]", " ", question)
+    question = question.strip()
+
+    words = [w.strip() for w in jieba.cut(question) if w.strip() not in stopwords and len(w.strip()) >= 2]
+
+    result = {}
+    for w in words:
+        temp_result = []
+        for key in wdtype_dict.keys():
+            try:
+                sim_score = word2vec.similarity(w, key)  # word2vec词相似度
+            except KeyError:
+                sim_score = 0
+            dp_score = 1 - editDistanceDP(w, key) / (len(w) + len(key))  # 字符串编辑距离分数
+            score_sum = 0.6 * sim_score + 0.4 * dp_score
+            if score_sum > 0.5:
+                temp_result.append((w, wdtype_dict.get(key), score_sum))
+        if temp_result:
+            temp_result.sort(key=lambda x: x[2], reverse=True)  # 选择最高分数代表的标签
+        result.update({temp_result[0][0]: temp_result[0][1]})
+    return result
+
+
 if __name__ == '__main__':
     word1, word2 = 'dc', 'dmm'
-    print(editDistanceDP(word1, word2))
+    print(editDistanceDP(word1, word2))  # 测试通过

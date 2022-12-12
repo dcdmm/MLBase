@@ -1,6 +1,7 @@
 import os
+import joblib
 
-from utils import cus_update, build_actree, check_words, check_medical, model_intention_predict
+from utils import cus_update, build_actree, check_words, check_medical, model_intention_predict, simcal
 
 
 class QuestionClassifier:
@@ -19,7 +20,7 @@ class QuestionClassifier:
         self.symptom_path = os.path.join(cur_dir, 'nodes/symptoms.txt')
 
         self.wdtype_dict = {}
-        # 一个实体可能对应多种标签,实体标签使用列表存储
+        # 一个实体可能对应多种标签,故实体标签使用列表存储
         cus_update(self.wdtype_dict,
                    {i.strip(): ['disease'] for i in open(self.disease_path, encoding="utf-8") if i.strip()})
         cus_update(self.wdtype_dict,
@@ -38,10 +39,10 @@ class QuestionClassifier:
         self.region_tree = build_actree(list(self.wdtype_dict.keys()))
 
         # 否定词
-        self.deny_path = os.path.join(cur_dir, 'nodes/deny.txt')
+        self.deny_path = os.path.join(cur_dir, 'extra_data/deny.txt')
         self.deny_words = [i.strip() for i in open(self.deny_path, encoding="utf-8") if i.strip()]
 
-        # 疑问词关键字匹配问句类似(规则)
+        # 关键字匹配(规则)
         self.symptom_qwds = ['症状', '表征', '现象', '症候', '表现']
         self.cause_qwds = ['原因', '成因', '为什么', '怎么会', '怎样才', '咋样才', '怎样会', '如何会', '为啥', '为何', '如何才会',
                            '怎么才会', '会导致', '会造成']
@@ -67,12 +68,19 @@ class QuestionClassifier:
 
         self.model_path = os.path.join(cur_dir, 'QIC/torch_model.bin')
 
+        self.stopwords = [w.strip() for w in
+                          open(os.path.join(cur_dir, 'extra_data/stopwords.dat'), 'r', encoding='utf8') if w.strip()]
+
+        self.v_from_text = joblib.load(os.path.join(cur_dir, 'extra_data/v_from_text.pkl'))
+
     def classify(self, question):
         data = {}
 
         medical_dict = check_medical(self.region_tree, self.wdtype_dict, question)
         if not medical_dict:
-            return {}
+            medical_dict = simcal(question, self.stopwords, self.wdtype_dict, self.v_from_text)
+            if not medical_dict:
+                return {}
         data['args'] = medical_dict
 
         types = []  # 问句当中所涉及到的实体类型

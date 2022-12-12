@@ -80,3 +80,28 @@ def model_intention_predict(question):
         if torch.argmax(predict) == 5:  # 对应疾病表述
             return 'symptom_qwds'
     return ''
+
+
+def editDistanceDP(w1, w2):
+    """计算编辑距离"""
+    m = len(w1)
+    n = len(w2)
+    solution = [[0 for _ in range(n + 1)] for _ in range(m + 1)]
+    for i in range(len(w2) + 1):
+        solution[0][i] = i
+    for i in range(len(w1) + 1):
+        solution[i][0] = i
+
+    for i in range(1, m + 1):
+        for j in range(1, n + 1):
+            if w1[i - 1] == w2[j - 1]:
+                solution[i][j] = solution[i - 1][j - 1]
+            else:
+                solution[i][j] = 1 + min(solution[i][j - 1], min(solution[i - 1][j],
+                                                                 solution[i - 1][j - 1]))
+    return solution[m][n]
+
+
+if __name__ == '__main__':
+    word1, word2 = 'dc', 'dmm'
+    print(editDistanceDP(word1, word2))

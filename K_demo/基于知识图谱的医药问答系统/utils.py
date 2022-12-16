@@ -86,7 +86,7 @@ def model_intention_predict(question):
 
 
 def editDistanceDP(w1, w2):
-    """计算字符串编辑距离"""
+    """计算字符串之间的编辑距离"""
     m = len(w1)
     n = len(w2)
     solution = [[0 for _ in range(n + 1)] for _ in range(m + 1)]

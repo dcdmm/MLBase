@@ -71,6 +71,10 @@ class QuestionClassifier:
         self.stopwords = [w.strip() for w in
                           open(os.path.join(cur_dir, 'extra_data/stopwords.dat'), 'r', encoding='utf8') if w.strip()]
 
+        # from gensim.models import KeyedVectors
+        # import joblib
+        # v_from_text = KeyedVectors.load_word2vec_format('xxxxxx/tencent-ailab-embedding-zh-d100-v0.2.0-s.tar.gz')
+        # joblib.dump(v_from_text, 'extra_data/v_from_text.pkl')
         self.v_from_text = joblib.load(os.path.join(cur_dir, 'extra_data/v_from_text.pkl'))
 
     def classify(self, question):

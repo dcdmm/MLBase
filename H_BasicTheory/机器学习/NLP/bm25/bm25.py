@@ -1,9 +1,12 @@
 import numpy as np
 import math
 
+'''
+参考:
+https://github.com/dorianbrown/rank_bm25
+https://www.cnblogs.com/geeks-reign/p/Okapi_BM25.html
+'''
 
-# 参考:https://github.com/dorianbrown/rank_bm25
-# 参考:https://www.cnblogs.com/geeks-reign/p/Okapi_BM25.html
 
 class BM25:
     """BM25类算法基类"""

@@ -1,6 +1,6 @@
 公共参数:
 
-```markdown
+```text
 boost
     (Optional, float) Floating point number used to decrease or increase the relevance scores of the query. Defaults to 1.0.
     

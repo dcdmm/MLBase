@@ -12,8 +12,8 @@ print(area.area())
 print('########################################################################')
 
 # 相对路径导入
-# compare_reac_area.py与compare_test.py同目录结构下(平级)
-# 在与compare_reac_area.py平级的的文件中导入compare_reac_area.pyy,要求compare_reac_area.py不能包含相对路径(. or .. or ...)
+# compare_rect_volumes.py与compare_test.py同目录结构下(平级)
+# 在与compare_rect_volumes.py平级的的文件中导入compare_reac_area.py,要求compare_reac_area.py不能包含相对路径(. or .. or ...)
 from compare_rect_volumes import *
 
 volum = Rect_volumes(area, 3)
@@ -23,7 +23,7 @@ volum.print_hello()
 print('########################################################################')
 
 # 相对路径导入
-from compare.print_hello import print_hello  # compare_reac_area.py目录结构比print_hello.py高
+from compare.print_hello import print_hello  # compare_test.py目录结构比print_hello.py高
 
 print_hello("python")  # 不包含相对路径(. or .. or ...)导入的代码;正常导入
 

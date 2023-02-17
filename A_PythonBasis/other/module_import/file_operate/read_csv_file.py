@@ -19,12 +19,14 @@ def read_csv_file_():
 
 
 if __name__ == '__main__':
-    # module_import\file_read\data\data.csv与module_import\file_read\read_csv_file.py的相对位置
+    # module_import\file_operate\data\data.csv与module_import\file_operate\read_csv_file.py的相对位置
     path = 'data/data.csv'
+
     dataframe = read_csv_file(path)
     print(dataframe)
 
     print('#' * 100)
+
     print(CONFIG_FILE_PATH)
     dataframe_ = read_csv_file_()
     print(dataframe_)

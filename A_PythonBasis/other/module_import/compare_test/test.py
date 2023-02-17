@@ -1,23 +1,25 @@
 import os
-
-print(os.getcwd())  # 获取当前工作路径
-
-path = os.path.abspath("../compare")  # 要临时添加到path路径的第三方模块的路径
-print(path)
-
 import sys
 
-# 使用>import<语句导入一个第三方的模块时
-# Python解析器默认会在当前目录和path路径中搜索所有已安装的内置模块和第三方模块
-# 若导入的第三方模块不在当前目录下,则需要第三方模块的路径临时加入到path路径中,如下所示:
+path = os.path.abspath("..")
+print("path:", path)
 sys.path.append(path)
+print(os.path.abspath("../.."))
+sys.path.append(os.path.abspath(".." + os.sep + ".."))
 
-for i in sys.path:
-    print(i)
-
-from print_hello import print_hello  # test.py与print_hello.py位于不同目录结构下
-
+# test.py与print_hello.py位于不同目录结构下
+# test.py的目录结构为compare_test
+# print_hello.py的目录结构为compare
+# ===>解决1:从compare处开始导入(即目录结构与compare平级)
+from compare.print_hello import print_hello
+from compare.print_hello1 import print_hello1
 print_hello("php")
+print_hello1('C++')
+
+# ===>解决2:从比compare目录结构更高的位置开始导入(即目录结构比compare更高)
+from module_import.compare.print_hello1 import print_hello1
+
+print('#' * 100)
 
 # 存在相对路径导入的代码不能直接执行
 from ..compare.print_hello import print_hello

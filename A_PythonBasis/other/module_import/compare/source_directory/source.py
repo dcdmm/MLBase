@@ -1,2 +1,2 @@
-def print_name(name):
+def source_print(name):
     print("name:", name)

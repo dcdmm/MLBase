@@ -1,5 +1,6 @@
 from .config import *  # 相对路径导入
 
+
 # 从`C:\Users\dcdmm\Music\GitHubProjects\MLNote\A_PythonBasis\other\module_import\compare`搜索路径导入
 # from config import *
 

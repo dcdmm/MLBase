@@ -1,3 +1,11 @@
-2022-11-17  11:47:26 Thu root WARNING msg3
-2022-11-17  11:47:26 Thu root ERROR msg4
-2022-11-17  11:47:26 Thu root CRITICAL msg5
+2023-02-22  18:42:29 Wed root DEBUG msg1
+2023-02-22  18:42:29 Wed root INFO msg2
+2023-02-22  18:42:29 Wed root WARNING msg3
+2023-02-22  18:42:29 Wed root ERROR msg4
+2023-02-22  18:42:29 Wed root CRITICAL msg5
+2023-02-22  18:42:29 Wed root ERROR division by zero
+2023-02-22  18:42:29 Wed root ERROR division by zero
+Traceback (most recent call last):
+  File "C:/Users/dcdmm/Music/GitHubProjects/MLNote/G_Tool/日志系统logging模块/basic.py", line 32, in <module>
+    c = a / b
+ZeroDivisionError: division by zero

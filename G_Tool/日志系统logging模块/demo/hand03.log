@@ -1,0 +1,4 @@
+F1 '2023-02-22  19:55:54 Wed' INFO log1 info
+F1 '2023-02-22  19:55:54 Wed' WARNING log1 warning
+F1 '2023-02-22  19:55:54 Wed' ERROR log1 error
+F1 '2023-02-22  19:55:54 Wed' CRITICAL log1 critical

@@ -57,7 +57,6 @@
 * jsonlines: pip install jsonlines
 * graphviz:
     * Windows:pip install graphviz(需要安装Graphviz并配置系统环境变量Path +: Graphviz\bin)
-* PyMySQL: pip install PyMySQL
 * jupyter notebook目录功能安装及其配置(base环境安装即可)
     * pip install jupyter_contrib_nbextensions
     * pip install jupyter_nbextensions_configurator

@@ -31,7 +31,7 @@ if __name__ == '__main__':
     '''
     para.print_help()
 
-    print(vars(para.parse_args()))  # 命令行参数字典
+    print(vars(para.parse_args(args=[])))  # 命令行参数字典
     print("length:", para.parse_args().length,
           "width:", para.parse_args().width,
           "hight:", para.parse_args().hight)

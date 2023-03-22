@@ -23,6 +23,6 @@
 3. 重要:★★★
 4. 相对重要:★★
 
-### other
+### 图片
 
 <img src="Other/img/LSTM示意图.png" width="400" height="310">

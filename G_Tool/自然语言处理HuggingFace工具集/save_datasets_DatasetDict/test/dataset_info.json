@@ -1,24 +1,24 @@
 {
   "builder_name": "emotion",
   "citation": "@inproceedings{saravia-etal-2018-carer,\n    title = \"{CARER}: Contextualized Affect Representations for Emotion Recognition\",\n    author = \"Saravia, Elvis  and\n      Liu, Hsien-Chi Toby  and\n      Huang, Yen-Hao  and\n      Wu, Junlin  and\n      Chen, Yi-Shin\",\n    booktitle = \"Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing\",\n    month = oct # \"-\" # nov,\n    year = \"2018\",\n    address = \"Brussels, Belgium\",\n    publisher = \"Association for Computational Linguistics\",\n    url = \"https://www.aclweb.org/anthology/D18-1404\",\n    doi = \"10.18653/v1/D18-1404\",\n    pages = \"3687--3697\",\n    abstract = \"Emotions are expressed in nuanced ways, which varies by collective or individual experiences, knowledge, and beliefs. Therefore, to understand emotion, as conveyed through text, a robust mechanism capable of capturing and modeling different linguistic nuances and phenomena is needed. We propose a semi-supervised, graph-based algorithm to produce rich structural descriptors which serve as the building blocks for constructing contextualized affect representations from text. The pattern-based representations are further enriched with word embeddings and evaluated through several emotion recognition tasks. Our experimental results demonstrate that the proposed method outperforms state-of-the-art techniques on emotion recognition tasks.\",\n}\n",
-  "config_name": "default",
+  "config_name": "split",
   "dataset_size": 2173401,
   "description": "Emotion is a dataset of English Twitter messages with six basic emotions: anger, fear, joy, love, sadness, and surprise. For more detailed information please refer to the paper.\n",
   "download_checksums": {
-    "https://www.dropbox.com/s/1pzkadrvffbqw6o/train.txt?dl=1": {
-      "num_bytes": 1658616,
-      "checksum": "3ab03d945a6cb783d818ccd06dafd52d2ed8b4f62f0f85a09d7d11870865b190"
+    "data/train.jsonl.gz": {
+      "num_bytes": 591930,
+      "checksum": "757a0a73f1483f4b3f94783b774cdbf0831722a2b2c9abb5b820b4614ff6882a"
     },
-    "https://www.dropbox.com/s/2mzialpsgf9k5l3/val.txt?dl=1": {
-      "num_bytes": 204240,
-      "checksum": "34faaa31962fe63cdf5dbf6c132ef8ab166c640254ab991af78f3aea375e79ef"
+    "data/validation.jsonl.gz": {
+      "num_bytes": 74018,
+      "checksum": "50783464882f450f88e61ece964a200e492495eed1472ed520d013bbcd3049be"
     },
-    "https://www.dropbox.com/s/ikkqxfdbdec3fuj/test.txt?dl=1": {
-      "num_bytes": 206760,
-      "checksum": "60f531690d20127339e7f054edc299a82c627b5ec0dd5d552d53d544e0cfcc17"
+    "data/test.jsonl.gz": {
+      "num_bytes": 74935,
+      "checksum": "4524468d0b7ee8eab07a088216cde7f9278f1c574669504a805ed172df6dad75"
     }
   },
-  "download_size": 2069616,
+  "download_size": 740883,
   "features": {
     "text": {
       "dtype": "string",
@@ -40,10 +40,10 @@
     }
   },
   "homepage": "https://github.com/dair-ai/emotion_dataset",
-  "license": "",
+  "license": "The dataset should be used for educational and research purposes only",
   "post_processed": null,
   "post_processing_size": null,
-  "size_in_bytes": 4243017,
+  "size_in_bytes": 2914284,
   "splits": {
     "train": {
       "name": "train",
@@ -76,9 +76,9 @@
     }
   ],
   "version": {
-    "version_str": "0.0.0",
+    "version_str": "1.0.0",
     "description": null,
-    "major": 0,
+    "major": 1,
     "minor": 0,
     "patch": 0
   }

@@ -4,22 +4,21 @@
 
 **min_length** (`int`, *optional*, defaults to 0) — The minimum length of the sequence to be generated.
 
-**do_sample** (`bool`, *optional*, defaults to `False`) — Whether or not to use sampling ; use greedy decoding otherwise.
+**do_sample** (`bool`, *optional*, defaults to `False`) — Whether or not to use sampling (此时num_beams必须大于1); use greedy decoding otherwise.
 
 - **top_k** (`int`, *optional*, defaults to 50) — The number of highest probability vocabulary tokens to keep for top-k-filtering.
 - **top_p** (`float`, *optional*, defaults to 1.0) — If set to float < 1, only the smallest set of most probable tokens with probabilities that add up to `top_p` or higher are kept for generation.
+- **temperature** (`float`, *optional*, defaults to 1.0) — The value used to modulate the next token probabilities.
+
+$$
+q_{i}=\frac{\exp \left(z_{i} / T\right)}{\sum_{j} \exp \left(z_{j} / T\right)} 
+$$
+
+* 温度T(大于1)越高,softmax分布越平缓\
 
 **num_beams** (`int`, *optional*, defaults to 1) — Number of beams for beam search. 1 means no beam search.
 
 - **early_stopping** (`bool` or `str`, *optional*, defaults to `False`) — Controls the stopping condition for beam-based methods, like beam-search. It accepts the following values: `True`, where the generation stops as soon as there are `num_beams` complete candidates; `False`, where an heuristic is applied and the generation stops when is it very unlikely to find better candidates; `"never"`, where the beam search procedure only stops when there cannot be better candidates (canonical beam search algorithm).
-
-**temperature** (`float`, *optional*, defaults to 1.0) — The value used to modulate the next token probabilities.
-
-$$ 
-q_{i}=\frac{\exp \left(z_{i} / T\right)}{\sum_{j} \exp \left(z_{j} / T\right)} 
-$$
-
-* 温度T(大于1)越高,softmax分布越平缓
 
 **repetition_penalty** (`float`, *optional*, defaults to 1.0) — The parameter for repetition penalty. 1.0 means no penalty. See [this paper](https://arxiv.org/pdf/1909.05858.pdf) for more details.
 

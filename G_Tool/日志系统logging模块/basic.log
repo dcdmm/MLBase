@@ -1,10 +1,10 @@
-2023-02-22  18:42:29 Wed root DEBUG msg1
-2023-02-22  18:42:29 Wed root INFO msg2
-2023-02-22  18:42:29 Wed root WARNING msg3
-2023-02-22  18:42:29 Wed root ERROR msg4
-2023-02-22  18:42:29 Wed root CRITICAL msg5
-2023-02-22  18:42:29 Wed root ERROR division by zero
-2023-02-22  18:42:29 Wed root ERROR division by zero
+2023-04-18  16:13:46 Tue root DEBUG msg1
+2023-04-18  16:13:46 Tue root INFO msg2
+2023-04-18  16:13:46 Tue root WARNING msg3
+2023-04-18  16:13:46 Tue root ERROR msg4
+2023-04-18  16:13:46 Tue root CRITICAL msg5
+2023-04-18  16:13:46 Tue root ERROR division by zero
+2023-04-18  16:13:46 Tue root ERROR division by zero
 Traceback (most recent call last):
   File "C:/Users/dcdmm/Music/GitHubProjects/MLNote/G_Tool/日志系统logging模块/basic.py", line 32, in <module>
     c = a / b

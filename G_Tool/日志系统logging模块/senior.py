@@ -16,9 +16,11 @@ s_handler.setLevel(logging.DEBUG)  # hander日记级别未设置或低于logger�
 print(s_handler)
 
 # Open the specified file and use it as the stream for logging.
-f_handler = logging.FileHandler(filename='senior.log',
-                                mode='w',
-                                encoding='utf-8')
+f_handler = logging.FileHandler(
+    # 日志保存位置(绝对 or 相对)
+    filename='senior.log',
+    mode='w',
+    encoding='utf-8')
 f_handler.setLevel(logging.WARNING)  # hander日记级别高于logger日志级别:使用hander日志级别
 print(f_handler)
 

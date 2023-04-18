@@ -8,7 +8,7 @@ This function does nothing if the root logger already has handlers configured, u
 '''
 logging.basicConfig(
     # Specifies that a FileHandler be created, using the specified filename, rather than a StreamHandler.
-    filename='basic.log',  # 日志保存位置(默认输出到控制台)
+    filename='basic.log',  # 日志保存位置(绝对 or 相对;默认输出到控制台)
     # If filename is specified, open the file in this mode. Defaults to 'a'.
     filemode='w',  # 日志文件的打开模式
     # Set the root logger level to the specified level.

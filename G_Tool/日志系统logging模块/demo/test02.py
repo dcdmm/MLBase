@@ -11,3 +11,5 @@ logger.info(msg="log1 info")
 logger.warning(msg="log1 warning")
 logger.error(msg="log1 error")
 logger.critical(msg="log1 critical")
+
+print(1 / 0)

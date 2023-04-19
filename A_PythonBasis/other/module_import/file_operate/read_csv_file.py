@@ -14,6 +14,7 @@ CONFIG_FILE_PATH = os.path.abspath(os.path.join(DIR, 'data.csv'))
 
 
 def read_csv_file_():
+    print(CONFIG_FILE_PATH)
     df = pd.read_csv(CONFIG_FILE_PATH, index_col=0)
     return df
 

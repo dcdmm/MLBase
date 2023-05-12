@@ -14,6 +14,6 @@
 * 缩放点击注意力
 * 多头注意力
 
-[BILSTM-CRF](../I_Model/task_信息抽取/BILSTM-CRF/models)
+[BILSTM-CRF](../I_Model/task_NER_RelationExtraction/BILSTM-CRF/models)
 
-[GlobalPointer](../I_Model/task_信息抽取/GlobalPointer/models)
+[GlobalPointer](../I_Model/task_NER_RelationExtraction/GlobalPointer/models)

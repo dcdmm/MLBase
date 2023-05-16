@@ -43,11 +43,11 @@ Other/datasets
 /I_Model/deep_learning_base/word2vec_glove/glove.6B.50d.txt
 
 # `HuggingFace工具集`学习保存的预训练模型及其配置
-/G_Tool/自然语言处理HuggingFace工具集/save_model
+/G_Tool/自然语言处理HuggingFace工具集/extra_dataset/save_model
 /I_Model/预训练模型/Bert变体/继续与训练_从头训练/save_pretrained_model/
 
 # 从huggingFace下载的模型文件
-/G_Tool/自然语言处理HuggingFace工具集/huggingFace_Files
+/G_Tool/自然语言处理HuggingFace工具集/extra_dataset/huggingFace_Files
 
 # 训练分词器所用的语料
 /I_Model/预训练模型/Bert变体/继续与训练_从头训练/wikitext-103-raw/

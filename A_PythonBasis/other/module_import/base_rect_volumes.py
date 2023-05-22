@@ -1,4 +1,4 @@
-from compare.print_hello import print_hello
+from base.print_hello import print_hello
 
 
 class Rect_volumes:

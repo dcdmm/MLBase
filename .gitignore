@@ -9,18 +9,8 @@
 # *.pyc文件是.py文件编译后生成的字节码文件(byte code),类似Java的.class文件
 *.pyc
 
-# torch.utils.tensorboard产生的数据文件
-*._tb
-
-# 通过torchtext加载的预训练词向量
-*.vector_cache
-
-# 通过torchtext加载的数据
-*.data
-
-
 # *******************************************************************************************
-# 大型数据集(储存位置:百度网盘)
+# 数据集合集(储存位置:百度网盘)
 ## datasets
 ### acllmcb
 ### cats_vs_dogs
@@ -33,6 +23,14 @@ Other/datasets
 # 临时测试
 /tests/
 
+# torch.utils.tensorboard产生的数据文件
+*._tb
+
+# 通过torchtext加载的预训练词向量
+*.vector_cache
+
+# 通过torchtext加载的数据
+*.data
 
 # *****************************************************************************
 # `word2vec_glove`学习使用到的预训练词向量
@@ -42,37 +40,36 @@ Other/datasets
 /I_Model/deep_learning_base/word2vec_glove/cnew_200.wv.vectors.npy
 /I_Model/deep_learning_base/word2vec_glove/glove.6B.50d.txt
 
-# `HuggingFace工具集`学习保存的预训练模型及其配置
-/G_Tool/自然语言处理HuggingFace工具集/extra_dataset/save_model
-/I_Model/预训练模型/Bert变体/继续与训练_从头训练/save_pretrained_model/
+# `HuggingFace工具集`学习保存的一些中间数据
+/G_Tool/自然语言处理HuggingFace工具集/extra_dataset
 
-# 从huggingFace下载的模型文件
-/G_Tool/自然语言处理HuggingFace工具集/extra_dataset/huggingFace_Files
-
-# 训练分词器所用的语料
-/I_Model/预训练模型/Bert变体/继续与训练_从头训练/wikitext-103-raw/
+# `继续预训练_从头MLM` 训练得到的模型
+/I_Model/预训练模型/Bert变体/继续MLM训练_从头MLM训练/save_pretrained_model/
+# `继续预训练_从头MLM` 训练分词器所用的语料
+/I_Model/预训练模型/Bert变体/继续MLM训练_从头MLM训练/wikitext-103-raw/
 
 # fasttext保存的模型文件
 /I_Model/other/FastText_fasttext/sava_model.bin
 
-# joblib模块数组保存测试
+# numpy数组joblib与numpy保存
 /G_Tool/性能优化joblib模块/arr_huge_joblib.pkl
 /G_Tool/性能优化joblib模块/arr_huge_numpy.pkl.npy
 
-# demo(企业隐患排查质量分析_文本二分类)保存的模型文件
+# 模型文件
 /K_demo/企业隐患排查质量分析_文本二分类/best_model_state.bin
 
-# `Pytorch-lightning`学习保存的检查点
+# checkpoint文件
 /G_Tool/other/Pytorch高级封装Pytorch-lightning/model_checkpoint.pkl
 
-# demo(PURE(pipeline))数据中间结果
+# 中间数据结果
 /I_Model/task_NER_RelationExtraction/PURE(pipeline)/datasets/train_ner.json
 /I_Model/task_NER_RelationExtraction/PURE(pipeline)/datasets/train_rel.json
 /I_Model/task_NER_RelationExtraction/PURE(pipeline)/result_data/ner.json
 /I_Model/task_NER_RelationExtraction/PURE(pipeline)/result_data/ner_rel_predict.json
+# 添加token后保存的分词器文件
 /I_Model/task_NER_RelationExtraction/PURE(pipeline)/save_tokenizer/
 
-# SBERT保存的模型文件
+# sentence_transformers训练得到的模型与分词器文件
 /I_Model/task_SentenceEmbeddings/SBERT/save_sbert/
 
 # Chinese-SNLI数据集
@@ -80,9 +77,9 @@ Other/datasets
 # Chinese-STS-B数据集
 /I_Model/task_SentenceEmbeddings/SimCSE/SimCSE/STS-B/
 
-# 基于知识图谱的医药问答系统保存的模型文件
+# KUAKE-QIC数据集分类训练模型文件
 /K_demo/基于知识图谱的医药问答系统/QIC/torch_model.bin
-# 词向量下载地址:https://ai.tencent.com/ailab/nlp/en/data/tencent-ailab-embedding-zh-d100-v0.2.0-s.tar.gz
+# 词向量joblib pkl文件(词向量下载地址:https://ai.tencent.com/ailab/nlp/en/data/tencent-ailab-embedding-zh-d100-v0.2.0-s.tar.gz)
 /K_demo/基于知识图谱的医药问答系统/extra_data/v_from_text.pkl
 
 # 文本摘要数据集(地址:https://huggingface.co/datasets/debatelab/billsum_train)

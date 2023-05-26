@@ -1,1 +1,0 @@
-[使用transformer构建数据集并训练模型](../../G_Tool/自然语言处理HuggingFace工具集/transformer_Trainer.ipynb)

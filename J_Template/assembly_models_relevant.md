@@ -20,4 +20,4 @@
 
 ***
 
-[返回collate_fun函数与pytorch灵活训练模型](../K_demo/way_of_training/pytorch_base.ipynb)
+[返回collate_fun函数与pytorch灵活训练模型](../K_demo/way_of_training_bert/pytorch_base.ipynb)

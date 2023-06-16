@@ -34,7 +34,7 @@ Greedy search simply selects the word with the highest probability as its next w
 
 $w_t= \operatorname{argmax}_w P\left(w \mid w_{1: t-1}\right)$at each timestep $t$. The following sketch shows greedy search.
 
-<img src="../../../Other/img/greedy_search.png">
+<img src="../../Other/img/greedy_search.png">
 
 Starting from the word "The", the algorithm greedily chooses the next word of highest probability "nice"and so on, so that the final generated word sequence is ("The","nice","woman") having an overall probability of $0.5 \times 0.4=0.2$ .
 
@@ -44,7 +44,7 @@ The major drawback of greedy search though is that it misses high probability wo
 
 Beam search reduces the risk of missing hidden high probability word sequences by keeping the most likely `num_beams` of hypotheses at each time step and eventually choosing the hypothesis that has the overall highest probability. Let's illustrate with `num_beams=2`:
 
-<img src="../../../Other/img/beam_search.png">
+<img src="../../Other/img/beam_search.png">
 
 At time step 1, besides the most likely hypothesis ("The","nice"), beam search also keeps track of the second most likely one ("The","dog"). At time step 2, beam search finds that the word sequence("The","dog","has"), has with 0.36 a higher probability than ("The","nice","woman"), which has 0.2 . Great, it has found the most likely word sequence in our toy example!
 
@@ -60,7 +60,7 @@ $$
 
 Taking the example from above, the following graphic visualizes language generation when sampling.
 
-<img src="../../../Other/img/sampling_search.png">
+<img src="../../Other/img/sampling_search.png">
 
 word ("car") is sampled from the conditioned probability distribution $ P(w∣\text{"The"})$, followed by sampling ("drives") from $P(w∣\text{"The","car"})$ .
 
@@ -68,7 +68,7 @@ A trick is to make the distribution $P(w∣w_{1:t−1})$sharper (increasing the 
 
 An illustration of applying temperature to our example from above could look as follows.
 
-<img src="../../../Other/img/sampling_search_with_temp.png">
+<img src="../../Other/img/sampling_search_with_temp.png">
 
 The conditional next word distribution of step $t=1 $ becomes much sharper leaving almost no chance for word ("car")to be selected.
 
@@ -79,7 +79,7 @@ The conditional next word distribution of step $t=1 $ becomes much sharper leavi
 
 We extend the range of words used for both sampling steps in the example above from 3 words to 10 words to better illustrate *Top-K* sampling.
 
-<img src="../../../Other/img/top_k_sampling.png">
+<img src="../../Other/img/top_k_sampling.png">
 
 Having set $K=6$, in both sampling steps we limit our sampling pool to 6 words. While the 6 most likely words, defined as $V_{top-K}$ encompass only *ca.* two-thirds of the whole probability mass in the first step, it includes almost all of the probability mass in the second step. Nevertheless, we see that it successfully eliminates the rather weird candidates (“not",“the",“small",“told") in the second sampling step.
 
@@ -88,6 +88,6 @@ Having set $K=6$, in both sampling steps we limit our sampling pool to 6 words. 
 
 Instead of sampling only from the most likely *K* words, in *Top-p* sampling chooses from the smallest possible set of words whose cumulative probability exceeds the probability *p*. The probability mass is then redistributed among this set of words. This way, the size of the set of words (*a.k.a* the number of words in the set) can dynamically increase and decrease according to the next word's probability distribution. 
 
-<img src="../../../Other/img/top_p_sampling.png">
+<img src="../../Other/img/top_p_sampling.png">
 
 Having set $p=0.92$, *Top-p* sampling picks the *minimum* number of words to exceed together $p=92%$of the probability mass, defined as $V_{top-p}$. In the first example, this included the 9 most likely words, whereas it only has to pick the top 3 words in the second example to exceed 92%. Quite simple actually! It can be seen that it keeps a wide range of words where the next word is arguably less predictable, *e.g.* $P(w∣\text{"The”})$, and only a few words when the next word seems more predictable, *e.g.* $P(w∣\text{"The","car"})$.

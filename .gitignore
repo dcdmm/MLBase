@@ -44,9 +44,9 @@ Other/datasets
 /G_Tool/自然语言处理HuggingFace工具集/extra_dataset
 
 # `继续预训练_从头MLM` 训练得到的模型
-/I_Model/预训练模型/Bert变体/继续MLM训练_从头MLM训练/save_pretrained_model/
+/I_Model/掩码语言模型MLM/Bert变体/继续MLM训练_从头MLM训练/save_pretrained_model/
 # `继续预训练_从头MLM` 训练分词器所用的语料
-/I_Model/预训练模型/Bert变体/继续MLM训练_从头MLM训练/wikitext-103-raw/
+/I_Model/掩码语言模型MLM/Bert变体/继续MLM训练_从头MLM训练/wikitext-103-raw/
 
 # fasttext保存的模型文件
 /I_Model/other/FastText_fasttext/sava_model.bin
@@ -83,4 +83,4 @@ Other/datasets
 /K_demo/基于知识图谱的医药问答系统/extra_data/v_from_text.pkl
 
 # 文本摘要数据集(地址:https://huggingface.co/datasets/debatelab/billsum_train)
-/I_Model/预训练模型/生成模型/billsum/
+/I_Model/大型语言模型LLM/billsum/

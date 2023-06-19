@@ -81,6 +81,3 @@ Other/datasets
 /K_demo/基于知识图谱的医药问答系统/QIC/torch_model.bin
 # 词向量joblib pkl文件(词向量下载地址:https://ai.tencent.com/ailab/nlp/en/data/tencent-ailab-embedding-zh-d100-v0.2.0-s.tar.gz)
 /K_demo/基于知识图谱的医药问答系统/extra_data/v_from_text.pkl
-
-# 文本摘要数据集(地址:https://huggingface.co/datasets/debatelab/billsum_train)
-/I_Model/大型语言模型LLM/billsum/

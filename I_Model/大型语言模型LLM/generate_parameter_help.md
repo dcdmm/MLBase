@@ -1,4 +1,4 @@
-### 主要调节参数
+### generation主要调节参数
 
 **max_length** (`int`, *optional*, defaults to 20) — The maximum length the generated tokens can have.
 
@@ -14,7 +14,7 @@ $$
 q_{i}=\frac{\exp \left(z_{i} / T\right)}{\sum_{j} \exp \left(z_{j} / T\right)} 
 $$
 
-* 温度T(大于1)越高,softmax分布越平缓\
+* 温度T(大于1)越高,softmax分布越平缓
 
 **num_beams** (`int`, *optional*, defaults to 1) — Number of beams for beam search. 1 means no beam search.
 

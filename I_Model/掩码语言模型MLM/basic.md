@@ -37,7 +37,7 @@ AutoModel, AutoTokenizer
 
 ### ERNIE
 
-AutoTokenizer
+AutoTokenizer BertTokenizer
 
 * nghuyong/ernie-3.0-medium-zh  ErnieModel  
 * nghuyong/ernie-3.0-base-zh  ErnieModel 

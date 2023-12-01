@@ -1,3 +1,6 @@
+"""python模块文档
+base_rect_area.py"""
+
 class Rect_Area:
     def __init__(self, length, width):
         self.width = width

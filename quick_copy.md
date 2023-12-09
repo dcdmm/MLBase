@@ -25,4 +25,4 @@
 
 ### 图片
 
-<img src="Other/img/LSTM示意图.png" width="400" height="310">
+<img src="Other/img/LSTM示意图.png" width="400" height="310" style="zoom:20%">

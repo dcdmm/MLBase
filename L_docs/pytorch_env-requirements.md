@@ -1,4 +1,4 @@
-### pytorch_env虚拟环境核心包安装安装
+### pytorch_env虚拟环境核心包安装指南
 
 #### 机器学习/数据分析
 
@@ -9,6 +9,8 @@
 * bayesian-optimization: pip install bayesian-optimization
 * optuna: pip install optuna
 * seaborn: pip install seaborn
+* plotly: pip install plotly
+* pyecharts: [https://github.com/pyecharts/pyecharts](https://github.com/pyecharts/pyecharts)查看
 * heamy: pip install -U heamy
 * networkx: pip install networkx
 * iterative-stratification(多标签分层k折): pip install iterative-stratification
@@ -61,7 +63,7 @@
     * pip install jupyter_contrib_nbextensions
     * pip install jupyter_nbextensions_configurator
     * jupyter contrib nbextension install --user
-* 依赖项
+* conda默认包依赖项
     * XlsxWriter(pandas保存excel文件依赖): pip install XlsxWriter
     * openpyxl(pandas读取excel文件依赖): pip install openpyxl
     * tabulate(pandas DataFrame保存markdown格式依赖): pip install tabulate

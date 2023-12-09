@@ -56,7 +56,7 @@ Other/datasets
 /G_Tool/性能优化joblib模块/arr_huge_numpy.pkl.npy
 
 # 模型文件
-/K_demo/企业隐患排查质量分析_文本二分类/best_model_state.bin
+/K_demo/企业隐患排查质量分析+文本二分类/best_model_state.bin
 
 # checkpoint文件
 /G_Tool/other/Pytorch高级封装Pytorch-lightning/model_checkpoint.pkl

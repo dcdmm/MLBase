@@ -4,7 +4,7 @@
     wget https://repo.anaconda.com/archive/Anaconda3-2022.10-Linux-x86_64.sh
     ```
 
-2. 安装anconda(默认安装即可)
+2. 安装anconda(yes即可)
 
     ```shell
     bash Anaconda3-2021.05-Linux-x86_64.sh 

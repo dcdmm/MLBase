@@ -1,6 +1,10 @@
 1. 创建虚拟环境
     ```shell
-    conda create -n your_env_name python=3.7.1
+   # 创建一个新的虚拟环境,指定python版本为3.10.12
+    conda create -n your_env_name python=3.10.12
+   
+   # 通过克隆创建一个与已有虚拟环境(可以是base环境,也可以是其他已存在的虚拟环)相同的新环境
+   conda create -n your_env_name --clone base 
     ```
 
 2. 更新bashrc中的环境变量
@@ -36,7 +40,7 @@
    
       <img src="../../Other/img/notebook内核选择.jpg" style="zoom:20%">
 
-### 常见命令
+### 其他常见命令
 
 ```shell
 # 查看当前存在的虚拟环境

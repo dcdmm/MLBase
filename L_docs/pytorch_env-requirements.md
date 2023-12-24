@@ -53,6 +53,7 @@
 
 * pipreqs(requirements.txt文件生成): pip install pipreqs
 * wget: pip install wget
+* joblib: pip install joblib
 * colorama(彩色打印): pip install colorama
 * SymPy: pip install sympy 
 * pyahocorasick: pip install pyahocorasick

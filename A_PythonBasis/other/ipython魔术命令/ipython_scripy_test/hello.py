@@ -10,3 +10,5 @@ def game(name):
 
 
 game('LOL')
+
+print("over!")

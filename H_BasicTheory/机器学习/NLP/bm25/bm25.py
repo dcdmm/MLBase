@@ -69,11 +69,17 @@ class BM25:
         return [documents[i] for i in top_n]
 
 
+# 参考:GitHubProjects\PyDevelopment\操作分布式搜索和分析引擎Elasticsearch\索引\setting参数_similarity参数.ipynb
 class BM25Okapi(BM25):
-    def __init__(self, corpus, k1=1.5, b=0.75, epsilon=0.25):
+    def __init__(self, corpus,
+                 # 增加k1,词频较高的文档评分越高
+                 # 减少k1,减弱词频对评分的影响(k1=0时,词频对评分无影响)
+                 k1=1.5,
+                 # 增加b,较长的文档收到更多的惩罚
+                 # 减少b,减弱文档长度对评分的影响(b=0,文档长度对评分无影响)
+                 b=0.75,
+                 epsilon=0.25):
         self.k1 = k1
-        # 调整句子长度对相关性影响的大小.b越大,句子长度对相关性得分的影响越大
-        # 原理:1 - b + b * (L_d / L_{avg})  # 其中L_d表示:文档每个句子的长度;L_{avg}表示:文档平均每个句子的长度
         self.b = b
         self.epsilon = epsilon
         super().__init__(corpus)

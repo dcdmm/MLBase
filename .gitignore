@@ -52,8 +52,8 @@ Other/datasets
 /I_Model/other/FastText_fasttext/sava_model.bin
 
 # numpy数组joblib与numpy保存
-/G_Tool/性能优化joblib模块/arr_huge_joblib.pkl
-/G_Tool/性能优化joblib模块/arr_huge_numpy.pkl.npy
+/G_Tool/性能优化与对象存储joblib模块/arr_huge_joblib.pkl
+/G_Tool/性能优化与对象存储joblib模块/arr_huge_numpy.pkl.npy
 
 # 模型文件
 /K_demo/企业隐患排查质量分析+文本二分类/best_model_state.bin

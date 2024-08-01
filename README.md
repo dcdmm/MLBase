@@ -91,7 +91,7 @@
 
 1. 数学关键字(.md),如:<font color='red' size=4>定理:</font>;<font color='red' size=4>定义:</font>;<font color='red' size=4>证明:</font>;<font color='red' size=4>分析:</font>$ ...... $
 2. 算法伪代码标识(.md),如:**for**  $ i=1,2,\dots, n $ **do**
-3. 代码or代码块标识(注释中),如:`import`;`%run`;`print("hello java)`
+3. 代码or代码块标识(多行注释中),如:`import`;`%run`;`print("hello java)`;```print("hello python")```
 4. 文件/文件夹命名:编号\_名称\_实现方式\_所用数据\_备注\_待完成?\_重要?_环境(难以区分时使用OOO进行分隔,+表示任意字符,xxx表示任何内容)
     * a\_example1\_sklearn\_mnist\_多分类问题\_ing\_erOOOpytorch_env.ipynb
     * Dropout+d.ipynb(包括Dropout1d、Dropout2d、Dropout3d的学习)

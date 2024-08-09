@@ -18,6 +18,7 @@
 ### hotdog
 ### NumPy
 ### PyTorch
+### vector_glove.6b
 Other/datasets
 
 # 临时测试
@@ -25,12 +26,6 @@ Other/datasets
 
 # torch.utils.tensorboard产生的数据文件
 *._tb
-
-# 通过torchtext加载的预训练词向量
-*.vector_cache
-
-# 通过torchtext加载的数据
-*.data
 
 # *****************************************************************************
 # `word2vec_glove`学习使用到的预训练词向量

@@ -39,7 +39,6 @@
         * torch.optim优化算法======>>>常见优化器(SGD/Adagrad/Adam......)及学习率调整策略
         * torch.utils.data======>>>数据处理
         * torch.utils.tensorboard======>>>可视化
-        * torchtext======>>>自然语言处理
         * torchvision======>>>计算机视觉
 * F_Tensorflow
     * other
@@ -63,7 +62,6 @@
     * 深拷贝浅拷贝copy模块
     * 符号运算sympy模块
     * 自然语言处理HuggingFace工具集
-    * 自然语言处理jieba模块_中文
     * 自然语言处理nltik模块_英文
     * 自然语言处理SentenceTransformers模块
     * 迭代器itertools模块

@@ -17,4 +17,4 @@
     export PATH=$PATH:/root/anaconda3/bin
     ```
 
-4. souce ~/.bashrc
+4. source ~/.bashrc

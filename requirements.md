@@ -1,3 +1,5 @@
+### 核心包安装指南
+
 #### 机器学习/数据分析
 
 * xgboost: pip install xgboost(linux下先执行pip install --upgrade pip)

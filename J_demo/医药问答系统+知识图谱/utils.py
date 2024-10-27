@@ -2,7 +2,6 @@ import ahocorasick
 from transformers import AutoTokenizer, AutoModel
 import torch
 import os
-# TODO ★★★★jieba已停止更新维护,请替换为其他中文分词库
 import jieba
 import re
 import string

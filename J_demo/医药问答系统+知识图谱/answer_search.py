@@ -1,4 +1,4 @@
-from py2neo import Graph 
+from py2neo import Graph
 
 
 class AnswerSearcher:

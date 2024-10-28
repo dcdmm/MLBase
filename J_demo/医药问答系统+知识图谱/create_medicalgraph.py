@@ -1,6 +1,6 @@
 import os
 import json
-from py2neo import Graph, Node  # py2neo已停止更新维护,请替换为neo4j库
+from py2neo import Graph, Node
 
 
 class MedicalGraph:

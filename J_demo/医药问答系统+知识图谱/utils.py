@@ -111,6 +111,7 @@ def simcal(question, stopwords, wdtype_dict, word2vec):
     question = re.sub("[，。‘’；：？、！【】]", " ", question)
     question = question.strip()
 
+    # jieba中文分词,返回值为生成器
     words = [w.strip() for w in jieba.cut(question) if w.strip() not in stopwords and len(w.strip()) >= 2]
 
     result = {}

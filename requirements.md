@@ -37,15 +37,9 @@
 * transformers(Hugging Face): pip install transformers
 * datasets(Hugging Face): pip install datasets
 * sentence_transformers: pip install -U sentence-transformers
-* gensim: [https://radimrehurek.com/gensim/](https://radimrehurek.com/gensim/) 查看
 * nltk: pip install nltk
 * bertviz(注意力层可视化): pip install bertviz
 * pyahocorasick: pip install pyahocorasick
-* spacy(CPU版本):
-    * pip install -U pip setuptools wheel
-    * pip install -U spacy
-    * python -m spacy download zh_core_web_sm
-    * python -m spacy download en_core_web_sm
 
 #### 其他
 

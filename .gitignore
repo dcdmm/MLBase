@@ -74,5 +74,5 @@ Other/datasets
 
 # KUAKE-QIC数据集分类训练模型文件
 /J_demo/医药问答系统+知识图谱/QIC/torch_model.bin
-# 词向量joblib pkl文件(词向量下载地址:https://ai.tencent.com/ailab/nlp/en/data/tencent-ailab-embedding-zh-d100-v0.2.0-s.tar.gz)
-/J_demo/医药问答系统+知识图谱/extra_data/v_from_text.pkl
+# 词向量joblib.dump保存的二进制文件
+/J_demo/医药问答系统+知识图谱/extra_data/tencent-ailab-embedding-zh-d100-v0.2.0-s.bin

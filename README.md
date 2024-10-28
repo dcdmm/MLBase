@@ -2,10 +2,14 @@
 
 * A_PythonBasis
     * Other
+    * 内置文件读写
     * 函数式编程
+    * 基础语法
+    * 常用函数[类]大全
     * 常见数据类型
-    * 文件操作
-    * 有用函数[类]大全
+    * 异常处理
+    * 类型注解
+    * 运算符
     * 面向对象编程
 * B_Numpy
 * C_Pandas
@@ -16,7 +20,7 @@
     * 5.联合和合并数据集
     * 6.高级方法
     * 7.数据聚合与分组操作
-    * 8.时间序列操作
+    * 8.时间序列数据处理
 * D_Plot======>>几个主流绘图库的使用
     * graphviz
     * matplotlib
@@ -25,7 +29,6 @@
         * 统计图像======>>>3D图/填图/散点图/柱状图/直方图/等高线图/线图/饼图的......的使用介绍
     * other======>其他作图功能
     * plotly
-    * pyecharts
     * seaborn
 * E_PyTorch
     * other
@@ -54,7 +57,9 @@
     * 命令行解析argparse模块
     * 复杂网络结构networkx模块
     * 容器collections模块
-    * 性能优化joblib模块
+    * 性能优化与对象存储joblib模块
+    * 操作系统相关os模块
+    * 数据验证pydantic模块
     * 日志系统logging模块
     * 时间操作相关模块
     * 机器学习sklearn模块
@@ -62,8 +67,8 @@
     * 深拷贝浅拷贝copy模块
     * 符号运算sympy模块
     * 自然语言处理HuggingFace工具集
-    * 自然语言处理nltik模块_英文
     * 自然语言处理SentenceTransformers模块
+    * 自然语言处理nltk模块_英文
     * 迭代器itertools模块
 * G_BasicTheory
     * 机器学习======>>>多分类/数据集划分/数据预处理/模型评估与选择/超参数搜索/特征选择......的相关原理及使用介绍
@@ -77,7 +82,7 @@
     * task_NER_RelationExtraction
     * task_SentenceEmbeddings
     * 图神经网络
-    * 大型语言模型LLM
+    * 掩码语言模型MLM
 * I_MyCode
     * encapsulation======>功能封装
     * tricks======>>技巧

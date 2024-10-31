@@ -105,7 +105,7 @@ def editDistanceDP(w1, w2):
     return solution[m][n]
 
 
-def simcal(question, stopwords, wdtype_dict, word2vec):
+def simcal(question, stopwords, wdtype_dict):
     # 数据清洗
     question = re.sub("[" + string.punctuation + "]", " ", question)
     question = re.sub("[，。‘’；：？、！【】]", " ", question)
@@ -118,12 +118,7 @@ def simcal(question, stopwords, wdtype_dict, word2vec):
     for w in words:
         temp_result = []
         for key in wdtype_dict.keys():
-            try:
-                sim_score = word2vec.similarity(w, key)  # word2vec词相似度
-            except KeyError:
-                sim_score = 0
-            dp_score = 1 - editDistanceDP(w, key) / (len(w) + len(key))  # 字符串编辑距离分数
-            score_sum = 0.6 * sim_score + 0.4 * dp_score
+            score_sum = 1 - editDistanceDP(w, key) / (len(w) + len(key))  # 字符串编辑距离分数
             if score_sum > 0.5:
                 temp_result.append((w, wdtype_dict.get(key), score_sum))
         if temp_result:

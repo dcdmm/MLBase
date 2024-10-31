@@ -1,6 +1,6 @@
 import os
 import json
-from py2neo import Graph, Node
+from neo4j import GraphDatabase
 
 
 class MedicalGraph:
@@ -8,8 +8,11 @@ class MedicalGraph:
 
     def __init__(self):
         self.data_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'datasets/medical.json')
-        self.g = Graph('http://localhost:7474', auth=('neo4j', '123456'), name='medicalkg')
-        self.g.delete_all()
+        URI = "neo4j://localhost:7687"
+        AUTH = ("neo4j", "qwer123456")
+        self.databse = "medicalkg"
+        self.g = GraphDatabase.driver(URI, auth=AUTH)
+        self.g.execute_query("match (n) detach delete n", database_=self.databse)
 
     def extract_info(self):
         # Node
@@ -120,11 +123,18 @@ class MedicalGraph:
     def create_node(self, label, nodes):
         for nodel_info in nodes:
             if isinstance(nodel_info, dict):
-                node = Node(label, **nodel_info)
-                self.g.create(node)
+                nodel_info_struct = ', '.join([k + ":$" + k for k, v in nodel_info.items()])
+                cypher_query = "CREATE (a:{label} {{{value}}}) RETURN a".format(label=label, value=nodel_info_struct)
+                # 参数传递
+                _ = self.g.execute_query(cypher_query, database_=self.databse, parameters_=nodel_info)
             else:
-                node = Node(label, name=nodel_info)
-                self.g.create(node)
+                cypher_query = "CREATE (n:{label} {{name: $name}}) RETURN n"
+                cypher_query = cypher_query.format(label=label)
+                _ = self.g.execute_query(cypher_query,
+                                         database_=self.databse,
+                                         parameters_={
+                                             "name": nodel_info
+                                         })
 
     def create_relationship(self, start_node, end_node, edges, rel_type, rel_name):
         for edge in edges:
@@ -134,7 +144,7 @@ class MedicalGraph:
             query = """match(p:%s),(q:%s) where p.name="%s"and q.name="%s" create (p)-[rel:%s{name:"%s"}]->(q)""" % (
                 start_node, end_node, p, q, rel_type, rel_name)
             try:
-                self.g.run(query)
+                self.g.execute_query(query, database_=self.databse)
             except Exception as e:
                 print(e)
 
@@ -154,6 +164,7 @@ class MedicalGraph:
             self.create_relationship(relations[key][1], relations[key][2],
                                      relations[key][0],
                                      relations[key][3], relations[key][4])
+        self.g.close()  # 关闭数据库连接
 
 
 if __name__ == '__main__':

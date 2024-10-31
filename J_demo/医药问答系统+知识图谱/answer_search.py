@@ -1,11 +1,14 @@
-from py2neo import Graph
+from neo4j import GraphDatabase
 
 
 class AnswerSearcher:
     """CQL查询语句neo4j搜索并输出对应的答案"""
 
     def __init__(self):
-        self.g = Graph('http://localhost:7474', auth=('neo4j', '123456'), name='medicalkg')
+        URI = "neo4j://localhost:7687"
+        AUTH = ("neo4j", "qwer123456")
+        self.databse = "medicalkg"
+        self.g = GraphDatabase.driver(URI, auth=AUTH)
         self.num_limit = 5  # 最大查询结果数量限制
 
     def search_main(self, cqls):
@@ -15,11 +18,12 @@ class AnswerSearcher:
             queries = cql_['cql']
             answers = []
             for query in queries:
-                ress = self.g.run(query).data()  # 返回值类型为列表,列表元素类型为字典,字典键名为CQL返回值变量名
+                ress = self.g.execute_query(query, database_=self.databse).records
                 answers.append(ress)
             final_answer = self.answer_prettify(question_type, answers)
             if final_answer:
                 final_answers.append(final_answer)
+        self.g.close()  # 关闭数据库连接
         return final_answers
 
     def answer_prettify(self, question_type, answers):
@@ -94,7 +98,7 @@ class AnswerSearcher:
                 if i[0]['r.name'] == '推荐食谱':
                     recommand_desc = [j['n.name'] for j in i]
                     answers = '{0}推荐食谱的食物包括有：{1}。\n'.format(subject,
-                                                            ';'.join(list(set(recommand_desc))[:self.num_limit]))
+                                                                      ';'.join(list(set(recommand_desc))[:self.num_limit]))
                     final_answer += answers
         elif question_type == 'food_not_disease':
             for i in answers:
@@ -122,16 +126,18 @@ class AnswerSearcher:
                 if i[0]['r.name'] == '诊断检查':
                     check_desc = [j['n.name'] for j in i]
                     final_answer += '{0}通常可以通过以下方式检查出来：{1}。\n'.format(subject,
-                                                                      '；'.join(list(set(check_desc))[:self.num_limit]))
+                                                                                    '；'.join(
+                                                                                        list(set(check_desc))[:self.num_limit]))
                 if i[0]['r.name'] == '所属科室':
                     belong_to_desc = [j['n.name'] for j in i]
                     final_answer += '{0}的检查科室为：{1}。\n'.format(subject,
-                                                              '；'.join(list(set(belong_to_desc))[:self.num_limit]))
+                                                                    '；'.join(list(set(belong_to_desc))[:self.num_limit]))
         elif question_type == 'check_disease':
             for i in answers:
                 subject = i[0]['n.name']
                 desc = [j['m.name'] for j in i]
-                final_answer += '通常可以通过{0}检查出来的疾病有{1}。\n'.format(subject, '；'.join(list(set(desc))[:self.num_limit]))
+                final_answer += '通常可以通过{0}检查出来的疾病有{1}。\n'.format(subject,
+                                                                               '；'.join(list(set(desc))[:self.num_limit]))
         if final_answer == '':
             return ''
         else:

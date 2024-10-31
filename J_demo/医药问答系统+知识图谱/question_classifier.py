@@ -1,11 +1,10 @@
 import os
-import joblib
 
 from utils import cus_update, build_actree, check_words, check_medical, model_intention_predict, simcal
 
 
 class QuestionClassifier:
-    """问句分类"""
+    """问题分类"""
 
     def __init__(self):
         cur_dir = os.path.abspath(os.path.dirname(__file__))
@@ -35,7 +34,6 @@ class QuestionClassifier:
                    {i.strip(): ['producer'] for i in open(self.producer_path, encoding="utf-8") if i.strip()})
         cus_update(self.wdtype_dict,
                    {i.strip(): ['producer'] for i in open(self.symptom_path, encoding="utf-8") if i.strip()})
-
         self.region_tree = build_actree(list(self.wdtype_dict.keys()))
 
         # 否定词
@@ -46,19 +44,25 @@ class QuestionClassifier:
         self.symptom_qwds = ['症状', '表征', '现象', '症候', '表现']
         self.cause_qwds = ['原因', '成因', '为什么', '怎么会', '怎样才', '咋样才', '怎样会', '如何会', '为啥', '为何', '如何才会',
                            '怎么才会', '会导致', '会造成']
-        self.acompany_qwds = ['并发症', '并发', '一起发生', '一并发生', '一起出现', '一并出现', '一同发生', '一同出现', '伴随发生',
+        self.acompany_qwds = ['并发症', '并发', '一起发生', '一并发生', '一起出现', '一并出现', '一同发生', '一同出现',
+                              '伴随发生',
                               '伴随', '共现']
-        self.food_qwds = ['饮食', '饮用', '吃', '食', '伙食', '膳食', '喝', '菜', '忌口', '补品', '保健品', '食谱', '菜谱', '食用',
+        self.food_qwds = ['饮食', '饮用', '吃', '食', '伙食', '膳食', '喝', '菜', '忌口', '补品', '保健品', '食谱', '菜谱',
+                          '食用',
                           '食物', '补品']
         self.drug_qwds = ['药', '药品', '用药', '胶囊', '口服液', '炎片']
         self.prevent_qwds = ['预防', '防范', '抵制', '抵御', '防止', '躲避', '逃避', '避开', '免得', '逃开', '避开', '避掉',
-                             '躲开', '躲掉', '绕开', '怎样才能不', '怎么才能不', '咋样才能不', '咋才能不', '如何才能不', '怎样才不',
-                             '怎么才不', '咋样才不', '咋才不', '如何才不', '怎样才可以不', '怎么才可以不', '咋样才可以不', '咋才可以不',
+                             '躲开', '躲掉', '绕开', '怎样才能不', '怎么才能不', '咋样才能不', '咋才能不', '如何才能不',
+                             '怎样才不',
+                             '怎么才不', '咋样才不', '咋才不', '如何才不', '怎样才可以不', '怎么才可以不', '咋样才可以不',
+                             '咋才可以不',
                              '如何可以不', '怎样才可不', '怎么才可不', '咋样才可不', '咋才可不', '如何可不']
         self.lasttime_qwds = ['周期', '多久', '多长时间', '多少时间', '几天', '几年', '多少天', '多少小时', '几个小时', '多少年']
-        self.cureway_qwds = ['怎么治疗', '如何医治', '怎么医治', '怎么治', '怎么医', '如何治', '医治方式', '疗法', '咋治', '怎么办',
+        self.cureway_qwds = ['怎么治疗', '如何医治', '怎么医治', '怎么治', '怎么医', '如何治', '医治方式', '疗法', '咋治',
+                             '怎么办',
                              '咋办', '咋治']
-        self.cureprob_qwds = ['多大概率能治好', '多大几率能治好', '治好希望大么', '几率', '几成', '比例', '可能性', '能治', '可治',
+        self.cureprob_qwds = ['多大概率能治好', '多大几率能治好', '治好希望大么', '几率', '几成', '比例', '可能性', '能治',
+                              '可治',
                               '可以治', '可以医']
         self.easyget_qwds = ['易感人群', '容易感染', '易发人群', '什么人', '哪些人', '感染', '染上', '得上']
         self.check_qwds = ['检查', '检查项目', '查出', '检查', '测出', '试出']
@@ -70,15 +74,13 @@ class QuestionClassifier:
 
         self.stopwords = [w.strip() for w in
                           open(os.path.join(cur_dir, 'extra_data/stopwords.dat'), 'r', encoding='utf8') if w.strip()]
-     
-        self.v_from_text = joblib.load(os.path.join(cur_dir, 'extra_data/tencent-ailab-embedding-zh-d100-v0.2.0-s.bin'))  # KeyedVectors
 
     def classify(self, question):
         data = {}
 
         medical_dict = check_medical(self.region_tree, self.wdtype_dict, question)
         if not medical_dict:
-            medical_dict = simcal(question, self.stopwords, self.wdtype_dict, self.v_from_text)
+            medical_dict = simcal(question, self.stopwords, self.wdtype_dict)
             if not medical_dict:
                 return {}
         data['args'] = medical_dict

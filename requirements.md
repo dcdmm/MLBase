@@ -31,6 +31,7 @@
         * https://www.lfd.uci.edu/~gohlke/pythonlibs/#fasttext 下载安装*.whl
         * cd *.whl所在有目录
         * pip install *.whl
+* wandb: pip install wandb
 
 #### 自然语言处理
 
@@ -38,7 +39,6 @@
 * datasets(Hugging Face): pip install datasets
 * sentence_transformers: pip install -U sentence-transformers
 * nltk: pip install nltk
-* bertviz(注意力层可视化): pip install bertviz
 * pyahocorasick: pip install pyahocorasick
 
 #### 其他

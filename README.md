@@ -64,6 +64,7 @@
     * 时间操作相关模块
     * 机器学习sklearn模块
     * 正则表达式re模块
+    * 深度学习可视化wandb模块
     * 深拷贝浅拷贝copy模块
     * 符号运算sympy模块
     * 自然语言处理HuggingFace工具集

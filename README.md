@@ -68,7 +68,6 @@
     * 符号运算sympy模块
     * 自然语言处理HuggingFace工具集
     * 自然语言处理SentenceTransformers模块
-    * 自然语言处理nltk模块_英文
     * 迭代器itertools模块
 * G_BasicTheory
     * 机器学习======>>>多分类/数据集划分/数据预处理/模型评估与选择/超参数搜索/特征选择......的相关原理及使用介绍

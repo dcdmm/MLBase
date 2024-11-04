@@ -1,6 +1,7 @@
 import wandb
 import random
 
+# Provide your API key when prompted.
 wandb.login()
 
 # start a new wandb run to track this script

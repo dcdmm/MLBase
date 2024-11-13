@@ -1,10 +1,8 @@
-### other
-
-[最优阈值的搜索(网格搜索/optuna实现)](../K_demo/有毒评论分类_多标签分类/train.ipynb)
+[最优阈值的搜索(网格搜索/optuna实现)](../J_demo/有毒评论分类+多标签分类/train.ipynb)
 
 ***
 
-[梯度累加](../K_demo/句子_语义相似度/main.ipynb)
+[梯度累加](../J_demo/句子_语义相似度/main.ipynb)
 
 ***
 
@@ -20,8 +18,10 @@
 
 ***
 
-[文本长度判断分布、最大长度截断](../K_demo/企业隐患排查质量分析_二分类)
+[文本长度判断分布、最大长度截断](../J_demo/企业隐患排查质量分析_二分类)
 
-***
+### other
 
-[继续训练预训练模型](../I_Model/掩码语言模型MLM/Bert变体/继续与训练_从头训练/继续训练预训练模型.ipynb)
+##### 随机step次进行一次验证数据集验证
+
+* GitHubProjects\PyCompetition\kaggle_CommonLitReadabilityPrize\trains\albert_mlm_cv_train\train_cv.ipynb

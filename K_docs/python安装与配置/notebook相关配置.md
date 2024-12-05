@@ -13,7 +13,7 @@
     conda install nb_conda_kernels
     ```
 
-2. 设置kernel, --user表示当前用户, your env name为虚拟环境名称
+2. 设置kernel, --user表示当前用户, your-env0name为虚拟环境名称
     ```shell
     ipython kernel install --user --name=you-env-name
     ```

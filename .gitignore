@@ -36,7 +36,7 @@ Other/datasets
 /H_Model/deep_learning_base/word2vec_glove/glove.6B.50d.txt
 
 # `HuggingFace工具集`学习保存的一些中间数据
-/F_Tool/自然语言处理HuggingFace工具集/extra_dataset
+/E_HuggingFace/extra_dataset
 
 # `继续预训练_从头MLM` 训练得到的模型
 /H_Model/掩码语言模型MLM/继续MLM训练_从头MLM训练/save_pretrained_model/

@@ -10,7 +10,7 @@ print(logger)
 
 # Initialize the handler.
 # If stream is not specified, sys.stderr is used.
-s_handler = logging.StreamHandler()
+s_handler = logging.StreamHandler()  # 控制台(终端)输出日志信息
 # Set the logging level of this handler.  level must be an int or a str.
 s_handler.setLevel(logging.DEBUG)  # hander日记级别未设置或低于logger日志级别:使用logger日志级别
 print(s_handler)

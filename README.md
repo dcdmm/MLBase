@@ -30,6 +30,11 @@
     * other======>其他作图功能
     * plotly
     * seaborn
+* E_HuggingFace
+  * one_datasets======>数据处理
+  * one_tokenizers======>自定义分词器
+  * one_transformers======>自然语言处理 
+  * other
 * E_PyTorch
     * other
     * 创建张量
@@ -53,6 +58,7 @@
     * 高阶操作及深度学习相关理论
 * F_Tool======>>>其他实用库的相关介绍与使用
     * other
+    * 上下文变量contextvars模块
     * 伪随机数random模块
     * 命令行解析argparse模块
     * 复杂网络结构networkx模块
@@ -66,7 +72,6 @@
     * 正则表达式re模块
     * 深拷贝浅拷贝copy模块
     * 符号运算sympy模块
-    * 自然语言处理HuggingFace工具集
     * 自然语言处理SentenceTransformers模块
     * 迭代器itertools模块
 * G_BasicTheory

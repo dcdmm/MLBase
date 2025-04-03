@@ -1,0 +1,17 @@
+{"time":"2025-04-03T10:01:28.9685394+08:00","level":"INFO","msg":"using version","core version":"0.18.6"}
+{"time":"2025-04-03T10:01:28.9685394+08:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\duanm\\Music\\GitHubProjects\\MLBase\\F_Tool\\other\\深度学习可视化wandb模块\\wandb\\run-20250403_100128-a1g32q44\\logs\\debug-core.log"}
+{"time":"2025-04-03T10:01:29.6178058+08:00","level":"INFO","msg":"created new stream","id":"a1g32q44"}
+{"time":"2025-04-03T10:01:29.6178058+08:00","level":"INFO","msg":"stream: started","id":"a1g32q44"}
+{"time":"2025-04-03T10:01:29.6178058+08:00","level":"INFO","msg":"sender: started","stream_id":"a1g32q44"}
+{"time":"2025-04-03T10:01:29.6178058+08:00","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"a1g32q44"}}
+{"time":"2025-04-03T10:01:29.6178058+08:00","level":"INFO","msg":"handler: started","stream_id":{"value":"a1g32q44"}}
+{"time":"2025-04-03T10:01:30.7823009+08:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-04-03T10:01:31.0172105+08:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-04-03T10:01:31.0172105+08:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-04-03T10:01:32.0182435+08:00","level":"INFO","msg":"handler: operation stats","stats":{"operations":[{"desc":"uploading wandb-metadata.json","runtime_seconds":0.8381887,"progress":"1.3KB/1.3KB"},{"desc":"uploading requirements.txt","runtime_seconds":0.6110098,"progress":"4.0KB/4.0KB"},{"desc":"uploading history, summary","runtime_seconds":0.1912222},{"desc":"updating run config","runtime_seconds":0.1901932}],"total_operations":4}}
+{"time":"2025-04-03T10:01:36.9728905+08:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-04-03T10:01:38.7939332+08:00","level":"INFO","msg":"stream: closing","id":"a1g32q44"}
+{"time":"2025-04-03T10:01:38.7939332+08:00","level":"INFO","msg":"handler: closed","stream_id":{"value":"a1g32q44"}}
+{"time":"2025-04-03T10:01:38.7939332+08:00","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"a1g32q44"}}
+{"time":"2025-04-03T10:01:38.7939332+08:00","level":"INFO","msg":"sender: closed","stream_id":"a1g32q44"}
+{"time":"2025-04-03T10:01:38.7939332+08:00","level":"INFO","msg":"stream: closed","id":"a1g32q44"}

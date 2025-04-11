@@ -1,0 +1,5 @@
+learning_rate: 5.0e-7 # 学习率
+lr_scheduler_type: cosine # 学习率衰减方案
+warmup_ratio: 0.03 # 学习率预热比率
+per_device_train_batch_size: 16 # 训练数据集批次大小
+seed: 2025 # 随机种子

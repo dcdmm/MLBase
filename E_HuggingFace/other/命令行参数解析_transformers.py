@@ -28,7 +28,7 @@ def main():
     print(type(ta_args))  # print-><class 'transformers.training_args.TrainingArguments'>
 
 
-# python 命令行参数解析.py
-# python 命令行参数解析.py --output_dir "xx"
+# python 命令行参数解析_transformers.py
+# python 命令行参数解析_transformers.py --output_dir "xx"
 if __name__ == "__main__":
     main()

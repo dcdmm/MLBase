@@ -6,11 +6,11 @@
 
 ### 虚拟环境中安装notebook
 
-1. 在需要jupyter notebook内核选择的环境(bash也需要)中安装jupyter notebook和支持虚拟环境的插件nb_conda
+1. 在需要jupyter notebook内核选择的环境(bash也需要)中安装jupyter notebook和支持虚拟环境的插件ipynernel
     ```shell
     pip install jupyter notebook
     
-    conda install nb_conda_kernels
+    pip install ipykernel
     ```
 
 2. 设置kernel, --user表示当前用户, your-env0name为虚拟环境名称

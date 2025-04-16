@@ -1,7 +1,7 @@
 1. 创建虚拟环境
     ```shell
    # 创建一个新的虚拟环境,指定python版本为3.10.12
-    conda create -n your_env_name python=3.10.12
+   conda create -n your_env_name python=3.10.12
    
    # 通过克隆创建一个与已有虚拟环境(可以是base环境,也可以是其他已存在的虚拟环)相同的新环境
    conda create -n your_env_name --clone base 

@@ -3,11 +3,6 @@
     apt install python3-pip
     ```
 
-* 删除安装包和缓存
-    ```shell
-    conda clean -y --all 
-    ```
-
 * 当前pip版本信息
     ```shell
     pip -V
@@ -26,7 +21,7 @@
     pipreqs ./ --encoding=utf8 # 基于当前项目,requirements.txt位置:当前项目第一层目录下
     ```
 
-* 批量安装软件包
+* requirements.txt文件批量安装
     ```shell
     pip install -r requirements.txt
     ``` 

@@ -3,6 +3,11 @@
     apt install python3-pip
     ```
 
+* 升级包到最新版本
+    ```shell
+    pip uninstall 包名
+    ```
+
 * 当前pip版本信息
     ```shell
     pip -V

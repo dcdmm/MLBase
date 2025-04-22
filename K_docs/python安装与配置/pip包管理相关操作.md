@@ -5,7 +5,7 @@
 
 * 升级包到最新版本
     ```shell
-    pip uninstall 包名
+    pip install --upgrade 包名
     ```
 
 * 当前pip版本信息

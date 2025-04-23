@@ -8,7 +8,7 @@
 
 1. 在需要jupyter notebook内核选择的环境(bash也需要)中安装jupyter notebook和支持虚拟环境的插件ipynernel
     ```shell
-    pip install jupyter notebook
+    pip install jupyter
     
     pip install ipykernel
     ```

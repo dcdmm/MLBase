@@ -23,7 +23,7 @@
     # Usage:pipreqs [options] [<path>]
     # <path>:The path to the directory containing the application files for which a requirements file should be generated (defaults to the current working directory)
     # Generate requirements.txt file for any project based on imports
-    pipreqs ./ --encoding=utf8 # 基于当前项目,requirements.txt位置:当前项目第一层目录下
+    pipreqs ./ --encoding=utf8  # 基于当前项目,requirements.txt位置:当前项目第一层目录下
     ```
 
 * requirements.txt文件批量安装

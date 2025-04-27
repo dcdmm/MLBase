@@ -1,5 +1,6 @@
-from a import a_func, my_sum, n_var
 import concurrent.futures
+
+from a import a_func, my_sum, n_var
 
 
 def b_func(m=0):

@@ -108,6 +108,23 @@ uv tree
 #    ├── pytz v2025.2
 #    └── tzdata v2025.2
 
+# -d:Maximum display depth of the dependency tree [default: 255]
+uv tree -d 1  
+# ├── baostock v0.8.9
+# ├── jupyter v1.1.1
+# └── pandas v2.2.3
+uv tree -d 2
+# ├── baostock v0.8.9
+# │   └── pandas v2.2.3
+# ├── jupyter v1.1.1
+# │   ├── ipykernel v6.29.5
+# │   ├── ipywidgets v8.1.7
+# │   ├── jupyter-console v6.6.3
+# │   ├── jupyterlab v4.4.2
+# │   ├── nbconvert v7.16.6
+# │   └── notebook v7.4.2
+# └── pandas v2.2.3 (*)
+
 # Export the project's lockfile to an alternate format.
 # -o: Write the exported requirements to the given file
 uv export -o `requirements.txt`  # 与`uv pip compile`命令类似

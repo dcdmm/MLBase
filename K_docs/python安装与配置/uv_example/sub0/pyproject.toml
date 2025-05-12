@@ -1,0 +1,10 @@
+[project]
+name = "sub0"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "wget==3.2",
+    "jsonlines>=4.0.0",
+]

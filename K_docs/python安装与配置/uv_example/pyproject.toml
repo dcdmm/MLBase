@@ -1,0 +1,20 @@
+[project]
+name = "uv-example"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=2.2.5",
+    "pandas>=2.2.3",
+]
+
+[tool.uv.workspace]
+# In a workspace, each package defines its own pyproject.toml, but the workspace shares a single lockfile, ensuring that the workspace operates with a consistent set of dependencies.
+# uv lock:对整个wrokspace进行操作
+# uv sync:workspace根目录(主项目)下进行操作(此时uv pip list显示主项目已安装的包)
+# uv sync --package sub0:sub0目录(子项目)下进行操作(此时uv pip list显示子项目sub0已安装的包)
+members = [
+    "sub0",
+    "sub1",
+]

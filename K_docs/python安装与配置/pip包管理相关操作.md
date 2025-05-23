@@ -6,6 +6,7 @@
 * 升级包到最新版本
     ```shell
     pip install --upgrade 包名
+    pip install -U 包命  # 与上等价
     ```
 
 * 当前pip版本信息

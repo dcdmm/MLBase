@@ -134,3 +134,15 @@ uv export -o `requirements.txt`  # 与`uv pip compile`命令类似
 # Clear the cache, removing all entries or those linked to specific packages
 uv cache clean
 ```
+
+
+```shell
+# Run a command or script.
+# When used in a project, the project environment will be created and updated before invoking the command.
+# When used outside a project, if a virtual environment can be found in the current directory or a parent directory, the command will be run in that environment. Otherwise, the command will be run in the environment of the discovered interpreter.
+uv run main.py
+
+# --directory:
+# Change to the given directory prior to running the command.
+uv run --directory ./sub0 main.py
+```

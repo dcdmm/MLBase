@@ -27,6 +27,10 @@ uv python list --all-versions
 uv python install `3.13`
 uv python install `3.13.1`
 
+# Uninstall Python versions
+uv python uninstall `3.13`
+uv python install `3.13.13`
+
 # Show the uv Python installation directory.
 uv python dir
 ```

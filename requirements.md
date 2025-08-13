@@ -43,6 +43,7 @@
 
 #### 其他
 
+* dotenv: pip install python-dotenv
 * pipreqs(requirements.txt文件生成): pip install pipreqs
 * wget: pip install wget
 * joblib: pip install joblib

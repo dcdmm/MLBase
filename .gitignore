@@ -76,3 +76,5 @@ Other/datasets
 
 # KUAKE-QIC数据集分类训练模型文件
 /J_demo/医药问答系统+知识图谱/QIC/torch_model.bin
+
+.env

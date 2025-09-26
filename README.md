@@ -71,6 +71,7 @@
     * 机器学习sklearn模块
     * 正则表达式re模块
     * 深拷贝浅拷贝copy模块
+    * 环境变量管理dotenv模块
     * 符号运算sympy模块
     * 自然语言处理SentenceTransformers模块
     * 迭代器itertools模块
@@ -93,7 +94,7 @@
     * 小知识大集合
 * J_demo=====>一些实战小demo
 * K_docs======>相关介绍文档与面经
-* Other=====>数据,图谱
+* Other=====>数据,图片
 * tests
 
 

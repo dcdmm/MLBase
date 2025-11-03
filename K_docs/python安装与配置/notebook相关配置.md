@@ -15,13 +15,12 @@
 
 2. 设置kernel, --user表示当前用户, your-env0name为虚拟环境名称
     ```shell
-    ipython kernel install --user --name=you-env-name
+    python -m ipykernel install --user --name your-env0name
     ```
 
 3. jupyter notebook使用
-    1. 进入其中一个虚拟环境启动jupyter(jupyter lab --allow-root)并退出(crtl + z)(仅第一次使用时需要一次)
-    2. base环境中启动jupyter
-    3. jupyter notebook内核选择
+    1. 启动jupyter(jupyter lab --allow-root)
+    2. jupyter notebook内核选择
 
        <img src="../../Other/img/notebook内核选择.jpg" style="zoom:20%">
 

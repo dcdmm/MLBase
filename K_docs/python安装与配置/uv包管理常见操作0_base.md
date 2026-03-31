@@ -106,6 +106,8 @@ uv lock  # pyproject.toml信息同步到uv.lock
 # Update the project's environment.
 # Syncing ensures that all project dependencies are installed and up-to-date with the lockfile.
 uv sync  # uv.lock信息同步到虚拟环境
+# Instead of checking if the lockfile is up-to-date, uses the versions in the lockfile as the source of truth. If the lockfile is missing, uv will exit with an error. If the pyproject.toml includes changes to dependencies that have not been included in the lockfile yet, they will not be present in the environment.
+uv sync --frozen  # 
 
 # Display the project's dependency tree
 uv tree

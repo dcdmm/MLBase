@@ -82,6 +82,11 @@ uv pip sync `requirements.txt`
 # Create a new project.
 uv init `project_name`
 
+# Only create a pyproject.toml.
+
+# Disables creating extra files like README.md, the src/ tree, .python-version files, etc.
+uv init --bare
+
 # --python:
 # The Python interpreter to use to determine the minimum supported Python version.
 uv init --python 3.12 `project_name`

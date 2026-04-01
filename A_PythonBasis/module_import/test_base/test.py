@@ -1,20 +1,10 @@
-import os
-import sys
-
-
-print(os.getcwd())
-path = os.path.abspath("..")
-print("path:", path)
-sys.path.append(path)
-print(os.path.abspath("../../other"))
-sys.path.append(os.path.abspath(".." + os.sep + ".."))
-
 # test.py与print_hello.py位于不同目录结构下
-# test.py的目录结构为base_test
+# test.py的目录结构为test_base
 # print_hello.py的目录结构为base
 # ===>解决1:从base处开始导入(即目录结构与base平级)
 from base.print_hello import print_hello
 from base.print_hello1 import print_hello1
+
 print_hello("php")
 print_hello1('C++')
 
@@ -22,6 +12,3 @@ print_hello1('C++')
 from module_import.base.print_hello1 import print_hello1
 
 print('#' * 100)
-
-# 存在相对路径导入的代码不能直接执行
-# from ..base.print_hello import print_hello

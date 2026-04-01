@@ -35,5 +35,5 @@ sys.path.append(os.path.abspath("../other"))
 sys.path.append(os.path.abspath(".." + os.sep + ".."))
 
 from module_import.dir_relative.demos_0.demo0 import hello_demo0  # 方式二(目录结构从`model_import`开始)
-from other.module_import.dir_relative.demos_0.demo0 import hello_demo0  # 方式二(目录结构从`other`开始)
+from module_import.dir_relative.demos_0.demo0 import hello_demo0  # 方式二(目录结构从`other`开始)
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -3,7 +3,7 @@ import os
 import sys
 
 print(":::", os.path.abspath(".."))
-sys.path.append(os.path.abspath(".."))
+# sys.path.append(os.path.abspath(".."))
 
 # dir_relative中的代码存在相对路径导入
 # # # --->dir_relative.demo.py调用dir_relative.core.config.py

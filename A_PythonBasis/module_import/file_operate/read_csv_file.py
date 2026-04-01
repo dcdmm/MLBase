@@ -9,6 +9,8 @@ def read_csv_file(path):
 
 # 根据当前文件获取目标文件的绝对路径(其他目录结构导入该路径也不会改变)
 DIR = os.path.abspath(os.path.dirname(__file__))
+
+# 路径拼接
 DIR = os.path.abspath(os.path.join(DIR, 'data'))
 CONFIG_FILE_PATH = os.path.abspath(os.path.join(DIR, 'data.csv'))
 

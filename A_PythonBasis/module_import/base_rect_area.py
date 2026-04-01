@@ -1,5 +1,5 @@
-"""python模块文档
-base_rect_area.py"""
+"""python模块文档base_rect_area.py"""
+
 
 class Rect_Area:
     def __init__(self, length, width):

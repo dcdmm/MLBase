@@ -12,3 +12,4 @@ class Rect_volumes:
 
     def print_hello(self):
         print_hello("java")
+

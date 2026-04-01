@@ -31,7 +31,7 @@ hello_demo1()
 import os
 import sys
 
-sys.path.append(os.path.abspath(".."))
+sys.path.append(os.path.abspath("../other"))
 sys.path.append(os.path.abspath(".." + os.sep + ".."))
 
 from module_import.dir_relative.demos_0.demo0 import hello_demo0  # 方式二(目录结构从`model_import`开始)

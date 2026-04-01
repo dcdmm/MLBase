@@ -6,7 +6,7 @@ print(os.getcwd())
 path = os.path.abspath("..")
 print("path:", path)
 sys.path.append(path)
-print(os.path.abspath("../.."))
+print(os.path.abspath("../../other"))
 sys.path.append(os.path.abspath(".." + os.sep + ".."))
 
 # test.py与print_hello.py位于不同目录结构下

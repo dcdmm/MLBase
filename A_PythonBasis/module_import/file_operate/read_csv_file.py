@@ -28,6 +28,5 @@ if __name__ == '__main__':
 
     print('#' * 100)
 
-    print(CONFIG_FILE_PATH)
     dataframe_ = read_csv_file_()
     print(dataframe_)

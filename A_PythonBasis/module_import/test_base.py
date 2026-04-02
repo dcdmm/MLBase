@@ -1,7 +1,14 @@
-# 绝对路径导入
+print('__file__={0:<35} | __name__={1:<20} | __package__={2:<20}'.format(__file__, __name__, str(__package__)))
+# __file__:当前*.py文件的路径
+# __package__:When it is present, relative imports will be based on this attribute rather than the module __name__ attribute;当前文件__package__属性值为None
+
+# ok:搜索路径sys.path包含: C:\Users\dcdmm\Music\GitHubProjects\MLNote
 # import A_PythonBasis.module_import.base_rect_area
-# 相对路径导入
-# base_test.py与base_rect_area.py同目录结构下(平级)
+
+# ok:搜索路径sys.path包含: C:\Users\dcdmm\Music\GitHubProjects\MLNote\A_PythonBasis
+# import module_import.base_rect_area
+
+# ok:搜索路径sys.path包含: C:\Users\dcdmm\Music\GitHubProjects\MLNote\A_PythonBasis\module_import
 import base_rect_area
 
 print(base_rect_area.__doc__)  # 模块文档
@@ -13,10 +20,12 @@ print(area.area())
 
 print('########################################################################')
 
-# 相对路径导入
-# base_rect_volumes.py与test_base.py同目录结构下(平级)
-# 在与base_rect_volumes.py平级的的文件中导入base_reac_area.py,要求base_reac_area.py不能包含相对路径(. or .. or ...)
 from base_rect_volumes import *
+
+# 1. 搜索路径sys.path包含: C:\Users\dcdmm\Music\GitHubProjects\MLNote\A_PythonBasis\module_import
+# 2. (逐层)可以找到base_rect_volumes.py
+# 3. base_rect_volumes.py中__package__="",不能使用相对导入(. or .. or ...)
+
 
 volum = Rect_volumes(area, 3)
 print(volum.volumes())
@@ -24,15 +33,13 @@ volum.print_hello()
 
 print('########################################################################')
 
-# 相对路径导入
-# test_base.py目录结构比base/print_hello.py高
 from base.print_hello import print_hello
 
-print_hello("python")  # 不包含相对路径(. or .. or ...)导入的代码;正常导入
+print_hello("python")
 
 from base.print_hello1 import print_hello1
 
-print_hello1("c++")  # 包括相对路径(./../...)导入的代码;此时也能正常导入
-
-# 包含相对路径导入(. or .. or ...)的代码不能直接执行
-# from .base.print_hello import print_hello
+# 1. 搜索路径sys.path包含: C:\Users\dcdmm\Music\GitHubProjects\MLNote\A_PythonBasis
+# 2. (逐层)可以找到base/print_hello1.py
+# 3. base/print_hello1.py中__package__="base",可以使用相对导入(. or .. or ...)
+print_hello1("c++")  # 包括相对路径(. or .. or ...)导入的代码;此时也能正常导入

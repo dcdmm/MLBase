@@ -43,3 +43,10 @@ from base.print_hello1 import print_hello1
 # 2. (逐层)可以找到base/print_hello1.py
 # 3. base/print_hello1.py中__package__="base",可以使用相对导入(. or .. or ...)
 print_hello1("c++")  # 包括相对路径(. or .. or ...)导入的代码;此时也能正常导入
+
+from base.inner0.print_hello2 import print_hello2
+
+# 1. 搜索路径sys.path包含: C:\Users\dcdmm\Music\GitHubProjects\MLNote\A_PythonBasis
+# 2. (逐层)可以找到base/print_hello2.py
+# 3. base/print_hello1.py中__package__="base.inner0",可以使用相对导入(. or .. or ...)
+print_hello1("c++")

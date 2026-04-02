@@ -18,7 +18,7 @@ print('########################################################################'
 from base_rect_volumes import *
 
 # 1. (逐层)可以找到base_rect_volumes.py
-# 2. base_rect_volumes.py中__package__="",不能使用相对导入(. or .. or ...)
+# 2. base_rect_volumes.py中__package__="",不能使用相对导入
 
 
 volum = Rect_volumes(area, 3)
@@ -34,11 +34,11 @@ print_hello("python")
 from base.print_hello1 import print_hello1
 
 # 1. (逐层)可以找到base/print_hello1.py
-# 2. base/print_hello1.py中__package__="base",可以使用相对导入(. or .. or ...)
-print_hello1("c++")  # 包括相对路径(. or .. or ...)导入的代码;此时也能正常导入
+# 2. base/print_hello1.py中__package__="base",可以使用相对导入
+print_hello1("c++") 
 
 from base.inner0.print_hello2 import print_hello2
 
 # 1. (逐层)可以找到base/print_hello2.py
-# 2. base/print_hello1.py中__package__="base.inner0",可以使用相对导入(. or .. or ...)
+# 2. base/print_hello2.py中__package__="base.inner0",可以使用相对导入
 print_hello2("c++")

@@ -33,6 +33,10 @@ r"""
 
 # 解决方案3:
 # A_PythonBasis目录下执行`python -m module_import.test_relative.t0`(临时添加当前工作目录???\MLBase\A_PythonBasis到搜索路径sys.path中)
+# * __package__: module_import.test_relative
+# * * 原始路径: from ..base.print_hello import * 
+# * * 回退: module_import.test_relative + .. = module_import
+# * * 真实路径: from module_import.base.print_hello import *
 from ..base.print_hello import *
 from ..base.print_hello1 import *
 print_hello('java')

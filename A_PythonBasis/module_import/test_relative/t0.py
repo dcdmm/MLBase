@@ -37,10 +37,10 @@ r"""
 # * * 原始路径: from ..base.print_hello import * 
 # * * 回退: module_import.test_relative + .. = module_import
 # * * 真实路径: from module_import.base.print_hello import *
-from ..base.print_hello import *
-from ..base.print_hello1 import *
-print_hello('java')
-print_hello1('python')
+# from ..base.print_hello import *
+# from ..base.print_hello1 import *
+# print_hello('java')
+# print_hello1('python')
 
 # 解决方案4:
 # *.pth文件中写入???\MLBase\A_PythonBasis\module_import\路径,然后python直接运行
@@ -58,3 +58,5 @@ print_hello1('python')
 
 
 # 解决方案6:
+from base_pack.print_hi import *
+print_hi('python')

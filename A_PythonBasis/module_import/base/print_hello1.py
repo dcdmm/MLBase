@@ -1,4 +1,4 @@
-print('pirnt_hello1: __file__={0:<35} | __name__={1:<20} | __package__={2:<20}'.format(__file__, __name__, str(__package__)))
+print('print_hello1: __file__={0:<35} | __name__={1:<20} | __package__={2:<20}'.format(__file__, __name__, str(__package__)))
 
 
 from .config import *  # 相对路径导入

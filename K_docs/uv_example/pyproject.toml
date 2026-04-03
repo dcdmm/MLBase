@@ -11,6 +11,6 @@ dependencies = ["numpy>=2.2.5", "pandas>=2.2.3"]
 # workspace只有一个.venv文件夹
 # workspace每个项目都有自己的pyproject.toml文件
 # uv lock:对整个wrokspace进行操作
-# uv sync:workspace根目录(主项目)下进行操作(此时uv pip list显示主项目已安装的包)
-# uv sync --package sub0:sub0目录(子项目)下进行操作(此时uv pip list显示子项目sub0已安装的包)
+# uv sync:安装根目录依赖到.venv(此时uv pip list显示主项目已安装的包)
+# uv sync --package sub0:安装子项目sub0依赖到.venv(此时uv pip list显示子项目sub0已安装的包)
 members = ["sub0", "sub1"]

@@ -14,6 +14,8 @@ uv venv --python `3.12.7`
 uv venv --python `>=3.12`
 ```
 
+***
+
 ```shell
 # List the available Python installations.
 # By default, installed Python versions and the downloads for latest available patch version of each supported Python major version are shown.
@@ -29,11 +31,13 @@ uv python install `3.13.1`
 
 # Uninstall Python versions
 uv python uninstall `3.13`
-uv python install `3.13.13`
+uv python uninstall `3.13.13`
 
 # Show the uv Python installation directory.
 uv python dir
 ```
+
+***
 
 ```shell
 # List, in tabular format, packages installed in an environment
@@ -55,7 +59,7 @@ uv pip show `numpy pandas`
 
 # Display the dependency tree for an environment
 uv pip tree
-# example
+# example:
 #joblib v1.4.2
 #pandas v2.2.3
 #├── numpy v2.2.5
@@ -77,6 +81,8 @@ uv pip compile `pyproject.toml`  -o `requirements.txt`  # 与`uv export`命令�
 # When syncing an environment, any packages not listed in the requirements.txt file will be removed. To retain extraneous packages, use uv pip install instead.
 uv pip sync `requirements.txt`
 ```
+
+***
 
 ```shell
 # Create a new project.
@@ -101,7 +107,10 @@ uv add `numpy`
 uv remove `numpy`
 
 # Update the project's lockfile.
+# If there are no changes to the project's dependencies, locking will have no effect unless the --upgrade flag is provided.
 uv lock  # pyproject.toml信息同步到uv.lock
+# Allow package upgrades, ignoring pinned versions in any existing output file
+uv lock --upgrade 
 
 # Update the project's environment.
 # Syncing ensures that all project dependencies are installed and up-to-date with the lockfile.
@@ -141,11 +150,14 @@ uv tree -d 2
 uv export -o `requirements.txt`  # 与`uv pip compile`命令类似
 ```
 
+***
+
 ```shell
 # Clear the cache, removing all entries or those linked to specific packages
 uv cache clean
 ```
 
+***
 
 ```shell
 # Run a command or script.
@@ -153,7 +165,7 @@ uv cache clean
 # When used outside a project, if a virtual environment can be found in the current directory or a parent directory, the command will be run in that environment. Otherwise, the command will be run in the environment of the discovered interpreter.
 uv run main.py
 
-# --directory:
-# Change to the given directory prior to running the command.
-uv run --directory ./sub0 main.py
+# --package
+# Run the command in a specific package in the workspace.
+uv run --package sub1 sub1/main.py
 ```

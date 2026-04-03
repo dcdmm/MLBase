@@ -56,9 +56,14 @@ r"""
 # print_hello('java')
 # print_hello1('python')
 
+
 # 解决方案6:
 # base_pack根目录下执行: pip install -e .
 # * site-packages下只生成链接/元数据文件,源码不会被复制
 # * 代码变更后不需要重新安装,直接生效
 from base_pack.print_hi import *
 print_hi('python')
+
+
+# 解决方案7:
+# uv workspace

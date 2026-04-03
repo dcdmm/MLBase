@@ -41,9 +41,9 @@ from base.print_hello1 import print_hello1
 # * * __package__(其余部分): base
 # * * 完整模块名(__package__ + 文件名): base.print_hello1
 # * * * 原始路径: from .config import * 
-# * * * 回退: base + . = base(不能为空) 
+# * * * .回退: base + . = base(不能为空)
 # * * * 真实路径: from base.config import *
-print_hello1("c++") 
+print_hello1("c++")
 
 from base.inner0.print_hello2 import print_hello2
 
@@ -55,6 +55,6 @@ from base.inner0.print_hello2 import print_hello2
 # * * __package__(其余部分): base.inner0
 # * * 完整模块名(__package__ + 文件名): base.inner0.print_hello2
 # * * * 原始路径: from ..config import * 
-# * * * 回退: base.inner0 + .. = base(不能为空) 
+# * * * ..回退: base.inner0 + .. = base(不能为空)
 # * * * 真实路径: from base.config import *
 print_hello2("c++")

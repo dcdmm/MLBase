@@ -1,7 +1,8 @@
 ### 目录
 
 * A_PythonBasis
-    * Other
+    * _other
+    * moduel_import
     * 内置文件读写
     * 函数式编程
     * 基础语法

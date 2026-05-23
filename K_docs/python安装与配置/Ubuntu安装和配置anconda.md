@@ -18,3 +18,11 @@
     ```
 
 4. source ~/.bashrc
+
+#### 附加:windows环境变量配置
+```shell
+# 系统变量path添加
+`anaconda安装目录`
+`anaconda安装目录`\Scripts
+`anaconda安装目录`\Library\bin
+```

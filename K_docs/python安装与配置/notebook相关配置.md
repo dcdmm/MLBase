@@ -13,9 +13,9 @@
     pip install ipykernel
     ```
 
-2. 设置kernel, --user表示当前用户, your-env0name为虚拟环境名称
+2. 设置kernel, --user表示当前用户, your-env-name为虚拟环境名称
     ```shell
-    python -m ipykernel install --user --name your-env0name
+    python -m ipykernel install --user --name your-env-name
     ```
 
 3. jupyter notebook使用

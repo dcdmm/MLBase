@@ -13,9 +13,9 @@ default = true
 dependencies = ["torch"]
 
 [tool.uv.sources]
-torch = { index = "pytorch" }  # ensure that torch is always installed from the pytorch index
+torch = { index = "pt_index" }  # ensure that torch is always installed from the pt_index index
 
 [[tool.uv.index]]
-name = "pytorch"
+name = "pt_index"
 url = "https://download.pytorch.org/whl/cpu"
 ```

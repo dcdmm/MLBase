@@ -21,4 +21,3 @@ members = ["sub0", "sub1"]
 # Unlike optional dependencies, development dependencies are local-only and will not be included in the project requirements when published to PyPI or other indexes. 
 [dependency-groups]
 dev = ["ipykernel>=7.2.0", "jupyter>=1.1.1"]
-test = ["pytest>=8"]

@@ -1624,11 +1624,19 @@ dependencies = [
     { name = "wget" },
 ]
 
+[package.dev-dependencies]
+test = [
+    { name = "pytest" },
+]
+
 [package.metadata]
 requires-dist = [
     { name = "jsonlines", specifier = ">=4.0.0" },
     { name = "wget", specifier = "==3.2" },
 ]
+
+[package.metadata.requires-dev]
+test = [{ name = "pytest", specifier = ">=8" }]
 
 [[package]]
 name = "sub1"
@@ -1748,9 +1756,6 @@ dev = [
     { name = "ipykernel" },
     { name = "jupyter" },
 ]
-test = [
-    { name = "pytest" },
-]
 
 [package.metadata]
 requires-dist = [
@@ -1764,7 +1769,6 @@ dev = [
     { name = "ipykernel", specifier = ">=7.2.0" },
     { name = "jupyter", specifier = ">=1.1.1" },
 ]
-test = [{ name = "pytest", specifier = ">=8" }]
 
 [[package]]
 name = "wcwidth"

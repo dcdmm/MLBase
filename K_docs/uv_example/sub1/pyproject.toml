@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.10"
+# sub1依赖sub0
 dependencies = ["matplotlib>=3.10.3", "sub0"]
 
 [tool.uv.sources]

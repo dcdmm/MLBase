@@ -1,8 +1,12 @@
+# uv uses the presence of a build system to determine if a project contains a package that should be installed in the project virtual environment. If a build system is not defined, uv will not attempt to build or install the project itself, just its dependencies. If a build system is defined, uv will build and install the project into the project environment.
 [build-system]
 requires = ["uv_build>=0.12.3,<0.13"]
+# The uv build backend currently only supports pure Python code
 build-backend = "uv_build"
 
 [tool.uv.build-backend]
+# The directory that contains the module directory.
+# Common values are src (src layout, the default) or an empty path (flat layout).
 module-root = ""
 
 [project]

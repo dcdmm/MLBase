@@ -10,12 +10,17 @@ default = true
 
 ```toml
 [project]
-dependencies = ["torch"]
+dependencies = ["torch", sub0]
 
 [tool.uv.sources]
 torch = { index = "pt_index" }  # ensure that torch is always installed from the pt_index index
+# The workspace = true key-value pair in the tool.uv.sources table indicates the sub0 dependency should be provided by the workspace, rather than fetched from PyPI or another registry.
+sub0 = { workspace = true } 
 
 [[tool.uv.index]]
 name = "pt_index"
 url = "https://download.pytorch.org/whl/cpu"
+
+[tool.uv.workspace]
+members = ["sub0", "sub1"]
 ```

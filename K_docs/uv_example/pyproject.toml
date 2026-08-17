@@ -22,4 +22,15 @@ members = ["sub0", "sub1"]
 
 # Unlike optional dependencies, development dependencies are local-only and will not be included in the project requirements when published to PyPI or other indexes. 
 [dependency-groups]
-dev = ["ipykernel>=7.2.0", "jupyter>=1.1.1"]
+dev = [
+    "ipykernel>=7.2.0",
+    "jupyter>=1.1.1",
+    { include-group = "pytest" }, # 把另一个依赖组的内容包含进来
+]
+test = ["pytest>=8", "pytest-cov"]
+lint = ["ruff"]
+
+# By default, uv includes the dev dependency group in the environment
+# The default groups to include can be changed using the tool.uv.default-groups setting.
+[tool.uv]
+default-groups = ["dev", "lint"]

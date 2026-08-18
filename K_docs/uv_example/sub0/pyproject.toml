@@ -1,4 +1,7 @@
 # uv uses the presence of a build system to determine if a project contains a package that should be installed in the project virtual environment. If a build system is not defined, uv will not attempt to build or install the project itself, just its dependencies. If a build system is defined, uv will build and install the project into the project environment.
+# .venv环境的site-packages目录自动添加路径文件`x`并自动写入绝对路径`y`
+# * x: sub0.pth
+# * y: C:\Users\duanm\Music\GitHubProjects\MLBase\K_docs\uv_example\sub0\
 [build-system]
 requires = ["uv_build>=0.12.3,<0.13"]
 # The uv build backend currently only supports pure Python code
